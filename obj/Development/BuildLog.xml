@@ -2,18 +2,18 @@
 <BuildLog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <ProjectInfo>
     <Name>fiesta-integration</Name>
-    <LastWriteTime>2021-08-03T15:22:57.2632815Z</LastWriteTime>
+    <LastWriteTime>2021-08-03T18:50:41.7777629Z</LastWriteTime>
     <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
   </ProjectInfo>
   <LastBuildInfos>
     <ProjectBuildItemInfo>
       <Name>PurchaseOrders_Integration.dtsx</Name>
-      <LastWriteTime>2021-08-03T15:26:46.5257291Z</LastWriteTime>
+      <LastWriteTime>2021-08-03T15:28:28.0824744Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>Main.dtsx</Name>
-      <LastWriteTime>2021-08-02T13:18:16.680901Z</LastWriteTime>
+      <LastWriteTime>2021-08-03T19:04:55.7269341Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
   </LastBuildInfos>

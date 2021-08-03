@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="30"
-  DTS:VersionGUID="{74232338-99BE-4B6D-B556-A5B984C20613}">
+  DTS:VersionBuild="31"
+  DTS:VersionGUID="{2B55E87D-D4E5-4260-8099-1FF0D7656A17}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -29,7 +29,7 @@
           <DTS:Password
             DTS:Name="Password"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAaMTeypuApEyJbYCzW7BcSQAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAABT8QiN1qmX1j2Bcm6CRADvAAAAAASAAACgAAAAEAAAACafrGEPLiULyQw5SaQkRU8YAAAAhKY55s7pJifXOhdi20opBWGVNat86SH9FAAAAI/bselr5Y6b2/0uLm5ux5BZAlC+</DTS:Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAaMTeypuApEyJbYCzW7BcSQAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAAAD8qJJ7CwIF3pm5qSmPNlUAAAAAASAAACgAAAAEAAAAMNCUeY/5GdIfTOD8wzTQq0YAAAAWHNcnA6IGXZHU+TKc8dlShsQEC8EDn42FAAAANtvg4OgeABI9IPAaJp/BkC7fZ6Y</DTS:Password>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -46,7 +46,7 @@
           <DTS:Password
             DTS:Name="Password"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAaMTeypuApEyJbYCzW7BcSQAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAABnaVGvfAJ2G6TkhMC5wP8WAAAAAASAAACgAAAAEAAAAMVZmWWCS3+WsUugJ+z7YQcYAAAAC+xI9LReoXM3hoFP+puvPicHS4Qax0XCFAAAAKhvW9pZz5g4DOMeWtg1JFmgtguc</DTS:Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAaMTeypuApEyJbYCzW7BcSQAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAACM6ioUmvk4qW9ksW4pIvJQAAAAAASAAACgAAAAEAAAAKZ8AZ1emiOsZwvsVrqacIUYAAAAA4OWAUrC05Yblo0/S9WWax5PgdbDH8JtFAAAAN9tS5wy4WBISP7VKYBqSNaPO6yA</DTS:Password>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -975,8 +975,8 @@
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="246.4,244"
-          Size="246.4,287.2"
+          PanelSize="246.4,200.8"
+          Size="246.4,244"
           Id="Package\Foreach PurchaseOrders file"
           TopLeft="216.666658057107,119.600000950496" />
         <NodeLayout
@@ -986,7 +986,7 @@
         <NodeLayout
           Size="154.4,41.6"
           Id="Package\LogProcessStop"
-          TopLeft="269.642846549855,404.341177796306" />
+          TopLeft="556.785708582726,252.164705073853" />
         <NodeLayout
           Size="197.6,41.6"
           Id="Package\Truncate PurchaseOrders"
@@ -997,9 +997,9 @@
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="23.0999961256981,34.6666671074763"
+              EndConnector="23.0999961256981,34.6666671074764"
               Start="0,0"
-              End="23.0999961256981,27.1666671074763">
+              End="23.0999961256981,27.1666671074764">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
@@ -1010,7 +1010,7 @@
                     Point2="23.0999961256981,0"
                     Point3="23.0999961256981,4" />
                   <mssgle:LineSegment
-                    End="23.0999961256981,27.1666671074763" />
+                    End="23.0999961256981,27.1666671074764" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1049,18 +1049,30 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 2]"
-          TopLeft="343.354752303481,372.400000950496">
+          TopLeft="463.066658057107,241.600000950496">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,31.94117684581"
+              EndConnector="93.7190505256187,31.364704123357"
               Start="0,0"
-              End="0,24.44117684581">
+              End="86.2190505256187,31.364704123357">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,24.44117684581" />
+                    End="42.8595252628094,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="42.8595252628094,0"
+                    Point2="46.8595252628094,0"
+                    Point3="46.8595252628094,4" />
+                  <mssgle:LineSegment
+                    End="46.8595252628094,27.364704123357" />
+                  <mssgle:CubicBezierSegment
+                    Point1="46.8595252628094,27.364704123357"
+                    Point2="46.8595252628094,31.364704123357"
+                    Point3="50.8595252628094,31.364704123357" />
+                  <mssgle:LineSegment
+                    End="86.2190505256187,31.364704123357" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
