@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="145"
-  DTS:VersionGUID="{C5EEA727-74D4-4853-A21A-F41AE957EF5F}">
+  DTS:VersionBuild="146"
+  DTS:VersionGUID="{2E1193A5-145D-45E5-8E12-9DA1BF709EC0}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -22,7 +22,7 @@
       DTS:DTSID="{7AA2396F-302E-4118-AF49-B3A4EF1CF5BD}"
       DTS:ObjectName="Flat File Connection Manager">
       <DTS:PropertyExpression
-        DTS:Name="ConnectionString">@[$Project::InputFilePath]+ @[$Project::FileName]</DTS:PropertyExpression>
+        DTS:Name="ConnectionString">@[$Project::InputFilePath]+ @[$Project::FileNameDiscounts]</DTS:PropertyExpression>
       <DTS:ObjectData>
         <DTS:ConnectionManager
           DTS:Format="Delimited"
