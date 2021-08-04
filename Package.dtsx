@@ -1,0 +1,1113 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="7/28/2021 8:37:11 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="1-ПК"
+  DTS:CreatorName="1-ПК\1"
+  DTS:DTSID="{AB728E74-DF47-46FF-BA54-3B572BDC8E34}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.167"
+  DTS:LocaleID="1049"
+  DTS:ObjectName="Package"
+  DTS:PackageType="5"
+  DTS:VersionBuild="33"
+  DTS:VersionGUID="{322B81BD-1A07-4E20-9A3D-4EBC077C6C55}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[192.168.195.147.Lv-608DB_Staging.Lv-608.DB]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{DB4DB61E-E44D-4E1B-8E6F-665A75BA3302}"
+      DTS:ObjectName="192.168.195.147.Lv-608DB_Staging.Lv-608.DB">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=192.168.195.147;User ID=Lv-608.DB;Initial Catalog=Lv-608DB_Staging;Provider=SQLNCLI11.1;Persist Security Info=True;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Addresses_ 20210723.csv]"
+      DTS:CreationName="FILE"
+      DTS:DTSID="{87EF6859-AD57-4B3E-9607-E65A8EAE6BA9}"
+      DTS:ObjectName="Addresses_ 20210723.csv">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="C:\Users\1\Desktop\conteiner\Pending\Addresses_ 20210723.csv" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Flat File Connection Manager]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{278D5143-9AD8-4C8D-850B-63D2AF54B746}"
+      DTS:ObjectName="Flat File Connection Manager">
+      <DTS:PropertyExpression
+        DTS:Name="ConnectionString">@[$Project::InputFilePath]+ @[$Project::FileNameAddresses]</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1033"
+          DTS:Unicode="True"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="65001"
+          DTS:ConnectionString="C:\InputData_LV_608\Pending\Addresses_ 20210723.csv">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="255"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="AddressID"
+              DTS:DTSID="{8B741786-9754-4A2D-B2B6-8449F0D5445B}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="255"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="AddressType"
+              DTS:DTSID="{8BC29F2F-9921-4253-B588-4764387E5143}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="255"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Apartment"
+              DTS:DTSID="{EBD1F6D5-F3C7-42FA-9A38-5CA5F38C4EE3}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="255"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="City"
+              DTS:DTSID="{6A2E823B-AC2A-41C0-BB0A-3AD6723FB617}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="255"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="PostalCode"
+              DTS:DTSID="{82771513-59E2-4E3B-90E0-DC1C7F1D93E3}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{AB4C5296-5691-4AF1-8E4C-900D7E967E86}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="@[$Project::FileDestinationPath]"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="AddressessProcessed">
+      <DTS:VariableValue
+        DTS:DataType="8">C:\InputData_LV_608\Processed\</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{DA8CCCC2-B4BB-4B7E-AF2E-32C40F79E4B1}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="@[$Project::FileSourcePath]+@[$Project::FileNameAddresses]"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="AddressPendingFullName">
+      <DTS:VariableValue
+        DTS:DataType="8">C:\InputData_LV_608\Pending\Addresses_ 20210723.csv</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{2EC69A38-9CBF-4CAD-A76D-2280BBC3E0EB}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="@[$Project::FileDestinationPath] +@[$Project::FileNameAddresses]"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="AddressProcessedFullName">
+      <DTS:VariableValue
+        DTS:DataType="8">C:\InputData_LV_608\Processed\Addresses_ 20210723.csv</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{2B846D83-164F-4DDA-88D0-B60B1608CD2C}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="TableName">
+      <DTS:VariableValue
+        DTS:DataType="8">Addresses.csv</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{02FE7003-A1C2-4EEC-87D3-0201B2F24161}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="@[$Project::FileSourcePath]"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="Variable1FolderName">
+      <DTS:VariableValue
+        DTS:DataType="8">C:\InputData_LV_608\Pending\</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{B0F23C4D-4C44-495F-8FCD-72B029335C05}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="@[$Project::FileNameAddresses]"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="VariableFileName">
+      <DTS:VariableValue
+        DTS:DataType="8">Addresses_ 20210723.csv</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{2027F667-4B23-4BF1-A23B-9FCA8218F833}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="VariblCount">
+      <DTS:VariableValue
+        DTS:DataType="20">0</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Foreach Loop Container"
+      DTS:CreationName="STOCK:FOREACHLOOP"
+      DTS:Description="Foreach Loop Container"
+      DTS:DTSID="{9880C6BB-C9D0-41FE-9437-346EAC04882E}"
+      DTS:ExecutableType="STOCK:FOREACHLOOP"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Foreach Loop Container">
+      <DTS:ForEachEnumerator
+        DTS:CreationName="Microsoft.ForEachFileEnumerator"
+        DTS:DTSID="{F77FEB3B-4A9B-4D00-A6D5-9548548F21A6}"
+        DTS:ObjectName="{F77FEB3B-4A9B-4D00-A6D5-9548548F21A6}">
+        <DTS:PropertyExpression
+          DTS:Name="Directory">@[$Project::FileSourcePath]</DTS:PropertyExpression>
+        <DTS:PropertyExpression
+          DTS:Name="Name">@[$Project::FileNameAddresses]</DTS:PropertyExpression>
+        <DTS:ObjectData>
+          <ForEachFileEnumeratorProperties>
+            <FEFEProperty
+              Folder="C:\InputData_LV_608\Pending\" />
+            <FEFEProperty
+              FileSpec="Addresses_ 20210723.csv" />
+            <FEFEProperty
+              FileNameRetrievalType="1" />
+            <FEFEProperty
+              Recurse="0" />
+          </ForEachFileEnumeratorProperties>
+        </DTS:ObjectData>
+      </DTS:ForEachEnumerator>
+      <DTS:Variables>
+        <DTS:Variable
+          DTS:CreationName=""
+          DTS:DTSID="{098EF4C0-E80B-4790-9877-959C5A9CA25F}"
+          DTS:IncludeInDebugDump="2345"
+          DTS:Namespace="TableName"
+          DTS:ObjectName="Variable">
+          <DTS:VariableValue
+            DTS:DataType="8">TableName</DTS:VariableValue>
+        </DTS:Variable>
+        <DTS:Variable
+          DTS:CreationName=""
+          DTS:DTSID="{8A4CC7FA-213C-4A7F-ABA5-871E43E6B620}"
+          DTS:IncludeInDebugDump="2345"
+          DTS:Namespace="User"
+          DTS:ObjectName="Variable1FORMOve">
+          <DTS:VariableValue
+            DTS:DataType="8">C:\Users\1\Desktop\conteiner\Pending\</DTS:VariableValue>
+        </DTS:Variable>
+      </DTS:Variables>
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\Foreach Loop Container\data movement"
+          DTS:CreationName="Microsoft.FileSystemTask"
+          DTS:Description="File System Task"
+          DTS:DTSID="{AF74A09A-2467-4D24-A523-321F9D940555}"
+          DTS:ExecutableType="Microsoft.FileSystemTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="data movement"
+          DTS:TaskContact="File System Task;Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <FileSystemData
+              TaskOperationType="MoveFile"
+              TaskOverwriteDestFile="True"
+              TaskSourcePath="User::AddressPendingFullName"
+              TaskIsSourceVariable="True"
+              TaskDestinationPath="User::AddressProcessedFullName"
+              TaskIsDestinationVariable="True" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Foreach Loop Container\data transfer"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Задача потока данных"
+          DTS:DTSID="{F87420C1-4A57-4FF9-BA00-027399F62589}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="data transfer"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\Foreach Loop Container\data transfer\DB"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="Назначение &quot;OLE DB&quot;;Корпорация Майкрософт. Microsoft SQL Server. (C) Корпорация Майкрософт (Microsoft Corporation). Все права защищены. http://www.microsoft.com/sql/support;4"
+                  description="Назначение &quot;OLE DB&quot;"
+                  name="DB"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="Время ожидания команды, в секундах. Величина 0 означает неограниченное время ожидания."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Указывает имя объекта базы данных, используемого для открытия набора строк."
+                      name="OpenRowset">[prestaging].[Addresses]</property>
+                    <property
+                      dataType="System.String"
+                      description="Указывает переменную, содержащую имя объекта базы данных, используемого для открытия набора строк."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="Команда SQL для выполнения."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Указывает кодовую страницу столбца, используемую, когда недоступны сведения о кодовой странице из источника данных."
+                      name="DefaultCodePage">1251</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Вызывает безусловное использование значение свойства DefaultCodePage при описании символьных данных."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Указывает используемый режим доступа к базе данных."
+                      name="AccessMode"
+                      typeConverter="AccessMode">0</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Указывает, должны ли значения в столбцах идентификаторов копироваться в назначение. Если свойство имеет значение false, значения в столбцах идентификаторов будут созданы автоматически в месте назначения. Применяется только в том случае, если включена быстрая загрузка."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Указывает, будут ли в назначение вставляться значения NULL для столбцов, содержащих их. Значение false показывает, что если столбец имеет значение NULL, то в назначение будет вставлено его значение по умолчанию. Применяется только в случае, если включена быстрая загрузка."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Задает параметры быстрой загрузки. Применяется только в том случае, если включена быстрая загрузка."
+                      name="FastLoadOptions"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Задает, когда выдаются сообщения о фиксации транзакции в ходе вставки данных. Значение 0 задает, что по окончании вставки данных будет выдано одно сообщение о фиксации транзакции. Применяется только в том случае, если включена быстрая загрузка."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Foreach Loop Container\data transfer\DB.Connections[OleDbConnection]"
+                      connectionManagerID="{A8AFA32B-057A-488D-AFE5-25A41AD36569}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[192.168.195.147.Lv-608DB_Staging.Lv-608.DB 1]"
+                      description="Соединение OLE DB среды выполнения, используемое для доступа к базе данных."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\Foreach Loop Container\data transfer\DB.Inputs[Вход назначения &quot;OLE DB&quot;]"
+                      errorOrTruncationOperation="Вставить"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="Вход назначения &quot;OLE DB&quot;">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\data transfer\DB.Inputs[Вход назначения &quot;OLE DB&quot;].Columns[AddressID]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="AddressID"
+                          externalMetadataColumnId="Package\Foreach Loop Container\data transfer\DB.Inputs[Вход назначения &quot;OLE DB&quot;].ExternalColumns[AddressID]"
+                          lineageId="Package\Foreach Loop Container\data transfer\Table DB.Outputs[Выход источника &quot;Неструктурированный файл&quot;].Columns[AddressID]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\data transfer\DB.Inputs[Вход назначения &quot;OLE DB&quot;].Columns[AddressType]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="AddressType"
+                          externalMetadataColumnId="Package\Foreach Loop Container\data transfer\DB.Inputs[Вход назначения &quot;OLE DB&quot;].ExternalColumns[AddressType]"
+                          lineageId="Package\Foreach Loop Container\data transfer\Table DB.Outputs[Выход источника &quot;Неструктурированный файл&quot;].Columns[AddressType]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\data transfer\DB.Inputs[Вход назначения &quot;OLE DB&quot;].Columns[Apartment]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="Apartment"
+                          externalMetadataColumnId="Package\Foreach Loop Container\data transfer\DB.Inputs[Вход назначения &quot;OLE DB&quot;].ExternalColumns[Apartment]"
+                          lineageId="Package\Foreach Loop Container\data transfer\Table DB.Outputs[Выход источника &quot;Неструктурированный файл&quot;].Columns[Apartment]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\data transfer\DB.Inputs[Вход назначения &quot;OLE DB&quot;].Columns[City]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="City"
+                          externalMetadataColumnId="Package\Foreach Loop Container\data transfer\DB.Inputs[Вход назначения &quot;OLE DB&quot;].ExternalColumns[City]"
+                          lineageId="Package\Foreach Loop Container\data transfer\Table DB.Outputs[Выход источника &quot;Неструктурированный файл&quot;].Columns[City]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\data transfer\DB.Inputs[Вход назначения &quot;OLE DB&quot;].Columns[PostalCode]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="PostalCode"
+                          externalMetadataColumnId="Package\Foreach Loop Container\data transfer\DB.Inputs[Вход назначения &quot;OLE DB&quot;].ExternalColumns[PostalCode]"
+                          lineageId="Package\Foreach Loop Container\data transfer\Table DB.Outputs[Выход источника &quot;Неструктурированный файл&quot;].Columns[PostalCode]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\data transfer\DB.Inputs[Вход назначения &quot;OLE DB&quot;].ExternalColumns[AddressID]"
+                          dataType="wstr"
+                          length="255"
+                          name="AddressID" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\data transfer\DB.Inputs[Вход назначения &quot;OLE DB&quot;].ExternalColumns[AddressType]"
+                          dataType="wstr"
+                          length="255"
+                          name="AddressType" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\data transfer\DB.Inputs[Вход назначения &quot;OLE DB&quot;].ExternalColumns[Apartment]"
+                          dataType="wstr"
+                          length="255"
+                          name="Apartment" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\data transfer\DB.Inputs[Вход назначения &quot;OLE DB&quot;].ExternalColumns[City]"
+                          dataType="wstr"
+                          length="255"
+                          name="City" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\data transfer\DB.Inputs[Вход назначения &quot;OLE DB&quot;].ExternalColumns[PostalCode]"
+                          dataType="wstr"
+                          length="255"
+                          name="PostalCode" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\data transfer\DB.Inputs[Вход назначения &quot;OLE DB&quot;].ExternalColumns[stg_id]"
+                          dataType="i4"
+                          name="stg_id" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Foreach Loop Container\data transfer\DB.Outputs[Вывод ошибок назначения &quot;OLE DB&quot;]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Вывод ошибок назначения &quot;OLE DB&quot;"
+                      synchronousInputId="Package\Foreach Loop Container\data transfer\DB.Inputs[Вход назначения &quot;OLE DB&quot;]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\data transfer\DB.Outputs[Вывод ошибок назначения &quot;OLE DB&quot;].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Foreach Loop Container\data transfer\DB.Outputs[Вывод ошибок назначения &quot;OLE DB&quot;].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\data transfer\DB.Outputs[Вывод ошибок назначения &quot;OLE DB&quot;].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Foreach Loop Container\data transfer\DB.Outputs[Вывод ошибок назначения &quot;OLE DB&quot;].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Foreach Loop Container\data transfer\Row Count"
+                  componentClassID="Microsoft.RowCount"
+                  contactInfo="Row Count;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Counts rows as they pass through a data flow. For example, use the number of rows processed to determine whether or not to perform cleanup operations, or update text in an e-mail message to communicate processing status."
+                  name="Row Count">
+                  <properties>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable to hold the row count."
+                      name="VariableName">User::VariblCount</property>
+                  </properties>
+                  <inputs>
+                    <input
+                      refId="Package\Foreach Loop Container\data transfer\Row Count.Inputs[Row Count Input 1]"
+                      hasSideEffects="true"
+                      name="Row Count Input 1">
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Foreach Loop Container\data transfer\Row Count.Outputs[Row Count Output 1]"
+                      name="Row Count Output 1"
+                      synchronousInputId="Package\Foreach Loop Container\data transfer\Row Count.Inputs[Row Count Input 1]">
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Foreach Loop Container\data transfer\Table DB"
+                  componentClassID="Microsoft.FlatFileSource"
+                  contactInfo="Источник &quot;Неструктурированный файл&quot;;Корпорация Майкрософт. Microsoft SQL Server. (C) Корпорация Майкрософт (Microsoft Corporation). Все права защищены. http://www.microsoft.com/sql/support;1"
+                  description="Источник &quot;Неструктурированный файл&quot;"
+                  localeId="1033"
+                  name="Table DB"
+                  usesDispositions="true"
+                  version="1">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      description="Указывает, считается ли, что столбцы нулевой длины имеют значение NULL."
+                      name="RetainNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Указывает имя файла выходного столбца, содержащего имя файла. Если не указано имя, выходной столбец, содержащий имя файла, не будет сформирован."
+                      name="FileNameColumnName"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Foreach Loop Container\data transfer\Table DB.Connections[FlatFileConnection]"
+                      connectionManagerID="Package.ConnectionManagers[Flat File Connection Manager]"
+                      connectionManagerRefId="Package.ConnectionManagers[Flat File Connection Manager]"
+                      name="FlatFileConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\Foreach Loop Container\data transfer\Table DB.Outputs[Выход источника &quot;Неструктурированный файл&quot;]"
+                      name="Выход источника &quot;Неструктурированный файл&quot;">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\data transfer\Table DB.Outputs[Выход источника &quot;Неструктурированный файл&quot;].Columns[AddressID]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Преобразование"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Foreach Loop Container\data transfer\Table DB.Outputs[Выход источника &quot;Неструктурированный файл&quot;].ExternalColumns[AddressID]"
+                          length="255"
+                          lineageId="Package\Foreach Loop Container\data transfer\Table DB.Outputs[Выход источника &quot;Неструктурированный файл&quot;].Columns[AddressID]"
+                          name="AddressID"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Указывает, используются ли в столбце более производительные, не зависящие от локалей процедуры синтаксического анализа."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Указывает, являются ли данные двоичными."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\data transfer\Table DB.Outputs[Выход источника &quot;Неструктурированный файл&quot;].Columns[AddressType]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Преобразование"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Foreach Loop Container\data transfer\Table DB.Outputs[Выход источника &quot;Неструктурированный файл&quot;].ExternalColumns[AddressType]"
+                          length="255"
+                          lineageId="Package\Foreach Loop Container\data transfer\Table DB.Outputs[Выход источника &quot;Неструктурированный файл&quot;].Columns[AddressType]"
+                          name="AddressType"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Указывает, используются ли в столбце более производительные, не зависящие от локалей процедуры синтаксического анализа."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Указывает, являются ли данные двоичными."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\data transfer\Table DB.Outputs[Выход источника &quot;Неструктурированный файл&quot;].Columns[Apartment]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Преобразование"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Foreach Loop Container\data transfer\Table DB.Outputs[Выход источника &quot;Неструктурированный файл&quot;].ExternalColumns[Apartment]"
+                          length="255"
+                          lineageId="Package\Foreach Loop Container\data transfer\Table DB.Outputs[Выход источника &quot;Неструктурированный файл&quot;].Columns[Apartment]"
+                          name="Apartment"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Указывает, используются ли в столбце более производительные, не зависящие от локалей процедуры синтаксического анализа."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Указывает, являются ли данные двоичными."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\data transfer\Table DB.Outputs[Выход источника &quot;Неструктурированный файл&quot;].Columns[City]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Преобразование"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Foreach Loop Container\data transfer\Table DB.Outputs[Выход источника &quot;Неструктурированный файл&quot;].ExternalColumns[City]"
+                          length="255"
+                          lineageId="Package\Foreach Loop Container\data transfer\Table DB.Outputs[Выход источника &quot;Неструктурированный файл&quot;].Columns[City]"
+                          name="City"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Указывает, используются ли в столбце более производительные, не зависящие от локалей процедуры синтаксического анализа."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Указывает, являются ли данные двоичными."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\data transfer\Table DB.Outputs[Выход источника &quot;Неструктурированный файл&quot;].Columns[PostalCode]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Преобразование"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Foreach Loop Container\data transfer\Table DB.Outputs[Выход источника &quot;Неструктурированный файл&quot;].ExternalColumns[PostalCode]"
+                          length="255"
+                          lineageId="Package\Foreach Loop Container\data transfer\Table DB.Outputs[Выход источника &quot;Неструктурированный файл&quot;].Columns[PostalCode]"
+                          name="PostalCode"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Указывает, используются ли в столбце более производительные, не зависящие от локалей процедуры синтаксического анализа."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Указывает, являются ли данные двоичными."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\data transfer\Table DB.Outputs[Выход источника &quot;Неструктурированный файл&quot;].ExternalColumns[AddressID]"
+                          dataType="wstr"
+                          length="255"
+                          name="AddressID" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\data transfer\Table DB.Outputs[Выход источника &quot;Неструктурированный файл&quot;].ExternalColumns[AddressType]"
+                          dataType="wstr"
+                          length="255"
+                          name="AddressType" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\data transfer\Table DB.Outputs[Выход источника &quot;Неструктурированный файл&quot;].ExternalColumns[Apartment]"
+                          dataType="wstr"
+                          length="255"
+                          name="Apartment" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\data transfer\Table DB.Outputs[Выход источника &quot;Неструктурированный файл&quot;].ExternalColumns[City]"
+                          dataType="wstr"
+                          length="255"
+                          name="City" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\data transfer\Table DB.Outputs[Выход источника &quot;Неструктурированный файл&quot;].ExternalColumns[PostalCode]"
+                          dataType="wstr"
+                          length="255"
+                          name="PostalCode" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\Foreach Loop Container\data transfer\Table DB.Outputs[Вывод ошибок источника &quot;Неструктурированный файл&quot;]"
+                      isErrorOut="true"
+                      name="Вывод ошибок источника &quot;Неструктурированный файл&quot;">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\data transfer\Table DB.Outputs[Вывод ошибок источника &quot;Неструктурированный файл&quot;].Columns[Столбец вывода ошибок источника &quot;Неструктурированный файл&quot;]"
+                          dataType="nText"
+                          description="Столбец вывода ошибок источника &quot;Неструктурированный файл&quot;"
+                          lineageId="Package\Foreach Loop Container\data transfer\Table DB.Outputs[Вывод ошибок источника &quot;Неструктурированный файл&quot;].Columns[Столбец вывода ошибок источника &quot;Неструктурированный файл&quot;]"
+                          name="Столбец вывода ошибок источника &quot;Неструктурированный файл&quot;" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\data transfer\Table DB.Outputs[Вывод ошибок источника &quot;Неструктурированный файл&quot;].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Foreach Loop Container\data transfer\Table DB.Outputs[Вывод ошибок источника &quot;Неструктурированный файл&quot;].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\data transfer\Table DB.Outputs[Вывод ошибок источника &quot;Неструктурированный файл&quot;].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Foreach Loop Container\data transfer\Table DB.Outputs[Вывод ошибок источника &quot;Неструктурированный файл&quot;].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\Foreach Loop Container\data transfer.Paths[Row Count Output 1]"
+                  endId="Package\Foreach Loop Container\data transfer\DB.Inputs[Вход назначения &quot;OLE DB&quot;]"
+                  name="Row Count Output 1"
+                  startId="Package\Foreach Loop Container\data transfer\Row Count.Outputs[Row Count Output 1]" />
+                <path
+                  refId="Package\Foreach Loop Container\data transfer.Paths[Выход источника &quot;Неструктурированный файл&quot;]"
+                  endId="Package\Foreach Loop Container\data transfer\Row Count.Inputs[Row Count Input 1]"
+                  name="Выход источника &quot;Неструктурированный файл&quot;"
+                  startId="Package\Foreach Loop Container\data transfer\Table DB.Outputs[Выход источника &quot;Неструктурированный файл&quot;]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Foreach Loop Container\LoadSummary"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{1378C339-6294-4E40-B738-F07265B8F8BF}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="LoadSummary"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{E99A4768-7D34-45FA-B745-C6C5DD6401F4}"
+              SQLTask:SqlStatementSource="INSERT INTO [Administration].[dbo].[LoadSummary] (LoadID, LoadDateTime, FileName, TableName, [RowCount] , Process)&#xA;VALUES ((SELECT MAX(LoadId) FROM [Administration].[dbo].[Load_Run]), GETDATE(), ?, ?, ?, 'File Load' )&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="0"
+                SQLTask:DtsVariableName="User::VariableFileName"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="130"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="2"
+                SQLTask:DtsVariableName="User::VariblCount"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="1"
+                SQLTask:DtsVariableName="User::TableName"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="130"
+                SQLTask:ParameterSize="-1" />
+            </SQLTask:SqlTaskData>
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Foreach Loop Container.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{6A4D5DCE-0AC0-43C7-9C9A-8F9CFF140DD8}"
+          DTS:From="Package\Foreach Loop Container\data transfer"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\Foreach Loop Container\data movement" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Foreach Loop Container.PrecedenceConstraints[Constraint 1]"
+          DTS:CreationName=""
+          DTS:DTSID="{B2AF8AF8-D3A6-4FB8-895E-946A42BF041E}"
+          DTS:From="Package\Foreach Loop Container\data movement"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 1"
+          DTS:To="Package\Foreach Loop Container\LoadSummary" />
+      </DTS:PrecedenceConstraints>
+      <DTS:ForEachVariableMappings>
+        <DTS:ForEachVariableMapping
+          DTS:CreationName=""
+          DTS:DTSID="{167478FA-057B-4A4C-8EB4-1D2C4F20E1B0}"
+          DTS:ObjectName="{167478FA-057B-4A4C-8EB4-1D2C4F20E1B0}"
+          DTS:ValueIndex="0"
+          DTS:VariableName="User::VariableFileName" />
+      </DTS:ForEachVariableMappings>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\LogProcess Start"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{1BC02E26-4BEC-45E8-81C3-ADF2BBBE3602}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="LogProcess Start"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{E99A4768-7D34-45FA-B745-C6C5DD6401F4}"
+          SQLTask:SqlStatementSource="EXEC [Administration].[dbo].[spr_SSISLogProcess] @ProcessName='PackageLoadEmployees', @ProcessAction='Start'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\LogProcess Stop"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{B71005D0-2F9F-4755-882B-2791E7AFE5FA}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="LogProcess Stop"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{E99A4768-7D34-45FA-B745-C6C5DD6401F4}"
+          SQLTask:SqlStatementSource="EXEC [Administration].[dbo].[spr_SSISLogProcess] @ProcessName='PackageLoadEmployees', @ProcessAction='STOP'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\TRUNCATE TABLE"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{D8539AC5-A3BA-41A3-BF3C-3FCBC1264389}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="TRUNCATE TABLE"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{A8AFA32B-057A-488D-AFE5-25A41AD36569}"
+          SQLTask:SqlStatementSource="TRUNCATE TABLE [prestaging].[Addresses]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{49A9AC73-D266-4E0D-B197-7308AF00B47F}"
+      DTS:From="Package\TRUNCATE TABLE"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Foreach Loop Container" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{4360288B-D0BC-4D48-8F4C-33E5EBAEE6DD}"
+      DTS:From="Package\LogProcess Start"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\TRUNCATE TABLE" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
+      DTS:CreationName=""
+      DTS:DTSID="{3E37AAAA-63E9-4375-8BD2-59ED83D85CF6}"
+      DTS:From="Package\Foreach Loop Container"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 2"
+      DTS:To="Package\LogProcess Stop" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="155,42"
+          Id="Package\Foreach Loop Container\data movement"
+          TopLeft="78,146" />
+        <NodeLayout
+          Size="142,42"
+          Id="Package\Foreach Loop Container\data transfer"
+          TopLeft="48,24" />
+        <NodeLayout
+          Size="148,42"
+          Id="Package\Foreach Loop Container\LoadSummary"
+          TopLeft="373,140" />
+        <EdgeLayout
+          Id="Package\Foreach Loop Container.PrecedenceConstraints[Constraint]"
+          TopLeft="119,66">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="36.5,80"
+              Start="0,0"
+              End="36.5,72.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,36" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,36"
+                    Point2="0,40"
+                    Point3="4,40" />
+                  <mssgle:LineSegment
+                    End="32.5,40" />
+                  <mssgle:CubicBezierSegment
+                    Point1="32.5,40"
+                    Point2="36.5,40"
+                    Point3="36.5,44" />
+                  <mssgle:LineSegment
+                    End="36.5,72.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Foreach Loop Container.PrecedenceConstraints[Constraint 1]"
+          TopLeft="233,164">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="140,0"
+              Start="0,0"
+              End="132.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="132.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="537,245"
+          Size="537,288"
+          Id="Package\Foreach Loop Container"
+          TopLeft="321.333333333333,200.666666666667" />
+        <NodeLayout
+          Size="159,42"
+          Id="Package\LogProcess Start"
+          TopLeft="396.666666666667,8" />
+        <NodeLayout
+          Size="158,42"
+          Id="Package\LogProcess Stop"
+          TopLeft="595,596.666666666667" />
+        <NodeLayout
+          Size="167,42"
+          Id="Package\TRUNCATE TABLE"
+          TopLeft="397.333333333333,110.333333333333" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="480.833333333333,152.333333333333">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="109,48.333333333334"
+              Start="0,0"
+              End="109,40.833333333334">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.166666666667" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,20.166666666667"
+                    Point2="0,24.166666666667"
+                    Point3="4,24.166666666667" />
+                  <mssgle:LineSegment
+                    End="105,24.166666666667" />
+                  <mssgle:CubicBezierSegment
+                    Point1="105,24.166666666667"
+                    Point2="109,24.166666666667"
+                    Point3="109,28.166666666667" />
+                  <mssgle:LineSegment
+                    End="109,40.833333333334" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="478.5,50">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60.333333333333"
+              Start="0,0"
+              End="0,52.833333333333">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.833333333333" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 2]"
+          TopLeft="589.833333333333,488.666666666667">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="84.166666666667,108"
+              Start="0,0"
+              End="84.166666666667,100.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,50" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,50"
+                    Point2="0,54"
+                    Point3="4,54" />
+                  <mssgle:LineSegment
+                    End="80.166666666667,54" />
+                  <mssgle:CubicBezierSegment
+                    Point1="80.166666666667,54"
+                    Point2="84.166666666667,54"
+                    Point3="84.166666666667,58" />
+                  <mssgle:LineSegment
+                    End="84.166666666667,100.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Foreach Loop Container\data transfer">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="124,42"
+          Id="Package\Foreach Loop Container\data transfer\Table DB"
+          TopLeft="358,112" />
+        <NodeLayout
+          Size="133,42"
+          Id="Package\Foreach Loop Container\data transfer\Row Count"
+          TopLeft="643,194" />
+        <NodeLayout
+          Size="95,42"
+          Id="Package\Foreach Loop Container\data transfer\DB"
+          TopLeft="412,356" />
+        <EdgeLayout
+          Id="Package\Foreach Loop Container\data transfer.Paths[Выход источника &quot;Неструктурированный файл&quot;]"
+          TopLeft="420,154">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="289.5,40"
+              Start="0,0"
+              End="289.5,32.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,16" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,16"
+                    Point2="0,20"
+                    Point3="4,20" />
+                  <mssgle:LineSegment
+                    End="285.5,20" />
+                  <mssgle:CubicBezierSegment
+                    Point1="285.5,20"
+                    Point2="289.5,20"
+                    Point3="289.5,24" />
+                  <mssgle:LineSegment
+                    End="289.5,32.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Foreach Loop Container\data transfer.Paths[Row Count Output 1]"
+          TopLeft="709.5,236">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-250,120"
+              Start="0,0"
+              End="-250,112.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,56" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,56"
+                    Point2="0,60"
+                    Point3="-4,60" />
+                  <mssgle:LineSegment
+                    End="-246,60" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-246,60"
+                    Point2="-250,60"
+                    Point3="-250,64" />
+                  <mssgle:LineSegment
+                    End="-250,112.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Foreach Loop Container\data transfer\DB">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
