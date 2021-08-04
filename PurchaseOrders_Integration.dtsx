@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="34"
-  DTS:VersionGUID="{359C9A8B-D2C2-4A10-885B-B2A2A0A9AA09}">
+  DTS:VersionBuild="35"
+  DTS:VersionGUID="{BBC821BC-6C88-4E9A-8859-6E90387A11AA}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -743,7 +743,7 @@
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
-              SQLTask:Connection="{A8C8AD7D-8648-42A3-B61E-EC116F8C9B0E}"
+              SQLTask:Connection="{E99A4768-7D34-45FA-B745-C6C5DD6401F4}"
               SQLTask:SqlStatementSource="DECLARE @FileName NCHAR(100)&#xA;DECLARE @TableName NCHAR(100)&#xA;DECLARE @RowCount  INT&#xA;&#xA;SET @FileName = ?&#xA;SET @TableName = ?&#xA;SET @RowCount  = ?&#xA;&#xA;&#xA;INSERT INTO [Administration].[dbo].[LoadSummary]&#xA;(LoadID, LoadDateTime, FileName, TableName, [RowCount] , Process)&#xA;VALUES&#xA;(&#xA;&#x9;(&#xA;&#x9;&#x9;SELECT MAX(LoadId)&#xA;&#x9;&#x9;FROM [Administration].[dbo].[Load_Run]&#xA;&#x9;),&#xA;&#x9;GETDATE(),&#xA;&#x9;@FileName,&#xA;&#x9;@TableName,&#xA;&#x9;@RowCount ,&#xA;&#x9;'File Load'&#xA;)" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
               <SQLTask:ParameterBinding
                 SQLTask:ParameterName="0"
@@ -829,7 +829,7 @@
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{A8C8AD7D-8648-42A3-B61E-EC116F8C9B0E}"
+          SQLTask:Connection="{E99A4768-7D34-45FA-B745-C6C5DD6401F4}"
           SQLTask:SqlStatementSource="EXEC [dbo].[spr_SSISLogProcess] @ProcessName='PackageLoadPurchaseOrders', @ProcessAction='Start'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
@@ -846,7 +846,7 @@
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{A8C8AD7D-8648-42A3-B61E-EC116F8C9B0E}"
+          SQLTask:Connection="{E99A4768-7D34-45FA-B745-C6C5DD6401F4}"
           SQLTask:SqlStatementSource="EXEC [dbo].[spr_SSISLogProcess] @ProcessName='PackageLoadPurchaseOrders', @ProcessAction='Stop'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
@@ -863,7 +863,7 @@
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{ED2CD3C9-905A-4940-B9D4-F8C65A1C0377}"
+          SQLTask:Connection="{A8AFA32B-057A-488D-AFE5-25A41AD36569}"
           SQLTask:SqlStatementSource="TRUNCATE TABLE [prestaging].[PurchaseOrders]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
