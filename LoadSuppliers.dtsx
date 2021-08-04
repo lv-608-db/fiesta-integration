@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="LoadSuppliers"
   DTS:PackageType="5"
-  DTS:VersionBuild="36"
-  DTS:VersionGUID="{30D06514-FFA5-401F-AA0D-A820947EC093}">
+  DTS:VersionBuild="38"
+  DTS:VersionGUID="{4593C856-44E6-41C9-9E2C-C93021D294B0}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -41,7 +41,7 @@
           <DTS:Password
             DTS:Name="Password"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAaMTeypuApEyJbYCzW7BcSQAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAAC9YpLSsSvP20/+tEDA0BHXAAAAAASAAACgAAAAEAAAAL4jhv4c11ozf/++3wJiYIQYAAAAdBwb/W8hh1HwNdeISuM/1t3sWsuRLE7FFAAAALUQNg6/l4JEx0A7sKBTvojP6/sx</DTS:Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAaMTeypuApEyJbYCzW7BcSQAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAABhGwVx8latdgbBgdsphGK6AAAAAASAAACgAAAAEAAAAFX2X3swbW0CJ9vgM9AL7OAYAAAAMi1U8AKF0dz1hTwwOHL715NWg5nVMewQFAAAAMEw06CSOxzpRcNKS++1h2mNnihP</DTS:Password>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -58,7 +58,7 @@
           <DTS:Password
             DTS:Name="Password"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAaMTeypuApEyJbYCzW7BcSQAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAABAmV5g4qrC7bB9hNh0yGiSAAAAAASAAACgAAAAEAAAAKtfOiySFu4gr6t67vHj1UcYAAAARTNNfL62JEx7fY1wbo8CXXuj+F7XhAEPFAAAAEAzzD+IUEjxXzS7Mi6xBL9N8+nl</DTS:Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAaMTeypuApEyJbYCzW7BcSQAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAAB0c+K62oAqDlh7kJVxJOSRAAAAAASAAACgAAAAEAAAAJbYqYbpcHpyOyHoCh5aULIYAAAACYDkHyIAheuJA1LL9HT7jGFqyJ1IG/KrFAAAACF/3lXRt5ExJXX+dxJbpD+UE6bY</DTS:Password>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -256,7 +256,7 @@
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
-              SQLTask:Connection="{607E44DA-238E-4F68-9CD1-8D2B21E23FEC}"
+              SQLTask:Connection="{E99A4768-7D34-45FA-B745-C6C5DD6401F4}"
               SQLTask:SqlStatementSource="INSERT INTO [Administration].[dbo].[LoadSummary] (LoadID, LoadDateTime, FileName, TableName, [RowCount] , Process)&#xA;VALUES ((SELECT MAX(LoadId) FROM [Administration].[dbo].[Load_Run]), GETDATE(), ?, ?, ?, 'File Load' )" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
               <SQLTask:ParameterBinding
                 SQLTask:ParameterName="0"
@@ -809,7 +809,7 @@
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{607E44DA-238E-4F68-9CD1-8D2B21E23FEC}"
+          SQLTask:Connection="{E99A4768-7D34-45FA-B745-C6C5DD6401F4}"
           SQLTask:SqlStatementSource="EXEC [dbo].[spr_SSISLogProcess] @ProcessName=?, @ProcessAction='Start'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
           <SQLTask:ParameterBinding
             SQLTask:ParameterName="0"
@@ -833,7 +833,7 @@
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{607E44DA-238E-4F68-9CD1-8D2B21E23FEC}"
+          SQLTask:Connection="{E99A4768-7D34-45FA-B745-C6C5DD6401F4}"
           SQLTask:SqlStatementSource="EXEC [dbo].[spr_SSISLogProcess] @ProcessName=&#xA;?,&#xA; @ProcessAction='STOP'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
           <SQLTask:ParameterBinding
             SQLTask:ParameterName="0"
@@ -857,7 +857,7 @@
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{AFB26CE9-C095-4BCC-90D8-7207A125085F}"
+          SQLTask:Connection="{9D7CA0E0-E58C-4E44-9DF6-B4933C540580}"
           SQLTask:SqlStatementSource="  TRUNCATE TABLE [Lv-608DB_Staging].[prestaging].[Suppliers]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
@@ -921,7 +921,7 @@
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
-              SQLTask:Connection="{607E44DA-238E-4F68-9CD1-8D2B21E23FEC}"
+              SQLTask:Connection="{E99A4768-7D34-45FA-B745-C6C5DD6401F4}"
               SQLTask:SqlStatementSource="EXEC  [Administration].[dbo].[spr_SSISLogProcess] @ProcessName = ?, @ProcessAction = 'FATAL'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
               <SQLTask:ParameterBinding
                 SQLTask:ParameterName="0"
@@ -1139,7 +1139,7 @@
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
         <NodeLayout
-          Size="163,42"
+          Size="163.2,41.6"
           Id="Package.EventHandlers[OnError]\Execute SQL Task"
           TopLeft="253,81" />
       </GraphLayout>

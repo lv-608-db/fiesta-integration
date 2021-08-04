@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="7"
-  DTS:VersionGUID="{4BAD77CD-E99D-4464-BDA6-F69828DEC404}">
+  DTS:VersionBuild="9"
+  DTS:VersionGUID="{F926380C-7B09-4F4B-BB88-E1B0B6F18772}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -29,7 +29,7 @@
           <DTS:Password
             DTS:Name="Password"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAaMTeypuApEyJbYCzW7BcSQAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAABlR3DiCEejnehEYAh+fHRuAAAAAASAAACgAAAAEAAAANAZxmLV5IyBy6UC31VN3AoYAAAAN/feiHu3HymMc7y1Adwsdy6v5oArUn44FAAAAJarC+3UQHn3K2CMVixDVgWozLSm</DTS:Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAaMTeypuApEyJbYCzW7BcSQAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAAA+6aRA2mEFggKAJoLfy+XnAAAAAASAAACgAAAAEAAAAHn+R4IvwpJIwdxJfTPXZ0gYAAAAvGf0oG0J36+26o9fELpw+yy+YrJVGYIEFAAAAHHpVBkxoZFC8tI38Oojx1F5GaLM</DTS:Password>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -59,7 +59,7 @@
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{6794A84D-056C-45BC-86B7-F4B0803B301F}"
+          SQLTask:Connection="{E99A4768-7D34-45FA-B745-C6C5DD6401F4}"
           SQLTask:SqlStatementSource="EXEC [dbo].[spr_ActivateLoad_Run]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
@@ -76,7 +76,7 @@
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{6794A84D-056C-45BC-86B7-F4B0803B301F}"
+          SQLTask:Connection="{E99A4768-7D34-45FA-B745-C6C5DD6401F4}"
           SQLTask:SqlStatementSource="UPDATE Administration.dbo.Load_Run&#xA;SET Status = 'Closed'&#xA;WHERE LoadId = ?" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
           <SQLTask:ParameterBinding
             SQLTask:ParameterName="0"
@@ -100,7 +100,7 @@
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{6794A84D-056C-45BC-86B7-F4B0803B301F}"
+          SQLTask:Connection="{E99A4768-7D34-45FA-B745-C6C5DD6401F4}"
           SQLTask:SqlStatementSource="SELECT MAX(LoadId) AS LoadRunID&#xA;FROM Administration.dbo.Load_Run&#xA;WHERE Status = 'Active'"
           SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
           <SQLTask:ResultBinding
@@ -119,23 +119,6 @@
       DTS:ObjectName="Load to Prestage">
       <DTS:Variables />
       <DTS:Executables>
-        <DTS:Executable
-          DTS:refId="Package\Load to Prestage\Load Discounts"
-          DTS:CreationName="Microsoft.ExecutePackageTask"
-          DTS:Description="Execute Package Task"
-          DTS:DTSID="{23B9C475-A030-4C6F-AD2C-399270BFD1F7}"
-          DTS:ExecutableType="Microsoft.ExecutePackageTask"
-          DTS:LocaleID="-1"
-          DTS:ObjectName="Load Discounts"
-          DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
-          <DTS:Variables />
-          <DTS:ObjectData>
-            <ExecutePackageTask>
-              <UseProjectReference>True</UseProjectReference>
-              <PackageName>DiscountsToPrestage (1).dtsx</PackageName>
-            </ExecutePackageTask>
-          </DTS:ObjectData>
-        </DTS:Executable>
         <DTS:Executable
           DTS:refId="Package\Load to Prestage\Load PurchaseOrders"
           DTS:CreationName="Microsoft.ExecutePackageTask"
@@ -172,14 +155,6 @@
         </DTS:Executable>
       </DTS:Executables>
       <DTS:PrecedenceConstraints>
-        <DTS:PrecedenceConstraint
-          DTS:refId="Package\Load to Prestage.PrecedenceConstraints[Constraint]"
-          DTS:CreationName=""
-          DTS:DTSID="{386BB7BC-6EA4-4D3F-BE8B-4379C9039032}"
-          DTS:From="Package\Load to Prestage\Load Discounts"
-          DTS:LogicalAnd="True"
-          DTS:ObjectName="Constraint"
-          DTS:To="Package\Load to Prestage\Load PurchaseOrders" />
         <DTS:PrecedenceConstraint
           DTS:refId="Package\Load to Prestage.PrecedenceConstraints[Constraint 1]"
           DTS:CreationName=""
@@ -236,6 +211,53 @@
       DTS:ObjectName="Constraint 3"
       DTS:To="Package\Close Load Run" />
   </DTS:PrecedenceConstraints>
+  <DTS:EventHandlers>
+    <DTS:EventHandler
+      DTS:refId="Package.EventHandlers[OnError]"
+      DTS:CreationName="OnError"
+      DTS:DTSID="{D1FD7215-9224-45D0-BA3D-A9F75E44E3B6}"
+      DTS:EventID="0"
+      DTS:EventName="OnError"
+      DTS:LocaleID="-1">
+      <DTS:Variables>
+        <DTS:Variable
+          DTS:CreationName=""
+          DTS:Description="The propagate property of the event"
+          DTS:DTSID="{1FB0AEC4-DBB0-465E-ACB7-D43E3C830C8D}"
+          DTS:IncludeInDebugDump="6789"
+          DTS:Namespace="System"
+          DTS:ObjectName="Propagate">
+          <DTS:VariableValue
+            DTS:DataType="11">-1</DTS:VariableValue>
+        </DTS:Variable>
+      </DTS:Variables>
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package.EventHandlers[OnError]\Execute SQL Task"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{67e8c540-6958-4520-880e-817742911c86}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Execute SQL Task"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{E99A4768-7D34-45FA-B745-C6C5DD6401F4}"
+              SQLTask:SqlStatementSource="EXEC  [Administration].[dbo].[spr_SSISLogProcess] @ProcessName = ?, @ProcessAction = 'FATAL'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="0"
+                SQLTask:DtsVariableName="System::PackageName"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="130"
+                SQLTask:ParameterSize="-1" />
+            </SQLTask:SqlTaskData>
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+    </DTS:EventHandler>
+  </DTS:EventHandlers>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
 <!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
 <!--If you manually edit this section and make a mistake, you can delete it. -->
@@ -263,40 +285,14 @@
         <NodeLayout
           Size="178.4,41.6"
           Id="Package\Load to Prestage\Load PurchaseOrders"
-          TopLeft="20.3142920275127,79.0117701111372" />
-        <NodeLayout
-          Size="149.6,41.6"
-          Id="Package\Load to Prestage\Load Discounts"
-          TopLeft="31.5714286322497,12.8352977533243" />
-        <EdgeLayout
-          Id="Package\Load to Prestage.PrecedenceConstraints[Constraint]"
-          TopLeft="107.942860329881,54.4352977533243">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,24.5764723578129"
-              Start="0,0"
-              End="0,17.0764723578129">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,17.0764723578129" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
+          TopLeft="41.7428638210105,19.3647104510803" />
         <NodeLayout
           Size="147.2,41.6"
           Id="Package\Load to Prestage\Load Suppliers"
-          TopLeft="32.8857187013238,158.90588779037" />
+          TopLeft="54.3142904948216,99.2588281303131" />
         <EdgeLayout
           Id="Package\Load to Prestage.PrecedenceConstraints[Constraint 1]"
-          TopLeft="108.000005364418,120.611770111137">
+          TopLeft="129.428577157916,60.9647104510801">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -358,9 +354,9 @@
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="170.000001873289,72.8705896724051"
+              EndConnector="170.000001873289,72.8705896724052"
               Start="0,0"
-              End="170.000001873289,65.3705896724051">
+              End="170.000001873289,65.3705896724052">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
@@ -377,7 +373,7 @@
                     Point2="170.000001873289,36.4352948362026"
                     Point3="170.000001873289,40.4352948362026" />
                   <mssgle:LineSegment
-                    End="170.000001873289,65.3705896724051" />
+                    End="170.000001873289,65.3705896724052" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -392,26 +388,26 @@
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="105.514291857214,-76.5294119684752"
+              EndConnector="105.514291857214,-76.529411968475"
               Start="0,0"
-              End="98.0142918572137,-76.5294119684752">
+              End="98.0142918572139,-76.529411968475">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="48.7571459286069,0" />
+                    End="48.757145928607,0" />
                   <mssgle:CubicBezierSegment
-                    Point1="48.7571459286069,0"
-                    Point2="52.7571459286069,0"
-                    Point3="52.7571459286069,-4" />
+                    Point1="48.757145928607,0"
+                    Point2="52.757145928607,0"
+                    Point3="52.757145928607,-4" />
                   <mssgle:LineSegment
-                    End="52.7571459286069,-72.5294119684752" />
+                    End="52.757145928607,-72.529411968475" />
                   <mssgle:CubicBezierSegment
-                    Point1="52.7571459286069,-72.5294119684752"
-                    Point2="52.7571459286069,-76.5294119684752"
-                    Point3="56.7571459286069,-76.5294119684752" />
+                    Point1="52.757145928607,-72.529411968475"
+                    Point2="52.757145928607,-76.529411968475"
+                    Point3="56.757145928607,-76.529411968475" />
                   <mssgle:LineSegment
-                    End="98.0142918572137,-76.5294119684752" />
+                    End="98.0142918572139,-76.529411968475" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -457,5 +453,17 @@
       </GraphLayout>
     </LayoutInfo>
   </Package>
+  <DtsEventHandler
+    design-time-name="Package.EventHandlers[OnError]">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="162.4,41.6"
+          Id="Package.EventHandlers[OnError]\Execute SQL Task"
+          TopLeft="60,60" />
+      </GraphLayout>
+    </LayoutInfo>
+  </DtsEventHandler>
 </Objects>]]></DTS:DesignTimeProperties>
 </DTS:Executable>
