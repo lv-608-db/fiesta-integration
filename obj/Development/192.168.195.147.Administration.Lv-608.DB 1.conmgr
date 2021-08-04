@@ -1,4 +1,4 @@
-﻿<?xml version="1.0"?>
+<?xml version="1.0"?>
 <DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
   DTS:ObjectName="192.168.195.147.Administration.Lv-608.DB 1"
   DTS:DTSID="{E99A4768-7D34-45FA-B745-C6C5DD6401F4}"
@@ -10,7 +10,7 @@
       DTS:ConnectionString="Data Source=192.168.195.147;User ID=Lv-608.DB;Initial Catalog=Administration;Provider=SQLNCLI11.1;Persist Security Info=True;Auto Translate=False;">
       <DTS:Password
         DTS:Name="Password"
-        Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAdajefB+l5kK/8zXACQMDfgAAAAACAAAAAAADZgAAwAAAABAAAADn2lwnumw6d7A82rQ2pVpoAAAAAASAAACgAAAAEAAAAFNEhg/Xvl+YeI5CiokvABh4AAAA0qD618SGjMmcmvyv9dGK7gqOQvraRyx8TftONtb7jk022ofCV9UqVFxZ6NtW1vefRNrJ7KvJCJBDrvtyNdUXjj5IdXPDhnxVZzzaMWj4cGfCBaCHC2ThiruiIfof7mP/99T6VUq8sSrL4M8cWyk0LeJfqa/Ft2cuFAAAAOhVculQHg/Snv1w/VBk2XXXZ/1Z</DTS:Password>
+        Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAdajefB+l5kK/8zXACQMDfgAAAAACAAAAAAADZgAAwAAAABAAAACERA1dxxbIWos+JVF8/0gMAAAAAASAAACgAAAAEAAAAM1gy/mUKXyLdkGAHi0BZzh4AAAArTuLTq6s6fVt7otZ+HbHa51cPrpaEjpMFw21j5xu5941YvnMv8Wvb7Q8lvmxaLDpe2xhzouWSrEH+9N+Cme7EdG2hAWXOByoEmMmMp2vkb5LrS44qLivmb4t3hOpcw74kIO0HJkcU9X3adLMe/8lvRYTKzbJxR1cFAAAAG0eQ1qXZm2U97KHRHSfKiOryrA1</DTS:Password>
     </DTS:ConnectionManager>
   </DTS:ObjectData>
 </DTS:ConnectionManager>
