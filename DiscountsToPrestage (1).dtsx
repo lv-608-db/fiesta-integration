@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="148"
-  DTS:VersionGUID="{B04B5B53-0A5C-45EC-94E5-E684C408911B}">
+  DTS:VersionBuild="149"
+  DTS:VersionGUID="{6C74425E-64E9-40F8-BB2E-81BD14C4ED69}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -25,12 +25,7 @@
         <DTS:ConnectionManager
           DTS:ConnectRetryCount="1"
           DTS:ConnectRetryInterval="5"
-          DTS:ConnectionString="Data Source=192.168.195.147;User ID=Lv-608.DB;Initial Catalog=Lv-608DB_Staging;Provider=SQLNCLI11.1;Persist Security Info=True;Auto Translate=False;">
-          <DTS:Password
-            DTS:Name="Password"
-            Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAaMTeypuApEyJbYCzW7BcSQAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAACoBVRnk9Ae4T7htpxmQyb3AAAAAASAAACgAAAAEAAAAINAAXnXb2QPYM1TjSiFhXEYAAAA2SCJaA/FS8jW7GWq5cx2zGSQ5P65xx+IFAAAAP9LaqLq98eaVtRSrKiaIdVA3U2X</DTS:Password>
-        </DTS:ConnectionManager>
+          DTS:ConnectionString="Data Source=192.168.195.147;User ID=Lv-608.DB;Initial Catalog=Lv-608DB_Staging;Provider=SQLNCLI11.1;Persist Security Info=True;Auto Translate=False;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
     <DTS:ConnectionManager
@@ -367,8 +362,8 @@
                   <connections>
                     <connection
                       refId="Package\Foreach Loop Container\LoadDiscountsToPrestaging\CustomersDestination.Connections[OleDbConnection]"
-                      connectionManagerID="Package.ConnectionManagers[192.168.195.147.Lv-608DB_Staging.Lv-608.DB]"
-                      connectionManagerRefId="Package.ConnectionManagers[192.168.195.147.Lv-608DB_Staging.Lv-608.DB]"
+                      connectionManagerID="{A8AFA32B-057A-488D-AFE5-25A41AD36569}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[192.168.195.147.Lv-608DB_Staging.Lv-608.DB 1]"
                       description="The OLE DB runtime connection used to access the database."
                       name="OleDbConnection" />
                   </connections>

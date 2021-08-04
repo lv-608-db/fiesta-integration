@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="33"
-  DTS:VersionGUID="{592D6520-6881-434C-8AEB-7914DC560071}">
+  DTS:VersionBuild="34"
+  DTS:VersionGUID="{359C9A8B-D2C2-4A10-885B-B2A2A0A9AA09}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -25,12 +25,7 @@
         <DTS:ConnectionManager
           DTS:ConnectRetryCount="1"
           DTS:ConnectRetryInterval="5"
-          DTS:ConnectionString="Data Source=192.168.195.147;User ID=Lv-608.DB;Initial Catalog=Administration;Provider=SQLNCLI11.1;Persist Security Info=True;Auto Translate=False;">
-          <DTS:Password
-            DTS:Name="Password"
-            Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAaMTeypuApEyJbYCzW7BcSQAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAACXx4S985xUz33ufDLUkKjZAAAAAASAAACgAAAAEAAAAMVxVv+cQL/RVZLYtmSGQlwYAAAA/LslkbkljARZkXwupHBGFXvvmxt6IPm8FAAAAOBW14jT6KHt6UpWXxiuOcpKmdyk</DTS:Password>
-        </DTS:ConnectionManager>
+          DTS:ConnectionString="Data Source=192.168.195.147;User ID=Lv-608.DB;Initial Catalog=Administration;Provider=SQLNCLI11.1;Persist Security Info=True;Auto Translate=False;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
     <DTS:ConnectionManager
@@ -42,12 +37,7 @@
         <DTS:ConnectionManager
           DTS:ConnectRetryCount="1"
           DTS:ConnectRetryInterval="5"
-          DTS:ConnectionString="Data Source=192.168.195.147;User ID=Lv-608.DB;Initial Catalog=Lv-608DB_Staging;Provider=SQLNCLI11.1;Persist Security Info=True;Auto Translate=False;">
-          <DTS:Password
-            DTS:Name="Password"
-            Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAaMTeypuApEyJbYCzW7BcSQAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAAAXTCIVa3HyQsAunMyj6aZ8AAAAAASAAACgAAAAEAAAAPAwpJ/rOIAKit6+O4WbolsYAAAAFZWr7HeDcZnMzlBkONbDW5sn3a7tyfw7FAAAAOgC9vSkxGn1oNh9zQB/ZnoIQ+9I</DTS:Password>
-        </DTS:ConnectionManager>
+          DTS:ConnectionString="Data Source=192.168.195.147;User ID=Lv-608.DB;Initial Catalog=Lv-608DB_Staging;Provider=SQLNCLI11.1;Persist Security Info=True;Auto Translate=False;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
     <DTS:ConnectionManager
