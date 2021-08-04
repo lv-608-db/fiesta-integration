@@ -8,6 +8,7 @@
         <UseWinAuth>false</UseWinAuth>
         <WinAuthUserName />
         <WinAuthDomain />
+        <StartObjectID>Main.dtsx</StartObjectID>
         <UserIDs>
           <ConfigurationSetting>
             <Id>{A8AFA32B-057A-488D-AFE5-25A41AD36569}</Id>

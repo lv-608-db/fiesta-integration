@@ -10,7 +10,7 @@
       DTS:ConnectionString="Data Source=192.168.195.147;User ID=Lv-608.DB;Initial Catalog=Lv-608DB_Staging;Provider=SQLNCLI11.1;Persist Security Info=True;Auto Translate=False;">
       <DTS:Password
         DTS:Name="Password"
-        Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAaMTeypuApEyJbYCzW7BcSQAAAAACAAAAAAADZgAAwAAAABAAAAAGerWqQXZhPdiPmOIgP6VLAAAAAASAAACgAAAAEAAAAEFbFB7ElxEANjsCwimkOoV4AAAAUzjAKJWQKe3YKGEJh6T3jHoufRj4sbbexIErObmDjk6UNrmFibaCTlupwECHzGQGZzKdULGgSdCoTV1QruYYAtn36m/AGHjgM401cbrFbMI2y3m3BK5tbhbMUUtZ0kru1qQV67mPlvn9XQYIEv2ryZYXDN4vcAukFAAAAFIKgPxem1gWrYGRyxevs00mi/S3</DTS:Password>
+        Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAaMTeypuApEyJbYCzW7BcSQAAAAACAAAAAAADZgAAwAAAABAAAACm2fijWMEp6XbTVKOLOwVbAAAAAASAAACgAAAAEAAAAB9jjziMDECzvlPGzjf2/mB4AAAAFzkCUNrtgS9cpymOoQm6xjwuco7XubjopY8YXxX1BYw7QjZJA83ttfZ8/x0aTF8ATdcXDQb0CzKD+5J3zC9JoZTRw+kbQACtDEIfuLLnkyOzv4gzPM9vg9Yt/BE75+c6HSFX4cJ3iKTQ89thb9pF3qKt4VDjP76IFAAAABcImMjeDfcyswZTQ1DPJwHwgJiQ</DTS:Password>
     </DTS:ConnectionManager>
   </DTS:ObjectData>
 </DTS:ConnectionManager>
