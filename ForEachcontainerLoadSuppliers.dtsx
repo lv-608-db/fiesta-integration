@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="LoadPrestagingSuppliers"
   DTS:PackageType="5"
-  DTS:VersionBuild="36"
-  DTS:VersionGUID="{8D8CFB0C-14D4-418A-88C0-FFDCBF4397C7}">
+  DTS:VersionBuild="37"
+  DTS:VersionGUID="{7BC1BDF9-3787-4E8A-B9B6-BACCF5C9991A}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -29,7 +29,7 @@
           <DTS:Password
             DTS:Name="Password"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAaMTeypuApEyJbYCzW7BcSQAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAAC5OQb4NXoYfn8EZEVpQ1DWAAAAAASAAACgAAAAEAAAAFVRQXRa0nvncoRxH++iDEUYAAAATOyZ7xt5tL0Lmvgte/5tgwRL2/HGH0tMFAAAAImbEeYj8+st/okPTjWEvhA3HQ2P</DTS:Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAaMTeypuApEyJbYCzW7BcSQAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAACrO2xmNcvNmST3YcZJzaMGAAAAAASAAACgAAAAEAAAAOGB2sHSK2I9wPUH2VzXWPkYAAAA5V4f0vnMP1uaDH5JWH9WnacWu5+REw/3FAAAAE27Kk4+pNxo6mXXoo5DsxkWcusQ</DTS:Password>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -113,7 +113,7 @@
           <DTS:Password
             DTS:Name="Password"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAaMTeypuApEyJbYCzW7BcSQAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAAD8/pdNGIgYX/LbcnocggtiAAAAAASAAACgAAAAEAAAAJUX7PRMwmDdcoD3IY/8L14YAAAAhdEFKDje049pmQAfAJ/NqhxUbgMwpJsfFAAAAO0bzdFMpeo1hRBm0bKm4aG+opqf</DTS:Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAaMTeypuApEyJbYCzW7BcSQAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAADgIP4tNgCFCVfhTpqVazshAAAAAASAAACgAAAAEAAAAGwcWzRlB0/21XpAEkFOpGwYAAAAHTKCQEsgZl7VjjK1IF0tpOd+HUHzRSGnFAAAAIqqG4wsfWQJibTTed18GTeVj5SU</DTS:Password>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -232,7 +232,7 @@
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
-              SQLTask:Connection="{E4DF511C-B6C7-47EB-A245-AF4DE1CCCF6D}"
+              SQLTask:Connection="{E99A4768-7D34-45FA-B745-C6C5DD6401F4}"
               SQLTask:SqlStatementSource="INSERT INTO [Administration].[dbo].[LoadSummary] (LoadID, LoadDateTime, FileName, TableName, [RowCount] , Process)&#xA;VALUES ((SELECT MAX(LoadId) FROM [Administration].[dbo].[Load_Run]), GETDATE(), ?, ?, ?, 'File Load' )" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
               <SQLTask:ParameterBinding
                 SQLTask:ParameterName="0"
@@ -332,7 +332,7 @@
                     <property
                       dataType="System.String"
                       description="Specifies the name of the database object used to open a rowset."
-                      name="OpenRowset">[prestaging].[Suppliers]</property>
+                      name="OpenRowset">[prestaging].[Employees]</property>
                     <property
                       dataType="System.String"
                       description="Specifies the variable that contains the name of the database object used to open a rowset."
@@ -375,8 +375,8 @@
                   <connections>
                     <connection
                       refId="Package\ForeachFileMaskSuppliers\LoadSuppleirsFromPendingToPrestaig\LV Warehouse Prestaiging.Connections[OleDbConnection]"
-                      connectionManagerID="Package.ConnectionManagers[LW WH prestaiging_suppliers]"
-                      connectionManagerRefId="Package.ConnectionManagers[LW WH prestaiging_suppliers]"
+                      connectionManagerID="{A8AFA32B-057A-488D-AFE5-25A41AD36569}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[192.168.195.147.Lv-608DB_Staging.Lv-608.DB 1]"
                       description="The OLE DB runtime connection used to access the database."
                       name="OleDbConnection" />
                   </connections>
@@ -389,26 +389,12 @@
                       name="OLE DB Destination Input">
                       <inputColumns>
                         <inputColumn
-                          refId="Package\ForeachFileMaskSuppliers\LoadSuppleirsFromPendingToPrestaig\LV Warehouse Prestaiging.Inputs[OLE DB Destination Input].Columns[SupplierID]"
-                          cachedDataType="wstr"
-                          cachedLength="255"
-                          cachedName="SupplierID"
-                          externalMetadataColumnId="Package\ForeachFileMaskSuppliers\LoadSuppleirsFromPendingToPrestaig\LV Warehouse Prestaiging.Inputs[OLE DB Destination Input].ExternalColumns[SupplierID]"
-                          lineageId="Package\ForeachFileMaskSuppliers\LoadSuppleirsFromPendingToPrestaig\Suppliers_csv.Outputs[Flat File Source Output].Columns[SupplierID]" />
-                        <inputColumn
                           refId="Package\ForeachFileMaskSuppliers\LoadSuppleirsFromPendingToPrestaig\LV Warehouse Prestaiging.Inputs[OLE DB Destination Input].Columns[AddressID]"
                           cachedDataType="wstr"
                           cachedLength="255"
                           cachedName="AddressID"
                           externalMetadataColumnId="Package\ForeachFileMaskSuppliers\LoadSuppleirsFromPendingToPrestaig\LV Warehouse Prestaiging.Inputs[OLE DB Destination Input].ExternalColumns[AddressID]"
                           lineageId="Package\ForeachFileMaskSuppliers\LoadSuppleirsFromPendingToPrestaig\Suppliers_csv.Outputs[Flat File Source Output].Columns[AddressID]" />
-                        <inputColumn
-                          refId="Package\ForeachFileMaskSuppliers\LoadSuppleirsFromPendingToPrestaig\LV Warehouse Prestaiging.Inputs[OLE DB Destination Input].Columns[ContactName]"
-                          cachedDataType="wstr"
-                          cachedLength="255"
-                          cachedName="ContactName"
-                          externalMetadataColumnId="Package\ForeachFileMaskSuppliers\LoadSuppleirsFromPendingToPrestaig\LV Warehouse Prestaiging.Inputs[OLE DB Destination Input].ExternalColumns[ContactName]"
-                          lineageId="Package\ForeachFileMaskSuppliers\LoadSuppleirsFromPendingToPrestaig\Suppliers_csv.Outputs[Flat File Source Output].Columns[ContactName]" />
                         <inputColumn
                           refId="Package\ForeachFileMaskSuppliers\LoadSuppleirsFromPendingToPrestaig\LV Warehouse Prestaiging.Inputs[OLE DB Destination Input].Columns[Phone]"
                           cachedDataType="wstr"
@@ -427,24 +413,10 @@
                       <externalMetadataColumns
                         isUsed="True">
                         <externalMetadataColumn
-                          refId="Package\ForeachFileMaskSuppliers\LoadSuppleirsFromPendingToPrestaig\LV Warehouse Prestaiging.Inputs[OLE DB Destination Input].ExternalColumns[stg_id]"
-                          dataType="i4"
-                          name="stg_id" />
-                        <externalMetadataColumn
-                          refId="Package\ForeachFileMaskSuppliers\LoadSuppleirsFromPendingToPrestaig\LV Warehouse Prestaiging.Inputs[OLE DB Destination Input].ExternalColumns[SupplierID]"
-                          dataType="wstr"
-                          length="255"
-                          name="SupplierID" />
-                        <externalMetadataColumn
                           refId="Package\ForeachFileMaskSuppliers\LoadSuppleirsFromPendingToPrestaig\LV Warehouse Prestaiging.Inputs[OLE DB Destination Input].ExternalColumns[AddressID]"
                           dataType="wstr"
                           length="255"
                           name="AddressID" />
-                        <externalMetadataColumn
-                          refId="Package\ForeachFileMaskSuppliers\LoadSuppleirsFromPendingToPrestaig\LV Warehouse Prestaiging.Inputs[OLE DB Destination Input].ExternalColumns[ContactName]"
-                          dataType="wstr"
-                          length="255"
-                          name="ContactName" />
                         <externalMetadataColumn
                           refId="Package\ForeachFileMaskSuppliers\LoadSuppleirsFromPendingToPrestaig\LV Warehouse Prestaiging.Inputs[OLE DB Destination Input].ExternalColumns[Phone]"
                           dataType="wstr"
@@ -455,6 +427,40 @@
                           dataType="wstr"
                           length="255"
                           name="Email" />
+                        <externalMetadataColumn
+                          refId="Package\ForeachFileMaskSuppliers\LoadSuppleirsFromPendingToPrestaig\LV Warehouse Prestaiging.Inputs[OLE DB Destination Input].ExternalColumns[StgID]"
+                          dataType="i4"
+                          name="StgID" />
+                        <externalMetadataColumn
+                          refId="Package\ForeachFileMaskSuppliers\LoadSuppleirsFromPendingToPrestaig\LV Warehouse Prestaiging.Inputs[OLE DB Destination Input].ExternalColumns[EmployeeID]"
+                          dataType="wstr"
+                          length="255"
+                          name="EmployeeID" />
+                        <externalMetadataColumn
+                          refId="Package\ForeachFileMaskSuppliers\LoadSuppleirsFromPendingToPrestaig\LV Warehouse Prestaiging.Inputs[OLE DB Destination Input].ExternalColumns[FirstName]"
+                          dataType="wstr"
+                          length="255"
+                          name="FirstName" />
+                        <externalMetadataColumn
+                          refId="Package\ForeachFileMaskSuppliers\LoadSuppleirsFromPendingToPrestaig\LV Warehouse Prestaiging.Inputs[OLE DB Destination Input].ExternalColumns[LastName]"
+                          dataType="wstr"
+                          length="255"
+                          name="LastName" />
+                        <externalMetadataColumn
+                          refId="Package\ForeachFileMaskSuppliers\LoadSuppleirsFromPendingToPrestaig\LV Warehouse Prestaiging.Inputs[OLE DB Destination Input].ExternalColumns[Position]"
+                          dataType="wstr"
+                          length="255"
+                          name="Position" />
+                        <externalMetadataColumn
+                          refId="Package\ForeachFileMaskSuppliers\LoadSuppleirsFromPendingToPrestaig\LV Warehouse Prestaiging.Inputs[OLE DB Destination Input].ExternalColumns[Hire_date]"
+                          dataType="wstr"
+                          length="255"
+                          name="Hire_date" />
+                        <externalMetadataColumn
+                          refId="Package\ForeachFileMaskSuppliers\LoadSuppleirsFromPendingToPrestaig\LV Warehouse Prestaiging.Inputs[OLE DB Destination Input].ExternalColumns[Fire_date]"
+                          dataType="wstr"
+                          length="255"
+                          name="Fire_date" />
                       </externalMetadataColumns>
                     </input>
                   </inputs>
@@ -785,7 +791,7 @@
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{E4DF511C-B6C7-47EB-A245-AF4DE1CCCF6D}"
+          SQLTask:Connection="{E99A4768-7D34-45FA-B745-C6C5DD6401F4}"
           SQLTask:SqlStatementSource="EXEC [dbo].[spr_SSISLogProcess] @ProcessName=?, @ProcessAction='Start'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
           <SQLTask:ParameterBinding
             SQLTask:ParameterName="0"
@@ -809,7 +815,7 @@
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{E4DF511C-B6C7-47EB-A245-AF4DE1CCCF6D}"
+          SQLTask:Connection="{E99A4768-7D34-45FA-B745-C6C5DD6401F4}"
           SQLTask:SqlStatementSource="EXEC [dbo].[spr_SSISLogProcess] @ProcessName=&#xA;?,&#xA; @ProcessAction='STOP'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
           <SQLTask:ParameterBinding
             SQLTask:ParameterName="0"
@@ -833,7 +839,7 @@
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{7529A13F-60CD-4378-81EC-19F6144247AA}"
+          SQLTask:Connection="{A8AFA32B-057A-488D-AFE5-25A41AD36569}"
           SQLTask:SqlStatementSource="  TRUNCATE TABLE [Lv-608DB_Staging].[prestaging].[Suppliers]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
