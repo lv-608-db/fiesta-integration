@@ -11,28 +11,11 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="142"
-  DTS:VersionGUID="{590B7C8C-1534-42AD-A594-6B8043E7E0A5}">
+  DTS:VersionBuild="143"
+  DTS:VersionGUID="{92245F14-9CD2-4350-A44B-76D3EE6EB0C5}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
-    <DTS:ConnectionManager
-      DTS:refId="Package.ConnectionManagers[192.168.195.147.Administration.Lv-608.DB]"
-      DTS:CreationName="OLEDB"
-      DTS:DTSID="{E99A4768-7D34-45FA-B745-C6C5DD6401F4}"
-      DTS:ObjectName="192.168.195.147.Administration.Lv-608.DB">
-      <DTS:ObjectData>
-        <DTS:ConnectionManager
-          DTS:ConnectRetryCount="1"
-          DTS:ConnectRetryInterval="5"
-          DTS:ConnectionString="Data Source=192.168.195.147;User ID=Lv-608.DB;Initial Catalog=Administration;Provider=SQLNCLI11.1;Persist Security Info=True;Auto Translate=False;">
-          <DTS:Password
-            DTS:Name="Password"
-            Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAdajefB+l5kK/8zXACQMDfgAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAACp3Dq3WvE/EevygtFS/DfOAAAAAASAAACgAAAAEAAAAHmM4W1vnW+dD0Dk777b1x8YAAAAp7KNdi2spQHYtepqBJ7WOF+mChZjra6bFAAAAGz2RbZ//pot0srvDnJKjqHcvehu</DTS:Password>
-        </DTS:ConnectionManager>
-      </DTS:ObjectData>
-    </DTS:ConnectionManager>
     <DTS:ConnectionManager
       DTS:refId="Package.ConnectionManagers[Flat File Connection Manager]"
       DTS:CreationName="FLATFILE"
@@ -813,7 +796,7 @@
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{92D82D3E-B01E-4DC2-B52B-816DF6155F5D}"
+          SQLTask:Connection="{A8AFA32B-057A-488D-AFE5-25A41AD36569}"
           SQLTask:SqlStatementSource="TRUNCATE TABLE [prestaging].[Discounts]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
