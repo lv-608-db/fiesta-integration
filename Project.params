@@ -127,7 +127,7 @@
     </SSIS:Properties>
   </SSIS:Parameter>
   <SSIS:Parameter
-    SSIS:Name="FileSourcePathrd7">
+    SSIS:Name="FileSourcePathRD7">
     <SSIS:Properties>
       <SSIS:Property
         SSIS:Name="ID">{54be177f-b58a-41f6-b890-ca1ff4cf4ae9}</SSIS:Property>
