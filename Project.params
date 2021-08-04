@@ -147,4 +147,25 @@
         SSIS:Name="DataType">18</SSIS:Property>
     </SSIS:Properties>
   </SSIS:Parameter>
+  <SSIS:Parameter
+    SSIS:Name="_192168195147Lv608DB_StagingLv608DB1_InitialCatalog">
+    <SSIS:Properties>
+      <SSIS:Property
+        SSIS:Name="ID">{564dc71a-9489-4450-aa58-743b9d9a53b0}</SSIS:Property>
+      <SSIS:Property
+        SSIS:Name="CreationName"></SSIS:Property>
+      <SSIS:Property
+        SSIS:Name="Description"></SSIS:Property>
+      <SSIS:Property
+        SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
+      <SSIS:Property
+        SSIS:Name="Required">0</SSIS:Property>
+      <SSIS:Property
+        SSIS:Name="Sensitive">0</SSIS:Property>
+      <SSIS:Property
+        SSIS:Name="Value">Lv-608DB_Staging</SSIS:Property>
+      <SSIS:Property
+        SSIS:Name="DataType">18</SSIS:Property>
+    </SSIS:Properties>
+  </SSIS:Parameter>
 </SSIS:Parameters>
