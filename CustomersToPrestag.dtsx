@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="63"
-  DTS:VersionGUID="{08DE00D1-0E5B-48AC-BF2D-E9040CD8323E}">
+  DTS:VersionBuild="67"
+  DTS:VersionGUID="{716877ED-496D-4877-BC43-8DAF1DC8D689}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -221,7 +221,7 @@
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{E99A4768-7D34-45FA-B745-C6C5DD6401F4}"
-          SQLTask:SqlStatementSource="EXEC [dbo].[spr_SSISLogProcess]  ?, 'Start', ?" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          SQLTask:SqlStatementSource="EXEC [dbo].[spr_SSISLogProcess] ?, 'Start', ?&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
           <SQLTask:ParameterBinding
             SQLTask:ParameterName="0"
             SQLTask:DtsVariableName="$Package::ProcessName"
@@ -232,7 +232,7 @@
             SQLTask:ParameterName="1"
             SQLTask:DtsVariableName="User::TableName"
             SQLTask:ParameterDirection="Input"
-            SQLTask:DataType="3"
+            SQLTask:DataType="130"
             SQLTask:ParameterSize="-1" />
         </SQLTask:SqlTaskData>
       </DTS:ObjectData>
@@ -280,15 +280,15 @@
         DTS:DTSID="{30F4C9AC-2D46-4154-88CF-37D48E63E0D5}"
         DTS:ObjectName="{30F4C9AC-2D46-4154-88CF-37D48E63E0D5}">
         <DTS:PropertyExpression
-          DTS:Name="Directory">@[User::FileSourcePath]</DTS:PropertyExpression>
+          DTS:Name="Directory">@[$Project::FileSourcePath]</DTS:PropertyExpression>
         <DTS:PropertyExpression
-          DTS:Name="Name">@[User::FileName]</DTS:PropertyExpression>
+          DTS:Name="Name">@[$Project::fileNameCust]</DTS:PropertyExpression>
         <DTS:ObjectData>
           <ForEachFileEnumeratorProperties>
             <FEFEProperty
               Folder="C:\InputData_LV_608\Pending\" />
             <FEFEProperty
-              FileSpec="customers_????????.csv" />
+              FileSpec="customers_20210723.csv" />
             <FEFEProperty
               FileNameRetrievalType="1" />
             <FEFEProperty
@@ -339,7 +339,7 @@
                     <property
                       dataType="System.String"
                       description="Specifies the name of the database object used to open a rowset."
-                      name="OpenRowset">[prestaging].[Discounts]</property>
+                      name="OpenRowset">[prestaging].[Customers]</property>
                     <property
                       dataType="System.String"
                       description="Specifies the variable that contains the name of the database object used to open a rowset."
@@ -402,6 +402,62 @@
                           cachedName="Discount"
                           externalMetadataColumnId="Package\Foreach Loop Container\LoadCustomersToPrestaging\CustomersDestination.Inputs[OLE DB Destination Input].ExternalColumns[Discount]"
                           lineageId="Package\Foreach Loop Container\LoadCustomersToPrestaging\Flat File Customers.Outputs[Flat File Source Output].Columns[Discount]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\LoadCustomersToPrestaging\CustomersDestination.Inputs[OLE DB Destination Input].Columns[CustomerID]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="CustomerID"
+                          externalMetadataColumnId="Package\Foreach Loop Container\LoadCustomersToPrestaging\CustomersDestination.Inputs[OLE DB Destination Input].ExternalColumns[CustomerID]"
+                          lineageId="Package\Foreach Loop Container\LoadCustomersToPrestaging\Flat File Customers.Outputs[Flat File Source Output].Columns[CustomerID]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\LoadCustomersToPrestaging\CustomersDestination.Inputs[OLE DB Destination Input].Columns[FirstName]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="FirstName"
+                          externalMetadataColumnId="Package\Foreach Loop Container\LoadCustomersToPrestaging\CustomersDestination.Inputs[OLE DB Destination Input].ExternalColumns[FirstName]"
+                          lineageId="Package\Foreach Loop Container\LoadCustomersToPrestaging\Flat File Customers.Outputs[Flat File Source Output].Columns[FirstName]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\LoadCustomersToPrestaging\CustomersDestination.Inputs[OLE DB Destination Input].Columns[LastName]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="LastName"
+                          externalMetadataColumnId="Package\Foreach Loop Container\LoadCustomersToPrestaging\CustomersDestination.Inputs[OLE DB Destination Input].ExternalColumns[LastName]"
+                          lineageId="Package\Foreach Loop Container\LoadCustomersToPrestaging\Flat File Customers.Outputs[Flat File Source Output].Columns[LastName]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\LoadCustomersToPrestaging\CustomersDestination.Inputs[OLE DB Destination Input].Columns[Gender]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="Gender"
+                          externalMetadataColumnId="Package\Foreach Loop Container\LoadCustomersToPrestaging\CustomersDestination.Inputs[OLE DB Destination Input].ExternalColumns[Gender]"
+                          lineageId="Package\Foreach Loop Container\LoadCustomersToPrestaging\Flat File Customers.Outputs[Flat File Source Output].Columns[Gender]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\LoadCustomersToPrestaging\CustomersDestination.Inputs[OLE DB Destination Input].Columns[DateOfBirth]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="DateOfBirth"
+                          externalMetadataColumnId="Package\Foreach Loop Container\LoadCustomersToPrestaging\CustomersDestination.Inputs[OLE DB Destination Input].ExternalColumns[DateOfBirth]"
+                          lineageId="Package\Foreach Loop Container\LoadCustomersToPrestaging\Flat File Customers.Outputs[Flat File Source Output].Columns[DateOfBirth]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\LoadCustomersToPrestaging\CustomersDestination.Inputs[OLE DB Destination Input].Columns[Phone]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="Phone"
+                          externalMetadataColumnId="Package\Foreach Loop Container\LoadCustomersToPrestaging\CustomersDestination.Inputs[OLE DB Destination Input].ExternalColumns[Phone]"
+                          lineageId="Package\Foreach Loop Container\LoadCustomersToPrestaging\Flat File Customers.Outputs[Flat File Source Output].Columns[Phone]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\LoadCustomersToPrestaging\CustomersDestination.Inputs[OLE DB Destination Input].Columns[Email]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="Email"
+                          externalMetadataColumnId="Package\Foreach Loop Container\LoadCustomersToPrestaging\CustomersDestination.Inputs[OLE DB Destination Input].ExternalColumns[Email]"
+                          lineageId="Package\Foreach Loop Container\LoadCustomersToPrestaging\Flat File Customers.Outputs[Flat File Source Output].Columns[Email]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\LoadCustomersToPrestaging\CustomersDestination.Inputs[OLE DB Destination Input].Columns[AddressID]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="AddressID"
+                          externalMetadataColumnId="Package\Foreach Loop Container\LoadCustomersToPrestaging\CustomersDestination.Inputs[OLE DB Destination Input].ExternalColumns[AddressID]"
+                          lineageId="Package\Foreach Loop Container\LoadCustomersToPrestaging\Flat File Customers.Outputs[Flat File Source Output].Columns[AddressID]" />
                       </inputColumns>
                       <externalMetadataColumns
                         isUsed="True">
@@ -415,25 +471,45 @@
                           dataType="i4"
                           name="StagID" />
                         <externalMetadataColumn
-                          refId="Package\Foreach Loop Container\LoadCustomersToPrestaging\CustomersDestination.Inputs[OLE DB Destination Input].ExternalColumns[DiscountName]"
+                          refId="Package\Foreach Loop Container\LoadCustomersToPrestaging\CustomersDestination.Inputs[OLE DB Destination Input].ExternalColumns[CustomerID]"
                           dataType="wstr"
                           length="255"
-                          name="DiscountName" />
+                          name="CustomerID" />
                         <externalMetadataColumn
-                          refId="Package\Foreach Loop Container\LoadCustomersToPrestaging\CustomersDestination.Inputs[OLE DB Destination Input].ExternalColumns[LowerCost]"
+                          refId="Package\Foreach Loop Container\LoadCustomersToPrestaging\CustomersDestination.Inputs[OLE DB Destination Input].ExternalColumns[FirstName]"
                           dataType="wstr"
                           length="255"
-                          name="LowerCost" />
+                          name="FirstName" />
                         <externalMetadataColumn
-                          refId="Package\Foreach Loop Container\LoadCustomersToPrestaging\CustomersDestination.Inputs[OLE DB Destination Input].ExternalColumns[UpperCost]"
+                          refId="Package\Foreach Loop Container\LoadCustomersToPrestaging\CustomersDestination.Inputs[OLE DB Destination Input].ExternalColumns[LastName]"
                           dataType="wstr"
                           length="255"
-                          name="UpperCost" />
+                          name="LastName" />
                         <externalMetadataColumn
-                          refId="Package\Foreach Loop Container\LoadCustomersToPrestaging\CustomersDestination.Inputs[OLE DB Destination Input].ExternalColumns[DiscountID]"
+                          refId="Package\Foreach Loop Container\LoadCustomersToPrestaging\CustomersDestination.Inputs[OLE DB Destination Input].ExternalColumns[Gender]"
                           dataType="wstr"
                           length="255"
-                          name="DiscountID" />
+                          name="Gender" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\LoadCustomersToPrestaging\CustomersDestination.Inputs[OLE DB Destination Input].ExternalColumns[DateOfBirth]"
+                          dataType="wstr"
+                          length="255"
+                          name="DateOfBirth" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\LoadCustomersToPrestaging\CustomersDestination.Inputs[OLE DB Destination Input].ExternalColumns[Phone]"
+                          dataType="wstr"
+                          length="255"
+                          name="Phone" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\LoadCustomersToPrestaging\CustomersDestination.Inputs[OLE DB Destination Input].ExternalColumns[Email]"
+                          dataType="wstr"
+                          length="255"
+                          name="Email" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\LoadCustomersToPrestaging\CustomersDestination.Inputs[OLE DB Destination Input].ExternalColumns[AddressID]"
+                          dataType="wstr"
+                          length="255"
+                          name="AddressID" />
                       </externalMetadataColumns>
                     </input>
                   </inputs>
@@ -884,8 +960,8 @@
       <DTS:ForEachVariableMappings>
         <DTS:ForEachVariableMapping
           DTS:CreationName=""
-          DTS:DTSID="{60B8E5AD-A228-4778-AE43-738DF66B7B2F}"
-          DTS:ObjectName="{60B8E5AD-A228-4778-AE43-738DF66B7B2F}"
+          DTS:DTSID="{6A9947CF-539E-4A34-AC9C-3296489975A8}"
+          DTS:ObjectName="{6A9947CF-539E-4A34-AC9C-3296489975A8}"
           DTS:ValueIndex="0"
           DTS:VariableName="User::FileName" />
       </DTS:ForEachVariableMappings>
@@ -1184,10 +1260,6 @@
       <GraphLayout
         Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="129.6,41.6"
-          Id="Package\Foreach Loop Container\LoadCustomersToPrestaging\Row Count"
-          TopLeft="647.499974270663,174.200001384417" />
-        <NodeLayout
           Size="168.8,41.6"
           Id="Package\Foreach Loop Container\LoadCustomersToPrestaging\Flat File Customers"
           TopLeft="408.333317107625,84.0666673347682" />
@@ -1195,6 +1267,10 @@
           Size="180.8,41.6"
           Id="Package\Foreach Loop Container\LoadCustomersToPrestaging\CustomersDestination"
           TopLeft="354.166652593348,193.266668202612" />
+        <NodeLayout
+          Size="129.6,41.6"
+          Id="Package\Foreach Loop Container\LoadCustomersToPrestaging\Row Count"
+          TopLeft="647.499974270663,174.200001384417" />
         <EdgeLayout
           Id="Package\Foreach Loop Container\LoadCustomersToPrestaging.Paths[Row Count Output 1]"
           TopLeft="647.499974270663,195.000001384417">
