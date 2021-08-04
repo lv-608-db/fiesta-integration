@@ -1,3 +1,9 @@
 .vs/
 obj/
 bin/
+bin/Development/fiesta-integration.ispac
+obj/Development/BuildLog.xml
+obj/Development/fiesta-integration.dtproj
+obj/Development/LoadSuppliers.dtsx
+obj/Development/Main.dtsx
+obj/Development/PurchaseOrders_Integration.dtsx
