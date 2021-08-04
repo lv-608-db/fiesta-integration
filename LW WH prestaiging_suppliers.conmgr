@@ -1,0 +1,18 @@
+﻿<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="LW WH prestaiging_suppliers"
+  DTS:DTSID="{AFB26CE9-C095-4BCC-90D8-7207A125085F}"
+  DTS:CreationName="OLEDB">
+  <DTS:PropertyExpression
+    DTS:Name="InitialCatalog">@[$Project::Lv_608DB_Staging_InitialCatalog]</DTS:PropertyExpression>
+  <DTS:ObjectData>
+    <DTS:ConnectionManager
+      DTS:ConnectRetryCount="1"
+      DTS:ConnectRetryInterval="5"
+      DTS:ConnectionString="Data Source=192.168.195.147;User ID=Lv-608.DB;Initial Catalog=Lv-608DB_Staging;Provider=SQLNCLI11.1;Persist Security Info=True;Auto Translate=False;">
+      <DTS:Password
+        DTS:Name="Password"
+        Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAUIaygVwBKEOgAjs1g4Il9AAAAAACAAAAAAADZgAAwAAAABAAAADWI4Sos707pRW/sV1XZg5NAAAAAASAAACgAAAAEAAAACvbKt6XsP2rg+6WnVGo3NB4AAAAR8Vy3NKPdPGzZIJJ1bnOU0+mfKXg+XK/Y7cAaoGlRcL00PGScWZoB/LD9OJDD1so40qRhEx7zGj0QVVpcSG0hL35iBOpW0seSWW26my0POxDlga/OisEFN1BsJYOTwGK/s6uoo57d8tsb6FkarepF4hfN+y170UlFAAAAO3742puXevBhadDWytjcgspAb3z</DTS:Password>
+    </DTS:ConnectionManager>
+  </DTS:ObjectData>
+</DTS:ConnectionManager>
