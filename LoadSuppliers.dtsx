@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="LoadSuppliers"
   DTS:PackageType="5"
-  DTS:VersionBuild="34"
-  DTS:VersionGUID="{13E8C086-8DBC-4AF3-B803-648FE621D273}">
+  DTS:VersionBuild="35"
+  DTS:VersionGUID="{F16C76B8-1D3A-4A0F-8371-55A1EF25F0C5}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -29,7 +29,7 @@
           <DTS:Password
             DTS:Name="Password"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAUIaygVwBKEOgAjs1g4Il9AAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAAAvgBjwEFz6hs1ZuWooUV55AAAAAASAAACgAAAAEAAAAMSi/oKBO1rwi8DHHELchVUYAAAAmhuaZiTZBsrt8dehlVz8oH+Nr/GhITTmFAAAAOoIm5Nn7Y5abWmKljx2VXOUzUja</DTS:Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAUIaygVwBKEOgAjs1g4Il9AAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAAC/3jLMh6k3MiqUvASXi4BPAAAAAASAAACgAAAAEAAAAKnWFNwSL/DJe79KRFT7XTgYAAAA/6UhDj2szXCRLPO3xDiEVX8j/TH6jBr5FAAAAJuyrEnuHzO3hYf+JncDks+/AQ/v</DTS:Password>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -113,7 +113,7 @@
           <DTS:Password
             DTS:Name="Password"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAUIaygVwBKEOgAjs1g4Il9AAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAABmuXP4TMhmoZTfUSl9NhLZAAAAAASAAACgAAAAEAAAAGkrkUKk1+PJhBfKW3oTBvMYAAAAKEOU2gZbrlhbmoyeRbLNub8CISES5S8QFAAAAN0+eWQdJbwgI7g+JMeiFbL5im12</DTS:Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAUIaygVwBKEOgAjs1g4Il9AAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAABorLnEoGr6EYzIXsymAMwcAAAAAASAAACgAAAAEAAAAB18YMeFaHNaaAjtnbARUs4YAAAAhED2x5Axv+sPNWIYtwb40nIhEfkPC0NcFAAAAJaYuzndUypKLMhofT0Ys1Na/q6a</DTS:Password>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -926,7 +926,7 @@
         <NodeLayout
           Size="146,42"
           Id="Package\ForeachFileMaskSuppliers\LoadSummary"
-          TopLeft="61,152" />
+          TopLeft="61,151" />
         <NodeLayout
           Size="269,42"
           Id="Package\ForeachFileMaskSuppliers\LoadSuppleirsFromPendingToPrestaig"
@@ -975,26 +975,26 @@
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-24.5,25"
+              EndConnector="-24.5,24"
               Start="0,0"
-              End="-24.5,17.5">
+              End="-24.5,16.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,8.5" />
+                    End="0,8" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,8.5"
-                    Point2="0,12.5"
-                    Point3="-4,12.5" />
+                    Point1="0,8"
+                    Point2="0,12"
+                    Point3="-4,12" />
                   <mssgle:LineSegment
-                    End="-20.5,12.5" />
+                    End="-20.5,12" />
                   <mssgle:CubicBezierSegment
-                    Point1="-20.5,12.5"
-                    Point2="-24.5,12.5"
-                    Point3="-24.5,16.5" />
+                    Point1="-20.5,12"
+                    Point2="-24.5,12"
+                    Point3="-24.5,16" />
                   <mssgle:LineSegment
-                    End="-24.5,17.5" />
+                    End="-24.5,16.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
