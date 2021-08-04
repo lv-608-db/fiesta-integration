@@ -4,4 +4,4 @@ bin/*
 obj\
 bin\
 *.user
-*.conmgr
+
