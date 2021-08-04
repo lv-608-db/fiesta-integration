@@ -3,6 +3,8 @@
   DTS:ObjectName="192.168.195.147.Administration.Lv-608.DB 1"
   DTS:DTSID="{E99A4768-7D34-45FA-B745-C6C5DD6401F4}"
   DTS:CreationName="OLEDB">
+  <DTS:PropertyExpression
+    DTS:Name="InitialCatalog">@[$Project::_192168195147AdministrationLv608DB1_InitialCatalog]</DTS:PropertyExpression>
   <DTS:ObjectData>
     <DTS:ConnectionManager
       DTS:ConnectRetryCount="1"
@@ -10,7 +12,7 @@
       DTS:ConnectionString="Data Source=192.168.195.147;User ID=Lv-608.DB;Initial Catalog=Administration;Provider=SQLNCLI11.1;Persist Security Info=True;Auto Translate=False;">
       <DTS:Password
         DTS:Name="Password"
-        Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAdajefB+l5kK/8zXACQMDfgAAAAACAAAAAAADZgAAwAAAABAAAADn2lwnumw6d7A82rQ2pVpoAAAAAASAAACgAAAAEAAAAFNEhg/Xvl+YeI5CiokvABh4AAAA0qD618SGjMmcmvyv9dGK7gqOQvraRyx8TftONtb7jk022ofCV9UqVFxZ6NtW1vefRNrJ7KvJCJBDrvtyNdUXjj5IdXPDhnxVZzzaMWj4cGfCBaCHC2ThiruiIfof7mP/99T6VUq8sSrL4M8cWyk0LeJfqa/Ft2cuFAAAAOhVculQHg/Snv1w/VBk2XXXZ/1Z</DTS:Password>
+        Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAdajefB+l5kK/8zXACQMDfgAAAAACAAAAAAADZgAAwAAAABAAAADfUckDRWZcF8ANYnFhU9NoAAAAAASAAACgAAAAEAAAAEQ3YMLvbEvGI3l3fnVFpQh4AAAAVvbEXsdgn0hu4RhxIVZoHJfC56YgxycEtT5E1b7ifaSxAjGboT4pNrGuJzW1a3EzYfW8FU0YDdDStXOEFB5PKS3BvAendJbysI3NNoPqGkXCKQWE7gkLkdNPLJ3ksDE9hRpvJSwYBhLqvBG9pn6Tc1bR/WHWrl4tFAAAAP+2wxE6Uj6WY/nDsRDbSot1BLQv</DTS:Password>
     </DTS:ConnectionManager>
   </DTS:ObjectData>
 </DTS:ConnectionManager>
