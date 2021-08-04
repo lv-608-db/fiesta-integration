@@ -11,11 +11,28 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="147"
-  DTS:VersionGUID="{14A44F7B-6D71-4879-A546-5A0026791AE2}">
+  DTS:VersionBuild="148"
+  DTS:VersionGUID="{B04B5B53-0A5C-45EC-94E5-E684C408911B}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[192.168.195.147.Lv-608DB_Staging.Lv-608.DB]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{9902F0FF-C52A-437A-AEBF-55BA5F1BC34A}"
+      DTS:ObjectName="192.168.195.147.Lv-608DB_Staging.Lv-608.DB">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=192.168.195.147;User ID=Lv-608.DB;Initial Catalog=Lv-608DB_Staging;Provider=SQLNCLI11.1;Persist Security Info=True;Auto Translate=False;">
+          <DTS:Password
+            DTS:Name="Password"
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAaMTeypuApEyJbYCzW7BcSQAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAACoBVRnk9Ae4T7htpxmQyb3AAAAAASAAACgAAAAEAAAAINAAXnXb2QPYM1TjSiFhXEYAAAA2SCJaA/FS8jW7GWq5cx2zGSQ5P65xx+IFAAAAP9LaqLq98eaVtRSrKiaIdVA3U2X</DTS:Password>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
     <DTS:ConnectionManager
       DTS:refId="Package.ConnectionManagers[Flat File Connection Manager]"
       DTS:CreationName="FLATFILE"
@@ -350,8 +367,8 @@
                   <connections>
                     <connection
                       refId="Package\Foreach Loop Container\LoadDiscountsToPrestaging\CustomersDestination.Connections[OleDbConnection]"
-                      connectionManagerID="{A8AFA32B-057A-488D-AFE5-25A41AD36569}:external"
-                      connectionManagerRefId="Project.ConnectionManagers[192.168.195.147.Lv-608DB_Staging.Lv-608.DB 1]"
+                      connectionManagerID="Package.ConnectionManagers[192.168.195.147.Lv-608DB_Staging.Lv-608.DB]"
+                      connectionManagerRefId="Package.ConnectionManagers[192.168.195.147.Lv-608DB_Staging.Lv-608.DB]"
                       description="The OLE DB runtime connection used to access the database."
                       name="OleDbConnection" />
                   </connections>

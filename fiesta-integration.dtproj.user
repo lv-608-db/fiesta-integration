@@ -8,8 +8,30 @@
         <UseWinAuth>false</UseWinAuth>
         <WinAuthUserName />
         <WinAuthDomain />
-        <UserIDs />
-        <UserPasswords />
+        <UserIDs>
+          <ConfigurationSetting>
+            <Id>{A8AFA32B-057A-488D-AFE5-25A41AD36569}</Id>
+            <Name>{A8AFA32B-057A-488D-AFE5-25A41AD36569}</Name>
+            <Value xsi:type="xsd:string">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAaMTeypuApEyJbYCzW7BcSQAAAABOAAAAewBBADgAQQBGAEEAMwAyAEIALQAwADUANwBBAC0ANAA4ADgARAAtAEEARgBFADUALQAyADUAQQA0ADEAQQBEADMANgA1ADYAOQB9AAAAA2YAAMAAAAAQAAAAFNNKTYjjrVyl13heaLVP/AAAAAAEgAAAoAAAABAAAABvjtqtKJymIgHzA4SAcjK3GAAAAIZRFOpH4r5KlVaIAPvoPNFVWez3JNnk1BQAAABP7ZJK8Chc+ZYYJNcWvfka5wzeQA==</Value>
+          </ConfigurationSetting>
+          <ConfigurationSetting>
+            <Id>{AFB26CE9-C095-4BCC-90D8-7207A125085F}</Id>
+            <Name>{AFB26CE9-C095-4BCC-90D8-7207A125085F}</Name>
+            <Value xsi:type="xsd:string">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAaMTeypuApEyJbYCzW7BcSQAAAABOAAAAewBBAEYAQgAyADYAQwBFADkALQBDADAAOQA1AC0ANABCAEMAQwAtADkAMABEADgALQA3ADIAMAA3AEEAMQAyADUAMAA4ADUARgB9AAAAA2YAAMAAAAAQAAAAWbZgzN2nxpHYOfYld+ZKLgAAAAAEgAAAoAAAABAAAAA8e6sv4+UgI+vJ2r9I31i9GAAAADSTpRj97L2otFJ5bG/2DIXWHOMqMVYKzxQAAAAyGXzC1njfsPzXsB3k2sLyJY62Lg==</Value>
+          </ConfigurationSetting>
+        </UserIDs>
+        <UserPasswords>
+          <ConfigurationSetting>
+            <Id>{A8AFA32B-057A-488D-AFE5-25A41AD36569}</Id>
+            <Name>{A8AFA32B-057A-488D-AFE5-25A41AD36569}</Name>
+            <Value xsi:type="xsd:string">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAaMTeypuApEyJbYCzW7BcSQAAAABOAAAAewBBADgAQQBGAEEAMwAyAEIALQAwADUANwBBAC0ANAA4ADgARAAtAEEARgBFADUALQAyADUAQQA0ADEAQQBEADMANgA1ADYAOQB9AAAAA2YAAMAAAAAQAAAAgCBlBUAUnhbR9PfpqKcHcAAAAAAEgAAAoAAAABAAAADv+d98CX4RhgJiBOkBVa9WGAAAAAsEdenHi2rzflItZC9VNTJ0OSygJPOrJRQAAAAZDBweg0DBtdIeY1zHlueSpQ7YYw==</Value>
+          </ConfigurationSetting>
+          <ConfigurationSetting>
+            <Id>{AFB26CE9-C095-4BCC-90D8-7207A125085F}</Id>
+            <Name>{AFB26CE9-C095-4BCC-90D8-7207A125085F}</Name>
+            <Value xsi:type="xsd:string">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAaMTeypuApEyJbYCzW7BcSQAAAABOAAAAewBBAEYAQgAyADYAQwBFADkALQBDADAAOQA1AC0ANABCAEMAQwAtADkAMABEADgALQA3ADIAMAA3AEEAMQAyADUAMAA4ADUARgB9AAAAA2YAAMAAAAAQAAAAQWXXAg1K+q6SZxffjf0l/QAAAAAEgAAAoAAAABAAAABiPxl2qB2LRHbLZCdKzSPnGAAAALTlXRrLkiyy7v2RZWdWolodKEIJe+tVRhQAAABfQHuNiMfyVLvd+Yy2gbCOB2P42w==</Value>
+          </ConfigurationSetting>
+        </UserPasswords>
         <OfflineMode>false</OfflineMode>
         <ProgressReporting>true</ProgressReporting>
         <ParameterConfigurationSensitiveValues>
