@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="LoadSuppliers"
   DTS:PackageType="5"
-  DTS:VersionBuild="34"
-  DTS:VersionGUID="{13E8C086-8DBC-4AF3-B803-648FE621D273}">
+  DTS:VersionBuild="36"
+  DTS:VersionGUID="{30D06514-FFA5-401F-AA0D-A820947EC093}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -25,11 +25,40 @@
         <DTS:ConnectionManager
           DTS:ConnectRetryCount="1"
           DTS:ConnectRetryInterval="5"
-          DTS:ConnectionString="Data Source=192.168.195.147;User ID=Lv-608.DB;Initial Catalog=Administration;Provider=SQLNCLI11.1;Persist Security Info=True;Auto Translate=False;">
+          DTS:ConnectionString="Data Source=192.168.195.147;User ID=Lv-608.DB;Initial Catalog=Administration;Provider=SQLNCLI11.1;Persist Security Info=True;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[192.168.195.147.Lv-608.DB]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{ACC591FF-287A-4FE6-A4EF-3451555D389E}"
+      DTS:ObjectName="192.168.195.147.Lv-608.DB">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=192.168.195.147;User ID=Lv-608.DB;Provider=SQLNCLI11.1;Persist Security Info=True;Auto Translate=False;">
           <DTS:Password
             DTS:Name="Password"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAUIaygVwBKEOgAjs1g4Il9AAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAAAvgBjwEFz6hs1ZuWooUV55AAAAAASAAACgAAAAEAAAAMSi/oKBO1rwi8DHHELchVUYAAAAmhuaZiTZBsrt8dehlVz8oH+Nr/GhITTmFAAAAOoIm5Nn7Y5abWmKljx2VXOUzUja</DTS:Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAaMTeypuApEyJbYCzW7BcSQAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAAC9YpLSsSvP20/+tEDA0BHXAAAAAASAAACgAAAAEAAAAL4jhv4c11ozf/++3wJiYIQYAAAAdBwb/W8hh1HwNdeISuM/1t3sWsuRLE7FFAAAALUQNg6/l4JEx0A7sKBTvojP6/sx</DTS:Password>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[192.168.195.147.Lv-608DB_Staging.Lv-608.DB]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{9D7CA0E0-E58C-4E44-9DF6-B4933C540580}"
+      DTS:ObjectName="192.168.195.147.Lv-608DB_Staging.Lv-608.DB">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=192.168.195.147;User ID=Lv-608.DB;Initial Catalog=Lv-608DB_Staging;Provider=SQLNCLI11.1;Persist Security Info=True;Auto Translate=False;">
+          <DTS:Password
+            DTS:Name="Password"
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAaMTeypuApEyJbYCzW7BcSQAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAABAmV5g4qrC7bB9hNh0yGiSAAAAAASAAACgAAAAEAAAAKtfOiySFu4gr6t67vHj1UcYAAAARTNNfL62JEx7fY1wbo8CXXuj+F7XhAEPFAAAAEAzzD+IUEjxXzS7Mi6xBL9N8+nl</DTS:Password>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -109,12 +138,7 @@
         <DTS:ConnectionManager
           DTS:ConnectRetryCount="1"
           DTS:ConnectRetryInterval="5"
-          DTS:ConnectionString="Data Source=192.168.195.147;User ID=Lv-608.DB;Initial Catalog=Lv-608DB_Staging;Provider=SQLNCLI11.1;Persist Security Info=True;Auto Translate=False;">
-          <DTS:Password
-            DTS:Name="Password"
-            Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAUIaygVwBKEOgAjs1g4Il9AAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAABmuXP4TMhmoZTfUSl9NhLZAAAAAASAAACgAAAAEAAAAGkrkUKk1+PJhBfKW3oTBvMYAAAAKEOU2gZbrlhbmoyeRbLNub8CISES5S8QFAAAAN0+eWQdJbwgI7g+JMeiFbL5im12</DTS:Password>
-        </DTS:ConnectionManager>
+          DTS:ConnectionString="Data Source=192.168.195.147;User ID=Lv-608.DB;Initial Catalog=Lv-608DB_Staging;Provider=SQLNCLI11.1;Persist Security Info=True;Auto Translate=False;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
   </DTS:ConnectionManagers>
@@ -375,8 +399,8 @@
                   <connections>
                     <connection
                       refId="Package\ForeachFileMaskSuppliers\LoadSuppleirsFromPendingToPrestaig\LV Warehouse Prestaiging.Connections[OleDbConnection]"
-                      connectionManagerID="Package.ConnectionManagers[LW WH prestaiging_suppliers]"
-                      connectionManagerRefId="Package.ConnectionManagers[LW WH prestaiging_suppliers]"
+                      connectionManagerID="{A8AFA32B-057A-488D-AFE5-25A41AD36569}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[192.168.195.147.Lv-608DB_Staging.Lv-608.DB 1]"
                       description="The OLE DB runtime connection used to access the database."
                       name="OleDbConnection" />
                   </connections>
@@ -924,15 +948,15 @@
       <GraphLayout
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="146,42"
+          Size="145.6,41.6"
           Id="Package\ForeachFileMaskSuppliers\LoadSummary"
           TopLeft="61,152" />
         <NodeLayout
-          Size="269,42"
+          Size="268.8,41.6"
           Id="Package\ForeachFileMaskSuppliers\LoadSuppleirsFromPendingToPrestaig"
           TopLeft="42,5.5" />
         <NodeLayout
-          Size="189,42"
+          Size="188.8,41.6"
           Id="Package\ForeachFileMaskSuppliers\MoveFileToProcessed"
           TopLeft="64,85" />
         <EdgeLayout
@@ -1006,20 +1030,20 @@
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="461,282"
-          Size="461,325"
+          PanelSize="460.8,281.6"
+          Size="460.8,324.8"
           Id="Package\ForeachFileMaskSuppliers"
           TopLeft="294,104.5" />
         <NodeLayout
-          Size="160,42"
+          Size="160,41.6"
           Id="Package\LogProcessStart"
           TopLeft="443,3" />
         <NodeLayout
-          Size="160,42"
+          Size="160,41.6"
           Id="Package\LopProcessStop"
           TopLeft="116,308" />
         <NodeLayout
-          Size="149,42"
+          Size="148.8,41.6"
           Id="Package\Truncate table"
           TopLeft="556,59" />
         <EdgeLayout
@@ -1127,15 +1151,15 @@
       <GraphLayout
         Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="148,42"
+          Size="148,41.6"
           Id="Package\ForeachFileMaskSuppliers\LoadSuppleirsFromPendingToPrestaig\Suppliers_csv"
           TopLeft="340,41" />
         <NodeLayout
-          Size="133,42"
+          Size="132.8,41.6"
           Id="Package\ForeachFileMaskSuppliers\LoadSuppleirsFromPendingToPrestaig\Row Count"
           TopLeft="522,92" />
         <NodeLayout
-          Size="202,42"
+          Size="201.6,41.6"
           Id="Package\ForeachFileMaskSuppliers\LoadSuppleirsFromPendingToPrestaig\LV Warehouse Prestaiging"
           TopLeft="349,193" />
         <EdgeLayout

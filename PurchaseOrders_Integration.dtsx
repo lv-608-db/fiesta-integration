@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="31"
-  DTS:VersionGUID="{2B55E87D-D4E5-4260-8099-1FF0D7656A17}">
+  DTS:VersionBuild="33"
+  DTS:VersionGUID="{592D6520-6881-434C-8AEB-7914DC560071}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -29,7 +29,7 @@
           <DTS:Password
             DTS:Name="Password"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAaMTeypuApEyJbYCzW7BcSQAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAACoXiPXmWmaq7TnTPywuUYiAAAAAASAAACgAAAAEAAAANh3pYoiybMqhLy8iXQBd6oYAAAAWwkjfp9AzmSVDqm2LJbpViDOqtSMNsk/FAAAAJ65dF73S+tFY71F2H4Ce2eZDI4h</DTS:Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAaMTeypuApEyJbYCzW7BcSQAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAACXx4S985xUz33ufDLUkKjZAAAAAASAAACgAAAAEAAAAMVxVv+cQL/RVZLYtmSGQlwYAAAA/LslkbkljARZkXwupHBGFXvvmxt6IPm8FAAAAOBW14jT6KHt6UpWXxiuOcpKmdyk</DTS:Password>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -46,7 +46,7 @@
           <DTS:Password
             DTS:Name="Password"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAaMTeypuApEyJbYCzW7BcSQAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAADUqJ7i4HWQE//YVBBryrtuAAAAAASAAACgAAAAEAAAABf63ytBsN6e2dIKweNDRWgYAAAAgK0XRsvrB1160z3AoaN4YwGZ5i2z0BlwFAAAAJzr6NSROX2/cCuOS4+cp1AKhCy3</DTS:Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAaMTeypuApEyJbYCzW7BcSQAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAAAXTCIVa3HyQsAunMyj6aZ8AAAAAASAAACgAAAAEAAAAPAwpJ/rOIAKit6+O4WbolsYAAAAFZWr7HeDcZnMzlBkONbDW5sn3a7tyfw7FAAAAOgC9vSkxGn1oNh9zQB/ZnoIQ+9I</DTS:Password>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -563,8 +563,8 @@
                   <connections>
                     <connection
                       refId="Package\Foreach PurchaseOrders file\Load PurchaseOrders\OLE DB Destination.Connections[OleDbConnection]"
-                      connectionManagerID="Package.ConnectionManagers[192.168.195.147.Lv-608.DB]"
-                      connectionManagerRefId="Package.ConnectionManagers[192.168.195.147.Lv-608.DB]"
+                      connectionManagerID="{A8AFA32B-057A-488D-AFE5-25A41AD36569}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[192.168.195.147.Lv-608DB_Staging.Lv-608.DB 1]"
                       description="The OLE DB runtime connection used to access the database."
                       name="OleDbConnection" />
                   </connections>
