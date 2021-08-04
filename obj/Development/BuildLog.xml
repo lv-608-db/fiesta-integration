@@ -2,28 +2,38 @@
 <BuildLog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <ProjectInfo>
     <Name>fiesta-integration</Name>
-    <LastWriteTime>2021-08-04T09:54:23.4800016Z</LastWriteTime>
+    <LastWriteTime>2021-08-04T12:46:25.9547029Z</LastWriteTime>
     <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
   </ProjectInfo>
   <LastBuildInfos>
     <ProjectBuildItemInfo>
       <Name>PurchaseOrders_Integration.dtsx</Name>
-      <LastWriteTime>2021-08-04T08:51:28.8314518Z</LastWriteTime>
+      <LastWriteTime>2021-08-04T12:23:32.9477854Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>Main.dtsx</Name>
-      <LastWriteTime>2021-08-04T08:51:28.8284502Z</LastWriteTime>
+      <LastWriteTime>2021-08-04T12:23:32.9437795Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>LoadSuppliers.dtsx</Name>
-      <LastWriteTime>2021-08-04T09:11:27.9395955Z</LastWriteTime>
+      <LastWriteTime>2021-08-04T12:23:32.9417852Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>DiscountsToPrestage (1).dtsx</Name>
-      <LastWriteTime>2021-08-04T09:47:29.3846824Z</LastWriteTime>
+      <LastWriteTime>2021-08-04T12:23:32.9397819Z</LastWriteTime>
+      <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
+    </ProjectBuildItemInfo>
+    <ProjectBuildItemInfo>
+      <Name>CustomersToPrestag.dtsx</Name>
+      <LastWriteTime>2021-08-04T12:23:32.9367804Z</LastWriteTime>
+      <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
+    </ProjectBuildItemInfo>
+    <ProjectBuildItemInfo>
+      <Name>Package.dtsx</Name>
+      <LastWriteTime>2021-08-04T12:46:25.8907124Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
   </LastBuildInfos>
