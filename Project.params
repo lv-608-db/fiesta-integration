@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0"?>
 <SSIS:Parameters xmlns:SSIS="www.microsoft.com/SqlServer/SSIS">
   <SSIS:Parameter
-    SSIS:Name="FileName">
+    SSIS:Name="FileNameDiscounts">
     <SSIS:Properties>
       <SSIS:Property
         SSIS:Name="ID">{63369b35-5ee8-4929-822d-2c6a7297c614}</SSIS:Property>

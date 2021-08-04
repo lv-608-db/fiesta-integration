@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="143"
-  DTS:VersionGUID="{92245F14-9CD2-4350-A44B-76D3EE6EB0C5}">
+  DTS:VersionBuild="145"
+  DTS:VersionGUID="{C5EEA727-74D4-4853-A21A-F41AE957EF5F}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -109,7 +109,7 @@
       DTS:CreationName=""
       DTS:DTSID="{387CC3B2-D9F9-4E40-8B74-CD76C66035FB}"
       DTS:EvaluateAsExpression="True"
-      DTS:Expression="@[$Project::FileDestinationPath]+ @[$Project::FileName]"
+      DTS:Expression="@[$Project::FileDestinationPath]+  @[$Project::FileNameDiscounts]"
       DTS:IncludeInDebugDump="2345"
       DTS:Namespace="User"
       DTS:ObjectName="DiscountsDestinationFullNamePath">
@@ -120,7 +120,7 @@
       DTS:CreationName=""
       DTS:DTSID="{D9EE74B0-DC32-4B2A-BD45-046AC544C77A}"
       DTS:EvaluateAsExpression="True"
-      DTS:Expression="@[$Project::FileSourcePath] + @[$Project::FileName]"
+      DTS:Expression="@[$Project::FileSourcePath] + @[$Project::FileNameDiscounts]"
       DTS:IncludeInDebugDump="2345"
       DTS:Namespace="User"
       DTS:ObjectName="DiscountsSourceFullNamePath">
@@ -142,7 +142,7 @@
       DTS:CreationName=""
       DTS:DTSID="{5781AA14-EC96-47E7-87C6-5EB20510EA91}"
       DTS:EvaluateAsExpression="True"
-      DTS:Expression="@[$Project::FileName]"
+      DTS:Expression="@[$Project::FileNameDiscounts]"
       DTS:IncludeInDebugDump="2345"
       DTS:Namespace="User"
       DTS:ObjectName="FileName">
@@ -223,7 +223,7 @@
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{8399F531-DD3B-43DC-B4BF-DE1111483807}"
+          SQLTask:Connection="{E99A4768-7D34-45FA-B745-C6C5DD6401F4}"
           SQLTask:SqlStatementSource="EXEC [dbo].[spr_SSISLogProcess]  ?, 'STOP',  ?, ?" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
           <SQLTask:ParameterBinding
             SQLTask:ParameterName="0"
@@ -329,7 +329,7 @@
                       dataType="System.Int32"
                       description="Specifies the mode used to access the database."
                       name="AccessMode"
-                      typeConverter="AccessMode">0</property>
+                      typeConverter="AccessMode">3</property>
                     <property
                       dataType="System.Boolean"
                       description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
@@ -350,8 +350,8 @@
                   <connections>
                     <connection
                       refId="Package\Foreach Loop Container\LoadDiscountsToPrestaging\CustomersDestination.Connections[OleDbConnection]"
-                      connectionManagerID="{92D82D3E-B01E-4DC2-B52B-816DF6155F5D}:invalid"
-                      connectionManagerRefId="{92D82D3E-B01E-4DC2-B52B-816DF6155F5D}:invalid"
+                      connectionManagerID="{A8AFA32B-057A-488D-AFE5-25A41AD36569}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[192.168.195.147.Lv-608DB_Staging.Lv-608.DB 1]"
                       description="The OLE DB runtime connection used to access the database."
                       name="OleDbConnection" />
                   </connections>
@@ -711,7 +711,7 @@
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
-              SQLTask:Connection="{8399F531-DD3B-43DC-B4BF-DE1111483807}"
+              SQLTask:Connection="{E99A4768-7D34-45FA-B745-C6C5DD6401F4}"
               SQLTask:SqlStatementSource="INSERT INTO [Administration].[dbo].[LoadSummary] (LoadID, LoadDateTime, FileName, TableName, [RowCount] , Process)&#xA;VALUES ((SELECT MAX(LoadId) FROM [Administration].[dbo].[Load_Run]), GETDATE(), ?, ?, ?, 'File Load' )" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
               <SQLTask:ParameterBinding
                 SQLTask:ParameterName="0"
@@ -1065,13 +1065,13 @@
       <GraphLayout
         Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="164,41.6"
-          Id="Package\Foreach Loop Container\LoadDiscountsToPrestaging\Flat File Discounts"
-          TopLeft="409.999983708065,93.6000007438656" />
-        <NodeLayout
           Size="129.6,41.6"
           Id="Package\Foreach Loop Container\LoadDiscountsToPrestaging\Row Count"
           TopLeft="535.83331204123,177.666668078635" />
+        <NodeLayout
+          Size="164,41.6"
+          Id="Package\Foreach Loop Container\LoadDiscountsToPrestaging\Flat File Discounts"
+          TopLeft="409.999983708065,93.6000007438656" />
         <NodeLayout
           Size="180.8,41.6"
           Id="Package\Foreach Loop Container\LoadDiscountsToPrestaging\CustomersDestination"
