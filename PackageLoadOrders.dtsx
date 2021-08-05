@@ -1,0 +1,1370 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="7/23/2021 1:40:53 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="RD8"
+  DTS:CreatorName="TRAINING\hkositc"
+  DTS:DTSID="{356DC4CE-0A85-4381-A537-884CBD3429E5}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.167"
+  DTS:LocaleID="1033"
+  DTS:MaxErrorCount="2"
+  DTS:ObjectName="PackageLoadOrders"
+  DTS:PackageType="5"
+  DTS:VersionBuild="60"
+  DTS:VersionGUID="{61472230-2810-4329-AF5F-D828EE622893}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[192.168.195.147.Administration.Lv-608.DB]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{53946858-EE65-4423-B874-5E2B87D889E8}"
+      DTS:ObjectName="192.168.195.147.Administration.Lv-608.DB">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=192.168.195.147;User ID=Lv-608.DB;Initial Catalog=Administration;Provider=SQLNCLI11.1;Persist Security Info=True;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[192.168.195.147.Lv-608DB_Staging.Lv-608.DB 1]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{B8EECDF3-17FB-47F7-BD2C-8B86FE4C3779}"
+      DTS:ObjectName="192.168.195.147.Lv-608DB_Staging.Lv-608.DB 1">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=192.168.195.147;User ID=Lv-608.DB;Initial Catalog=Lv-608DB_Staging;Provider=SQLNCLI11.1;Persist Security Info=True;Auto Translate=False;">
+          <DTS:Password
+            DTS:Name="Password"
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAaMTeypuApEyJbYCzW7BcSQAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAABfihq2ppr1cuGIknflN824AAAAAASAAACgAAAAEAAAAIJLDH1n4iAxaT3pLkzQTlgYAAAAvV/nTdu78BQWsSDVxdCWcZr8xPIv17irFAAAADCIYokj1y/wnuBj4iSbtE71+RmE</DTS:Password>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Flat File Connection Manager]"
+      DTS:CreationName="FLATFILE"
+      DTS:DelayValidation="True"
+      DTS:DTSID="{32E63BFD-D89A-40AA-AEA7-A10B8A636A8F}"
+      DTS:ObjectName="Flat File Connection Manager">
+      <DTS:PropertyExpression
+        DTS:Name="ConnectionString">@[User::FullFileName]</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1033"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="65001"
+          DTS:ConnectionString="C:\fiesta\InputData_LV_608\Pending\Orders_????????.csv">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="255"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="OrderID"
+              DTS:DTSID="{46C80C4F-7F60-4FF8-B1F0-A1F64BDC4691}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="255"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="CustomerID"
+              DTS:DTSID="{18FABCBF-401C-4860-98EB-48C8471D4EFC}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="255"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="TotalCost"
+              DTS:DTSID="{CBF88589-9023-455C-9CB8-09021FAF03DA}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="255"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="TotalDiscount"
+              DTS:DTSID="{10F7570B-EC86-4749-A014-51B97C07626B}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="255"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="EmployeeID"
+              DTS:DTSID="{485BCA0E-99BE-4AF1-93F9-9C896E41C4D6}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="255"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="OrderData"
+              DTS:DTSID="{111759AD-1AEC-45B6-B5DC-9BE72B8651F2}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="255"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="InvoiceData"
+              DTS:DTSID="{C9C4BF81-EAE9-4D7C-B018-D880F99EFB1E}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="255"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="PaymentMethod"
+              DTS:DTSID="{9D4BE1BB-86E8-464E-976B-3635D4C0FAC9}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Processed 1]"
+      DTS:CreationName="FILE"
+      DTS:DTSID="{35F5E0A5-71CB-4267-815A-8B33402252A2}"
+      DTS:ObjectName="Processed 1">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:FileUsageType="2"
+          DTS:ConnectionString="C:\fiesta\InputData_LV_608\Processed\" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{9D776798-3E97-4014-B371-B22FC8F4311C}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="FileName">
+      <DTS:VariableValue
+        DTS:DataType="8">Orders_????????.csv</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{9A209904-BDC3-4119-9A8B-5949B2523386}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="FileSourceFolder">
+      <DTS:VariableValue
+        DTS:DataType="8">C:\fiesta\InputData_LV_608\Pending\</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{A3B0225D-8985-451A-844F-BCDB2D6EB0B8}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="@[User::FileSourceFolder]+ @[User::FileName]"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="FullFileName">
+      <DTS:VariableValue
+        DTS:DataType="8">C:\fiesta\InputData_LV_608\Pending\Orders_????????.csv</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{1AC65623-A017-4D56-9062-320DF20C5E96}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="RowCount">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{B85398A3-DBA5-4EEB-885A-2E517899A192}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="TableName">
+      <DTS:VariableValue
+        DTS:DataType="8">Orders</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\ForeachOrderFile"
+      DTS:CreationName="STOCK:FOREACHLOOP"
+      DTS:Description="Foreach Loop Container"
+      DTS:DTSID="{90DBC295-8D1A-4588-A549-FC0D768ED448}"
+      DTS:ExecutableType="STOCK:FOREACHLOOP"
+      DTS:LocaleID="-1"
+      DTS:MaxErrorCount="2"
+      DTS:ObjectName="ForeachOrderFile">
+      <DTS:ForEachEnumerator
+        DTS:CreationName="Microsoft.ForEachFileEnumerator"
+        DTS:DTSID="{1FEA1BBB-A99E-49E3-9880-14CA0E20E88D}"
+        DTS:ObjectName="{1FEA1BBB-A99E-49E3-9880-14CA0E20E88D}">
+        <DTS:PropertyExpression
+          DTS:Name="Directory">@[User::FileSourceFolder]</DTS:PropertyExpression>
+        <DTS:PropertyExpression
+          DTS:Name="Name">@[User::FileName]</DTS:PropertyExpression>
+        <DTS:ObjectData>
+          <ForEachFileEnumeratorProperties>
+            <FEFEProperty
+              Folder="C:\fiesta\InputData_LV_608\Pending\" />
+            <FEFEProperty
+              FileSpec="Orders_????????.csv" />
+            <FEFEProperty
+              FileNameRetrievalType="1" />
+            <FEFEProperty
+              Recurse="0" />
+          </ForEachFileEnumeratorProperties>
+        </DTS:ObjectData>
+      </DTS:ForEachEnumerator>
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\ForeachOrderFile\LoadOrdersToPrestaging"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{CFE4C394-8297-4490-8143-7CD584114462}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="LoadOrdersToPrestaging"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\ForeachOrderFile\LoadOrdersToPrestaging\Flat File Source"
+                  componentClassID="Microsoft.FlatFileSource"
+                  contactInfo="Flat File Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+                  description="Flat File Source"
+                  localeId="1033"
+                  name="Flat File Source"
+                  usesDispositions="true"
+                  version="1">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      description="Specifies whether zero-length columns are treated as null."
+                      name="RetainNulls">true</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of an output column containing the file name. If no name is specified, no output column containing the file name will be generated."
+                      name="FileNameColumnName"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\ForeachOrderFile\LoadOrdersToPrestaging\Flat File Source.Connections[FlatFileConnection]"
+                      connectionManagerID="Package.ConnectionManagers[Flat File Connection Manager]"
+                      connectionManagerRefId="Package.ConnectionManagers[Flat File Connection Manager]"
+                      name="FlatFileConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\ForeachOrderFile\LoadOrdersToPrestaging\Flat File Source.Outputs[Flat File Source Output]"
+                      name="Flat File Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\ForeachOrderFile\LoadOrdersToPrestaging\Flat File Source.Outputs[Flat File Source Output].Columns[OrderID]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\ForeachOrderFile\LoadOrdersToPrestaging\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[OrderID]"
+                          length="255"
+                          lineageId="Package\ForeachOrderFile\LoadOrdersToPrestaging\Flat File Source.Outputs[Flat File Source Output].Columns[OrderID]"
+                          name="OrderID"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\ForeachOrderFile\LoadOrdersToPrestaging\Flat File Source.Outputs[Flat File Source Output].Columns[CustomerID]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\ForeachOrderFile\LoadOrdersToPrestaging\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[CustomerID]"
+                          length="255"
+                          lineageId="Package\ForeachOrderFile\LoadOrdersToPrestaging\Flat File Source.Outputs[Flat File Source Output].Columns[CustomerID]"
+                          name="CustomerID"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\ForeachOrderFile\LoadOrdersToPrestaging\Flat File Source.Outputs[Flat File Source Output].Columns[TotalCost]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\ForeachOrderFile\LoadOrdersToPrestaging\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[TotalCost]"
+                          length="255"
+                          lineageId="Package\ForeachOrderFile\LoadOrdersToPrestaging\Flat File Source.Outputs[Flat File Source Output].Columns[TotalCost]"
+                          name="TotalCost"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\ForeachOrderFile\LoadOrdersToPrestaging\Flat File Source.Outputs[Flat File Source Output].Columns[TotalDiscount]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\ForeachOrderFile\LoadOrdersToPrestaging\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[TotalDiscount]"
+                          length="255"
+                          lineageId="Package\ForeachOrderFile\LoadOrdersToPrestaging\Flat File Source.Outputs[Flat File Source Output].Columns[TotalDiscount]"
+                          name="TotalDiscount"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\ForeachOrderFile\LoadOrdersToPrestaging\Flat File Source.Outputs[Flat File Source Output].Columns[EmployeeID]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\ForeachOrderFile\LoadOrdersToPrestaging\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[EmployeeID]"
+                          length="255"
+                          lineageId="Package\ForeachOrderFile\LoadOrdersToPrestaging\Flat File Source.Outputs[Flat File Source Output].Columns[EmployeeID]"
+                          name="EmployeeID"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\ForeachOrderFile\LoadOrdersToPrestaging\Flat File Source.Outputs[Flat File Source Output].Columns[OrderData]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\ForeachOrderFile\LoadOrdersToPrestaging\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[OrderData]"
+                          length="255"
+                          lineageId="Package\ForeachOrderFile\LoadOrdersToPrestaging\Flat File Source.Outputs[Flat File Source Output].Columns[OrderData]"
+                          name="OrderData"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\ForeachOrderFile\LoadOrdersToPrestaging\Flat File Source.Outputs[Flat File Source Output].Columns[InvoiceData]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\ForeachOrderFile\LoadOrdersToPrestaging\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[InvoiceData]"
+                          length="255"
+                          lineageId="Package\ForeachOrderFile\LoadOrdersToPrestaging\Flat File Source.Outputs[Flat File Source Output].Columns[InvoiceData]"
+                          name="InvoiceData"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\ForeachOrderFile\LoadOrdersToPrestaging\Flat File Source.Outputs[Flat File Source Output].Columns[PaymentMethod]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\ForeachOrderFile\LoadOrdersToPrestaging\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[PaymentMethod]"
+                          length="255"
+                          lineageId="Package\ForeachOrderFile\LoadOrdersToPrestaging\Flat File Source.Outputs[Flat File Source Output].Columns[PaymentMethod]"
+                          name="PaymentMethod"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\ForeachOrderFile\LoadOrdersToPrestaging\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[OrderID]"
+                          dataType="wstr"
+                          length="255"
+                          name="OrderID" />
+                        <externalMetadataColumn
+                          refId="Package\ForeachOrderFile\LoadOrdersToPrestaging\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[CustomerID]"
+                          dataType="wstr"
+                          length="255"
+                          name="CustomerID" />
+                        <externalMetadataColumn
+                          refId="Package\ForeachOrderFile\LoadOrdersToPrestaging\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[TotalCost]"
+                          dataType="wstr"
+                          length="255"
+                          name="TotalCost" />
+                        <externalMetadataColumn
+                          refId="Package\ForeachOrderFile\LoadOrdersToPrestaging\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[TotalDiscount]"
+                          dataType="wstr"
+                          length="255"
+                          name="TotalDiscount" />
+                        <externalMetadataColumn
+                          refId="Package\ForeachOrderFile\LoadOrdersToPrestaging\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[EmployeeID]"
+                          dataType="wstr"
+                          length="255"
+                          name="EmployeeID" />
+                        <externalMetadataColumn
+                          refId="Package\ForeachOrderFile\LoadOrdersToPrestaging\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[OrderData]"
+                          dataType="wstr"
+                          length="255"
+                          name="OrderData" />
+                        <externalMetadataColumn
+                          refId="Package\ForeachOrderFile\LoadOrdersToPrestaging\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[InvoiceData]"
+                          dataType="wstr"
+                          length="255"
+                          name="InvoiceData" />
+                        <externalMetadataColumn
+                          refId="Package\ForeachOrderFile\LoadOrdersToPrestaging\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[PaymentMethod]"
+                          dataType="wstr"
+                          length="255"
+                          name="PaymentMethod" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\ForeachOrderFile\LoadOrdersToPrestaging\Flat File Source.Outputs[Flat File Source Error Output]"
+                      isErrorOut="true"
+                      name="Flat File Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\ForeachOrderFile\LoadOrdersToPrestaging\Flat File Source.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                          codePage="65001"
+                          dataType="text"
+                          description="Flat File Source Error Output Column"
+                          lineageId="Package\ForeachOrderFile\LoadOrdersToPrestaging\Flat File Source.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                          name="Flat File Source Error Output Column" />
+                        <outputColumn
+                          refId="Package\ForeachOrderFile\LoadOrdersToPrestaging\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\ForeachOrderFile\LoadOrdersToPrestaging\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\ForeachOrderFile\LoadOrdersToPrestaging\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\ForeachOrderFile\LoadOrdersToPrestaging\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\ForeachOrderFile\LoadOrdersToPrestaging\OLE DB Destination"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="OLE DB Destination"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[prestaging].[Orders]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">3</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\ForeachOrderFile\LoadOrdersToPrestaging\OLE DB Destination.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[192.168.195.147.Lv-608DB_Staging.Lv-608.DB 1]"
+                      connectionManagerRefId="Package.ConnectionManagers[192.168.195.147.Lv-608DB_Staging.Lv-608.DB 1]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\ForeachOrderFile\LoadOrdersToPrestaging\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\ForeachOrderFile\LoadOrdersToPrestaging\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[OrderID]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="OrderID"
+                          externalMetadataColumnId="Package\ForeachOrderFile\LoadOrdersToPrestaging\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[OrderID]"
+                          lineageId="Package\ForeachOrderFile\LoadOrdersToPrestaging\Flat File Source.Outputs[Flat File Source Output].Columns[OrderID]" />
+                        <inputColumn
+                          refId="Package\ForeachOrderFile\LoadOrdersToPrestaging\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[CustomerID]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="CustomerID"
+                          externalMetadataColumnId="Package\ForeachOrderFile\LoadOrdersToPrestaging\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CustomerID]"
+                          lineageId="Package\ForeachOrderFile\LoadOrdersToPrestaging\Flat File Source.Outputs[Flat File Source Output].Columns[CustomerID]" />
+                        <inputColumn
+                          refId="Package\ForeachOrderFile\LoadOrdersToPrestaging\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[TotalCost]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="TotalCost"
+                          externalMetadataColumnId="Package\ForeachOrderFile\LoadOrdersToPrestaging\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[TotalCost]"
+                          lineageId="Package\ForeachOrderFile\LoadOrdersToPrestaging\Flat File Source.Outputs[Flat File Source Output].Columns[TotalCost]" />
+                        <inputColumn
+                          refId="Package\ForeachOrderFile\LoadOrdersToPrestaging\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[TotalDiscount]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="TotalDiscount"
+                          externalMetadataColumnId="Package\ForeachOrderFile\LoadOrdersToPrestaging\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[TotalDiscount]"
+                          lineageId="Package\ForeachOrderFile\LoadOrdersToPrestaging\Flat File Source.Outputs[Flat File Source Output].Columns[TotalDiscount]" />
+                        <inputColumn
+                          refId="Package\ForeachOrderFile\LoadOrdersToPrestaging\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[EmployeeID]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="EmployeeID"
+                          externalMetadataColumnId="Package\ForeachOrderFile\LoadOrdersToPrestaging\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[EmployeeID]"
+                          lineageId="Package\ForeachOrderFile\LoadOrdersToPrestaging\Flat File Source.Outputs[Flat File Source Output].Columns[EmployeeID]" />
+                        <inputColumn
+                          refId="Package\ForeachOrderFile\LoadOrdersToPrestaging\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[OrderData]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="OrderData"
+                          externalMetadataColumnId="Package\ForeachOrderFile\LoadOrdersToPrestaging\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[OrderData]"
+                          lineageId="Package\ForeachOrderFile\LoadOrdersToPrestaging\Flat File Source.Outputs[Flat File Source Output].Columns[OrderData]" />
+                        <inputColumn
+                          refId="Package\ForeachOrderFile\LoadOrdersToPrestaging\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[InvoiceData]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="InvoiceData"
+                          externalMetadataColumnId="Package\ForeachOrderFile\LoadOrdersToPrestaging\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[InvoiceData]"
+                          lineageId="Package\ForeachOrderFile\LoadOrdersToPrestaging\Flat File Source.Outputs[Flat File Source Output].Columns[InvoiceData]" />
+                        <inputColumn
+                          refId="Package\ForeachOrderFile\LoadOrdersToPrestaging\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[PaymentMethod]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="PaymentMethod"
+                          externalMetadataColumnId="Package\ForeachOrderFile\LoadOrdersToPrestaging\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[PaymentMethod]"
+                          lineageId="Package\ForeachOrderFile\LoadOrdersToPrestaging\Flat File Source.Outputs[Flat File Source Output].Columns[PaymentMethod]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\ForeachOrderFile\LoadOrdersToPrestaging\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[OrderID]"
+                          dataType="wstr"
+                          length="255"
+                          name="OrderID" />
+                        <externalMetadataColumn
+                          refId="Package\ForeachOrderFile\LoadOrdersToPrestaging\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CustomerID]"
+                          dataType="wstr"
+                          length="255"
+                          name="CustomerID" />
+                        <externalMetadataColumn
+                          refId="Package\ForeachOrderFile\LoadOrdersToPrestaging\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[TotalCost]"
+                          dataType="wstr"
+                          length="255"
+                          name="TotalCost" />
+                        <externalMetadataColumn
+                          refId="Package\ForeachOrderFile\LoadOrdersToPrestaging\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[TotalDiscount]"
+                          dataType="wstr"
+                          length="255"
+                          name="TotalDiscount" />
+                        <externalMetadataColumn
+                          refId="Package\ForeachOrderFile\LoadOrdersToPrestaging\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[EmployeeID]"
+                          dataType="wstr"
+                          length="255"
+                          name="EmployeeID" />
+                        <externalMetadataColumn
+                          refId="Package\ForeachOrderFile\LoadOrdersToPrestaging\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[OrderData]"
+                          dataType="wstr"
+                          length="255"
+                          name="OrderData" />
+                        <externalMetadataColumn
+                          refId="Package\ForeachOrderFile\LoadOrdersToPrestaging\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[InvoiceData]"
+                          dataType="wstr"
+                          length="255"
+                          name="InvoiceData" />
+                        <externalMetadataColumn
+                          refId="Package\ForeachOrderFile\LoadOrdersToPrestaging\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[PaymentMethod]"
+                          dataType="wstr"
+                          length="255"
+                          name="PaymentMethod" />
+                        <externalMetadataColumn
+                          refId="Package\ForeachOrderFile\LoadOrdersToPrestaging\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[StagID]"
+                          dataType="i4"
+                          name="StagID" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\ForeachOrderFile\LoadOrdersToPrestaging\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\ForeachOrderFile\LoadOrdersToPrestaging\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\ForeachOrderFile\LoadOrdersToPrestaging\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\ForeachOrderFile\LoadOrdersToPrestaging\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\ForeachOrderFile\LoadOrdersToPrestaging\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\ForeachOrderFile\LoadOrdersToPrestaging\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\ForeachOrderFile\LoadOrdersToPrestaging\Row Count"
+                  componentClassID="Microsoft.RowCount"
+                  contactInfo="Row Count;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Counts rows as they pass through a data flow. For example, use the number of rows processed to determine whether or not to perform cleanup operations, or update text in an e-mail message to communicate processing status."
+                  name="Row Count">
+                  <properties>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable to hold the row count."
+                      name="VariableName">User::RowCount</property>
+                  </properties>
+                  <inputs>
+                    <input
+                      refId="Package\ForeachOrderFile\LoadOrdersToPrestaging\Row Count.Inputs[Row Count Input 1]"
+                      hasSideEffects="true"
+                      name="Row Count Input 1">
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\ForeachOrderFile\LoadOrdersToPrestaging\Row Count.Outputs[Row Count Output 1]"
+                      name="Row Count Output 1"
+                      synchronousInputId="Package\ForeachOrderFile\LoadOrdersToPrestaging\Row Count.Inputs[Row Count Input 1]">
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\ForeachOrderFile\LoadOrdersToPrestaging.Paths[Flat File Source Output]"
+                  endId="Package\ForeachOrderFile\LoadOrdersToPrestaging\Row Count.Inputs[Row Count Input 1]"
+                  name="Flat File Source Output"
+                  startId="Package\ForeachOrderFile\LoadOrdersToPrestaging\Flat File Source.Outputs[Flat File Source Output]" />
+                <path
+                  refId="Package\ForeachOrderFile\LoadOrdersToPrestaging.Paths[Row Count Output 1]"
+                  endId="Package\ForeachOrderFile\LoadOrdersToPrestaging\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  name="Row Count Output 1"
+                  startId="Package\ForeachOrderFile\LoadOrdersToPrestaging\Row Count.Outputs[Row Count Output 1]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\ForeachOrderFile\LoadSummary"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{0600B892-E922-4D5E-8FFB-3B3B71DBEA2D}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="LoadSummary"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{B8EECDF3-17FB-47F7-BD2C-8B86FE4C3779}"
+              SQLTask:SqlStatementSource="INSERT INTO [Administration].[dbo].[LoadSummary] (LoadID, LoadDateTime, FileName, TableName, [RowCount] , Process)&#xA;VALUES ((SELECT MAX(LoadId) FROM [Administration].[dbo].[Load_Run]), GETDATE(), ?, ?, ?, 'File Load' )" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="0"
+                SQLTask:DtsVariableName="User::FileName"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="130"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="1"
+                SQLTask:DtsVariableName="User::TableName"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="130"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="2"
+                SQLTask:DtsVariableName="User::RowCount"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+            </SQLTask:SqlTaskData>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\ForeachOrderFile\MoveFileToProcessed"
+          DTS:CreationName="Microsoft.FileSystemTask"
+          DTS:DelayValidation="True"
+          DTS:Description="File System Task"
+          DTS:DTSID="{11B27293-2F2D-4FB7-9065-F59C882F7129}"
+          DTS:ExecutableType="Microsoft.FileSystemTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="MoveFileToProcessed"
+          DTS:TaskContact="File System Task;Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <FileSystemData
+              TaskOperationType="MoveFile"
+              TaskSourcePath="User::FullFileName"
+              TaskIsSourceVariable="True"
+              TaskDestinationPath="Processed 1" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\ForeachOrderFile.PrecedenceConstraints[Constraint 1]"
+          DTS:CreationName=""
+          DTS:DTSID="{B867CEF6-54FA-4E87-8CFE-42EF29449A23}"
+          DTS:From="Package\ForeachOrderFile\LoadOrdersToPrestaging"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 1"
+          DTS:To="Package\ForeachOrderFile\MoveFileToProcessed" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\ForeachOrderFile.PrecedenceConstraints[Constraint 2]"
+          DTS:CreationName=""
+          DTS:DTSID="{311E46EA-CE46-4C5E-9034-D38E2F48734F}"
+          DTS:From="Package\ForeachOrderFile\MoveFileToProcessed"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 2"
+          DTS:To="Package\ForeachOrderFile\LoadSummary" />
+      </DTS:PrecedenceConstraints>
+      <DTS:EventHandlers>
+        <DTS:EventHandler
+          DTS:refId="Package\ForeachOrderFile.EventHandlers[OnError]"
+          DTS:CreationName="OnError"
+          DTS:DTSID="{F4219DF4-F976-4C8E-B6AA-BDA09D12F58B}"
+          DTS:EventID="-1"
+          DTS:EventName="OnError"
+          DTS:LocaleID="-1">
+          <DTS:Variables>
+            <DTS:Variable
+              DTS:CreationName=""
+              DTS:Description="The propagate property of the event"
+              DTS:DTSID="{EB9FC9FA-5507-4796-A65F-2E64F5679497}"
+              DTS:IncludeInDebugDump="6789"
+              DTS:Namespace="System"
+              DTS:ObjectName="Propagate">
+              <DTS:VariableValue
+                DTS:DataType="11">-1</DTS:VariableValue>
+            </DTS:Variable>
+          </DTS:Variables>
+          <DTS:Executables />
+        </DTS:EventHandler>
+      </DTS:EventHandlers>
+      <DTS:ForEachVariableMappings>
+        <DTS:ForEachVariableMapping
+          DTS:CreationName=""
+          DTS:DTSID="{7F4BB782-B40B-421B-8E95-0900358DD975}"
+          DTS:ObjectName="{7F4BB782-B40B-421B-8E95-0900358DD975}"
+          DTS:ValueIndex="0"
+          DTS:VariableName="User::FileName" />
+      </DTS:ForEachVariableMappings>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\LogProcessStart"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{015D4945-6427-40FE-9117-DC7554A5F8B7}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="LogProcessStart"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:EventHandlers>
+        <DTS:EventHandler
+          DTS:refId="Package\LogProcessStart.EventHandlers[OnError]"
+          DTS:CreationName="OnError"
+          DTS:DTSID="{7169087F-4A6B-4674-8098-CB523B60610F}"
+          DTS:EventID="0"
+          DTS:EventName="OnError"
+          DTS:LocaleID="-1">
+          <DTS:Variables>
+            <DTS:Variable
+              DTS:CreationName=""
+              DTS:Description="The propagate property of the event"
+              DTS:DTSID="{6B73839A-4095-4C1F-A9F7-50A55AD31AF7}"
+              DTS:IncludeInDebugDump="6789"
+              DTS:Namespace="System"
+              DTS:ObjectName="Propagate">
+              <DTS:VariableValue
+                DTS:DataType="11">-1</DTS:VariableValue>
+            </DTS:Variable>
+          </DTS:Variables>
+          <DTS:Executables />
+        </DTS:EventHandler>
+      </DTS:EventHandlers>
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{E99A4768-7D34-45FA-B745-C6C5DD6401F4}"
+          SQLTask:SqlStatementSource="EXEC [dbo].[spr_SSISLogProcess] @ProcessName='PackageLoadOrders', @ProcessAction='Start'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\LogProcessStop"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{63E1421F-08F3-4271-9DBF-4A0B15A949BA}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="LogProcessStop"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{E99A4768-7D34-45FA-B745-C6C5DD6401F4}"
+          SQLTask:SqlStatementSource="EXEC [dbo].[spr_SSISLogProcess] @ProcessName='PackageLoadOrders', @ProcessAction='STOP',&#xA;@TableName='Orders'&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Truncate table"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{63A92449-ED84-4E20-B2C3-F06EC63E0C59}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Truncate table"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{B8EECDF3-17FB-47F7-BD2C-8B86FE4C3779}"
+          SQLTask:SqlStatementSource="TRUNCATE TABLE [Lv-608DB_Staging].[prestaging].[Orders]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{D8C30625-3611-410C-AD19-A52B2AFEF13D}"
+      DTS:From="Package\Truncate table"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\ForeachOrderFile" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{3484A47E-02BC-4648-8112-6D77DF7A84B2}"
+      DTS:From="Package\LogProcessStart"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\Truncate table" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
+      DTS:CreationName=""
+      DTS:DTSID="{63258B3B-EA20-4D54-97DC-498B9366DBBD}"
+      DTS:From="Package\ForeachOrderFile"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 2"
+      DTS:To="Package\LogProcessStop" />
+  </DTS:PrecedenceConstraints>
+  <DTS:EventHandlers>
+    <DTS:EventHandler
+      DTS:refId="Package.EventHandlers[OnError]"
+      DTS:CreationName="OnError"
+      DTS:DTSID="{9FDDB0BF-8CF9-4065-85FF-1EF90D5A29C7}"
+      DTS:EventID="0"
+      DTS:EventName="OnError"
+      DTS:LocaleID="-1">
+      <DTS:Variables>
+        <DTS:Variable
+          DTS:CreationName=""
+          DTS:Description="The propagate property of the event"
+          DTS:DTSID="{3EB6EA28-C08B-4FA2-8991-7C8A2C545DAD}"
+          DTS:IncludeInDebugDump="6789"
+          DTS:Namespace="System"
+          DTS:ObjectName="Propagate">
+          <DTS:VariableValue
+            DTS:DataType="11">-1</DTS:VariableValue>
+        </DTS:Variable>
+      </DTS:Variables>
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package.EventHandlers[OnError]\LogProcessError"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{B5EA8AF9-875B-43CA-ADA7-DE592F1E0872}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="LogProcessError"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{53946858-EE65-4423-B874-5E2B87D889E8}"
+              SQLTask:SqlStatementSource="EXEC [dbo].[spr_SSISLogProcess]  &#xA;@ProcessName=?, &#xA;@ProcessAction='FATAL',&#xA;@ErrorDescription = ?,&#xA;@TableName=?" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="0"
+                SQLTask:DtsVariableName="System::PackageName"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="130"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="1"
+                SQLTask:DtsVariableName="System::ErrorDescription"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="130"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="2"
+                SQLTask:DtsVariableName="User::TableName"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="130"
+                SQLTask:ParameterSize="-1" />
+            </SQLTask:SqlTaskData>
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+    </DTS:EventHandler>
+  </DTS:EventHandlers>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="203.2,41.6"
+          Id="Package\ForeachOrderFile\LoadOrdersToPrestaging"
+          TopLeft="136,96" />
+        <NodeLayout
+          Size="169.6,41.6"
+          Id="Package\ForeachOrderFile\LoadSummary"
+          TopLeft="186,248" />
+        <NodeLayout
+          Size="188.8,41.6"
+          Id="Package\ForeachOrderFile\MoveFileToProcessed"
+          TopLeft="163,167" />
+        <EdgeLayout
+          Id="Package\ForeachOrderFile.PrecedenceConstraints[Constraint 1]"
+          TopLeft="237.5,138">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="20,29"
+              Start="0,0"
+              End="20,21.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,10.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,10.5"
+                    Point2="0,14.5"
+                    Point3="4,14.5" />
+                  <mssgle:LineSegment
+                    End="16,14.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="16,14.5"
+                    Point2="20,14.5"
+                    Point3="20,18.5" />
+                  <mssgle:LineSegment
+                    End="20,21.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\ForeachOrderFile.PrecedenceConstraints[Constraint 2]"
+          TopLeft="257.5,209">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="13.5,39"
+              Start="0,0"
+              End="13.5,31.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,15.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,15.5"
+                    Point2="0,19.5"
+                    Point3="4,19.5" />
+                  <mssgle:LineSegment
+                    End="9.5,19.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="9.5,19.5"
+                    Point2="13.5,19.5"
+                    Point3="13.5,23.5" />
+                  <mssgle:LineSegment
+                    End="13.5,31.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="492,352.8"
+          Size="492,396"
+          Id="Package\ForeachOrderFile"
+          TopLeft="399,177" />
+        <NodeLayout
+          Size="160,41.6"
+          Id="Package\LogProcessStart"
+          TopLeft="499,42" />
+        <NodeLayout
+          Size="160,41.6"
+          Id="Package\LogProcessStop"
+          TopLeft="1008,540" />
+        <NodeLayout
+          Size="148.8,41.6"
+          Id="Package\Truncate table"
+          TopLeft="735,100" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="809.5,142">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-164.5,35"
+              Start="0,0"
+              End="-164.5,27.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,13.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,13.5"
+                    Point2="0,17.5"
+                    Point3="-4,17.5" />
+                  <mssgle:LineSegment
+                    End="-160.5,17.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-160.5,17.5"
+                    Point2="-164.5,17.5"
+                    Point3="-164.5,21.5" />
+                  <mssgle:LineSegment
+                    End="-164.5,27.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="659,63">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="76,58"
+              Start="0,0"
+              End="68.5,58">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="34,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="34,0"
+                    Point2="38,0"
+                    Point3="38,4" />
+                  <mssgle:LineSegment
+                    End="38,54" />
+                  <mssgle:CubicBezierSegment
+                    Point1="38,54"
+                    Point2="38,58"
+                    Point3="42,58" />
+                  <mssgle:LineSegment
+                    End="68.5,58" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 2]"
+          TopLeft="891,375">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="117,186"
+              Start="0,0"
+              End="109.5,186">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="54.5,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="54.5,0"
+                    Point2="58.5,0"
+                    Point3="58.5,4" />
+                  <mssgle:LineSegment
+                    End="58.5,182" />
+                  <mssgle:CubicBezierSegment
+                    Point1="58.5,182"
+                    Point2="58.5,186"
+                    Point3="62.5,186" />
+                  <mssgle:LineSegment
+                    End="109.5,186" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <DtsEventHandler
+    design-time-name="Package.EventHandlers[OnError]">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="162,42"
+          Id="Package.EventHandlers[OnError]\LogProcessError"
+          TopLeft="378,111" />
+      </GraphLayout>
+    </LayoutInfo>
+  </DtsEventHandler>
+  <TaskHost
+    design-time-name="Package\ForeachOrderFile\LoadOrdersToPrestaging">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="156,41.6"
+          Id="Package\ForeachOrderFile\LoadOrdersToPrestaging\Flat File Source"
+          TopLeft="281,81" />
+        <NodeLayout
+          Size="176.8,41.6"
+          Id="Package\ForeachOrderFile\LoadOrdersToPrestaging\OLE DB Destination"
+          TopLeft="339,253" />
+        <NodeLayout
+          Size="132.8,41.6"
+          Id="Package\ForeachOrderFile\LoadOrdersToPrestaging\Row Count"
+          TopLeft="505,173" />
+        <EdgeLayout
+          Id="Package\ForeachOrderFile\LoadOrdersToPrestaging.Paths[Row Count Output 1]"
+          TopLeft="571.5,215">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-144,38"
+              Start="0,0"
+              End="-144,30.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,15" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,15"
+                    Point2="0,19"
+                    Point3="-4,19" />
+                  <mssgle:LineSegment
+                    End="-140,19" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-140,19"
+                    Point2="-144,19"
+                    Point3="-144,23" />
+                  <mssgle:LineSegment
+                    End="-144,30.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\ForeachOrderFile\LoadOrdersToPrestaging.Paths[Flat File Source Output]"
+          TopLeft="359,123">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="212.5,50"
+              Start="0,0"
+              End="212.5,42.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,21" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,21"
+                    Point2="0,25"
+                    Point3="4,25" />
+                  <mssgle:LineSegment
+                    End="208.5,25" />
+                  <mssgle:CubicBezierSegment
+                    Point1="208.5,25"
+                    Point2="212.5,25"
+                    Point3="212.5,29" />
+                  <mssgle:LineSegment
+                    End="212.5,42.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\ForeachOrderFile\LoadOrdersToPrestaging\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
