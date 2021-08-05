@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="61"
-  DTS:VersionGUID="{05C02DBA-16EC-4EF4-BF2B-2D9A10009E60}">
+  DTS:VersionBuild="70"
+  DTS:VersionGUID="{490AD796-9CE5-467D-AC33-25A46E876802}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -22,7 +22,7 @@
       DTS:DTSID="{4D946776-38AA-4C99-A1F5-8A41D4AA358B}"
       DTS:ObjectName="Flat File Connection Customers">
       <DTS:PropertyExpression
-        DTS:Name="ConnectionString">@[$Project::InputFilePath]+ @[$Project::fileNameCust]</DTS:PropertyExpression>
+        DTS:Name="ConnectionString">@[User::FileSourcePath] + "\\"+  @[User::FileName]</DTS:PropertyExpression>
       <DTS:ObjectData>
         <DTS:ConnectionManager
           DTS:Format="Delimited"
@@ -134,18 +134,9 @@
   <DTS:Variables>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{04ECC94C-D386-44A4-94B9-C53E14BE4F3F}"
-      DTS:Expression="@[$Project::FileDestinationPath]+ @[$Project::fileNameCust]"
-      DTS:IncludeInDebugDump="2345"
-      DTS:Namespace="User"
-      DTS:ObjectName="CustomersDestinationFullNamePath">
-      <DTS:VariableValue
-        DTS:DataType="8">C:\InputData_LV_608\Processed\customers_20210723.csv</DTS:VariableValue>
-    </DTS:Variable>
-    <DTS:Variable
-      DTS:CreationName=""
       DTS:DTSID="{7794ADDF-5CC1-4484-9D72-EC173D75B249}"
-      DTS:Expression="@[$Project::FileSourcePath]+ @[$Project::fileNameCust]"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="@[User::FileSourcePath] + &quot;\\&quot;+  @[User::FileName]"
       DTS:IncludeInDebugDump="2345"
       DTS:Namespace="User"
       DTS:ObjectName="CustomersSourceFullNamePath">
@@ -155,17 +146,15 @@
     <DTS:Variable
       DTS:CreationName=""
       DTS:DTSID="{F6FC9B88-2617-4CD2-96EA-AB1460163D26}"
-      DTS:Expression="@[$Project::FileDestinationPath]"
       DTS:IncludeInDebugDump="2345"
       DTS:Namespace="User"
       DTS:ObjectName="FileDestinationPath">
       <DTS:VariableValue
-        DTS:DataType="8">C:\InputData_LV_608\Processed\</DTS:VariableValue>
+        DTS:DataType="8">C:\InputData_LV_608\Processed</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
       DTS:DTSID="{87684354-1B8B-4E33-B589-717813C10654}"
-      DTS:Expression="@[$Project::fileNameCust]"
       DTS:IncludeInDebugDump="2345"
       DTS:Namespace="User"
       DTS:ObjectName="FileName">
@@ -175,13 +164,20 @@
     <DTS:Variable
       DTS:CreationName=""
       DTS:DTSID="{2E8BAC52-4599-4DA5-9571-2438BFCD00AE}"
-      DTS:EvaluateAsExpression="True"
-      DTS:Expression="@[$Project::FileSourcePath]"
       DTS:IncludeInDebugDump="2345"
       DTS:Namespace="User"
       DTS:ObjectName="FileSourcePath">
       <DTS:VariableValue
-        DTS:DataType="8">C:\InputData_LV_608\Pending\</DTS:VariableValue>
+        DTS:DataType="8">C:\InputData_LV_608\Pending</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{4742659C-39E3-42A6-A475-2B9B17FA38FD}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="PackageName">
+      <DTS:VariableValue
+        DTS:DataType="8">CustomersToPrestage</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -220,7 +216,7 @@
           SQLTask:SqlStatementSource="EXEC [dbo].[spr_SSISLogProcess]  ?, 'Start', ?" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
           <SQLTask:ParameterBinding
             SQLTask:ParameterName="0"
-            SQLTask:DtsVariableName="$Package::ProcessName"
+            SQLTask:DtsVariableName="User::PackageName"
             SQLTask:ParameterDirection="Input"
             SQLTask:DataType="130"
             SQLTask:ParameterSize="-1" />
@@ -228,7 +224,7 @@
             SQLTask:ParameterName="1"
             SQLTask:DtsVariableName="User::TableName"
             SQLTask:ParameterDirection="Input"
-            SQLTask:DataType="3"
+            SQLTask:DataType="130"
             SQLTask:ParameterSize="-1" />
         </SQLTask:SqlTaskData>
       </DTS:ObjectData>
@@ -256,7 +252,7 @@
             SQLTask:ParameterSize="-1" />
           <SQLTask:ParameterBinding
             SQLTask:ParameterName="0"
-            SQLTask:DtsVariableName="$Package::ProcessName"
+            SQLTask:DtsVariableName="User::PackageName"
             SQLTask:ParameterDirection="Input"
             SQLTask:DataType="130"
             SQLTask:ParameterSize="-1" />
@@ -282,7 +278,7 @@
         <DTS:ObjectData>
           <ForEachFileEnumeratorProperties>
             <FEFEProperty
-              Folder="C:\InputData_LV_608\Pending\" />
+              Folder="C:\InputData_LV_608\Pending" />
             <FEFEProperty
               FileSpec="customers_????????.csv" />
             <FEFEProperty
@@ -930,7 +926,7 @@
               TaskOperationType="MoveFile"
               TaskSourcePath="User::CustomersSourceFullNamePath"
               TaskIsSourceVariable="True"
-              TaskDestinationPath="User::CustomersDestinationFullNamePath"
+              TaskDestinationPath="User::FileDestinationPath"
               TaskIsDestinationVariable="True" />
           </DTS:ObjectData>
         </DTS:Executable>
@@ -956,8 +952,8 @@
       <DTS:ForEachVariableMappings>
         <DTS:ForEachVariableMapping
           DTS:CreationName=""
-          DTS:DTSID="{35B5A6C4-34A2-4FBC-A3D6-81EAF308BD13}"
-          DTS:ObjectName="{35B5A6C4-34A2-4FBC-A3D6-81EAF308BD13}"
+          DTS:DTSID="{5E4B3C88-C91C-4569-8AE6-8B42E3F0EBE8}"
+          DTS:ObjectName="{5E4B3C88-C91C-4569-8AE6-8B42E3F0EBE8}"
           DTS:ValueIndex="0"
           DTS:VariableName="User::FileName" />
       </DTS:ForEachVariableMappings>
@@ -1039,7 +1035,7 @@
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
-              SQLTask:Connection="{8399F531-DD3B-43DC-B4BF-DE1111483807}"
+              SQLTask:Connection="{E99A4768-7D34-45FA-B745-C6C5DD6401F4}"
               SQLTask:SqlStatementSource="EXEC [dbo].[spr_SSISLogProcess] @ProcessName= 'loadingCustomersToPrestaging', @ProcessAction='FATAL'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
           </DTS:ObjectData>
         </DTS:Executable>
@@ -1139,9 +1135,9 @@
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="140.666665209663,47.666667376094"
+              EndConnector="140.666665209663,47.6666673760941"
               Start="0,0"
-              End="140.666665209663,40.166667376094">
+              End="140.666665209663,40.1666673760941">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
@@ -1158,7 +1154,7 @@
                     Point2="140.666665209663,23.833333688047"
                     Point3="140.666665209663,27.833333688047" />
                   <mssgle:LineSegment
-                    End="140.666665209663,40.166667376094" />
+                    End="140.666665209663,40.1666673760941" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1173,9 +1169,9 @@
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-70.9333224720427,88.400000371933"
+              EndConnector="-70.9333224720427,88.4000003719329"
               Start="0,0"
-              End="-63.4333224720427,88.400000371933">
+              End="-63.4333224720427,88.4000003719329">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
@@ -1186,13 +1182,13 @@
                     Point2="-35.4666612360214,0"
                     Point3="-35.4666612360214,4" />
                   <mssgle:LineSegment
-                    End="-35.4666612360214,84.400000371933" />
+                    End="-35.4666612360214,84.4000003719329" />
                   <mssgle:CubicBezierSegment
-                    Point1="-35.4666612360214,84.400000371933"
-                    Point2="-35.4666612360214,88.400000371933"
-                    Point3="-39.4666612360214,88.400000371933" />
+                    Point1="-35.4666612360214,84.4000003719329"
+                    Point2="-35.4666612360214,88.4000003719329"
+                    Point3="-39.4666612360214,88.4000003719329" />
                   <mssgle:LineSegment
-                    End="-63.4333224720427,88.400000371933" />
+                    End="-63.4333224720427,88.4000003719329" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>

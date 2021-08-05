@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="150"
-  DTS:VersionGUID="{7F4F964D-90C4-4469-9719-0AAA4D3D58D9}">
+  DTS:VersionBuild="155"
+  DTS:VersionGUID="{64E24621-150C-4B83-B72F-E7AB37932F0B}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -29,7 +29,7 @@
           <DTS:Password
             DTS:Name="Password"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAaMTeypuApEyJbYCzW7BcSQAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAAAus09z/S/jxT/YH4TTb337AAAAAASAAACgAAAAEAAAALwzNuxHHLSafehnHtO5H0cYAAAAR3p2NiRnRQ5PV4wvIaiMzsftjPxQKUq7FAAAAD58/yLQDcDuSYyl/EKwHA0p+ELd</DTS:Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAaMTeypuApEyJbYCzW7BcSQAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAAA8IqB4K3TBpgKU9P5Fc0OkAAAAAASAAACgAAAAEAAAAHJedZywQZ2MadLt5wmvLokYAAAAX+hKJROfey2hIZSpVCm4URu6qD1xddf4FAAAAGAionJHyb454dPYL1GOHFD4zQg/</DTS:Password>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -39,7 +39,7 @@
       DTS:DTSID="{7AA2396F-302E-4118-AF49-B3A4EF1CF5BD}"
       DTS:ObjectName="Flat File Connection Manager">
       <DTS:PropertyExpression
-        DTS:Name="ConnectionString">@[$Project::InputFilePath]+ @[$Project::FileNameDiscounts]</DTS:PropertyExpression>
+        DTS:Name="ConnectionString">@[User::FileSourcePath] + "\\"+  @[User::FileName]</DTS:PropertyExpression>
       <DTS:ObjectData>
         <DTS:ConnectionManager
           DTS:Format="Delimited"
@@ -125,8 +125,6 @@
     <DTS:Variable
       DTS:CreationName=""
       DTS:DTSID="{387CC3B2-D9F9-4E40-8B74-CD76C66035FB}"
-      DTS:EvaluateAsExpression="True"
-      DTS:Expression="@[$Project::FileDestinationPath]+  @[$Project::FileNameDiscounts]"
       DTS:IncludeInDebugDump="2345"
       DTS:Namespace="User"
       DTS:ObjectName="DiscountsDestinationFullNamePath">
@@ -137,7 +135,7 @@
       DTS:CreationName=""
       DTS:DTSID="{D9EE74B0-DC32-4B2A-BD45-046AC544C77A}"
       DTS:EvaluateAsExpression="True"
-      DTS:Expression="@[$Project::FileSourcePath] + @[$Project::FileNameDiscounts]"
+      DTS:Expression="@[User::FileSourcePath] + &quot;\\&quot;+  @[User::FileName]"
       DTS:IncludeInDebugDump="2345"
       DTS:Namespace="User"
       DTS:ObjectName="DiscountsSourceFullNamePath">
@@ -147,19 +145,15 @@
     <DTS:Variable
       DTS:CreationName=""
       DTS:DTSID="{2A1E6D74-5D4A-4DED-9CC9-54D0B96709F4}"
-      DTS:EvaluateAsExpression="True"
-      DTS:Expression="@[$Project::FileDestinationPath]"
       DTS:IncludeInDebugDump="2345"
       DTS:Namespace="User"
       DTS:ObjectName="FileDestinationPath">
       <DTS:VariableValue
-        DTS:DataType="8">C:\InputData_LV_608\Processed\</DTS:VariableValue>
+        DTS:DataType="8">C:\InputData_LV_608\Processed</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
       DTS:DTSID="{5781AA14-EC96-47E7-87C6-5EB20510EA91}"
-      DTS:EvaluateAsExpression="True"
-      DTS:Expression="@[$Project::FileNameDiscounts]"
       DTS:IncludeInDebugDump="2345"
       DTS:Namespace="User"
       DTS:ObjectName="FileName">
@@ -169,13 +163,20 @@
     <DTS:Variable
       DTS:CreationName=""
       DTS:DTSID="{BE39241B-252E-43A9-A596-FA141C1DA486}"
-      DTS:EvaluateAsExpression="True"
-      DTS:Expression="@[$Project::FileSourcePath]"
       DTS:IncludeInDebugDump="2345"
       DTS:Namespace="User"
       DTS:ObjectName="FileSourcePath">
       <DTS:VariableValue
-        DTS:DataType="8">C:\InputData_LV_608\Pending\</DTS:VariableValue>
+        DTS:DataType="8">C:\InputData_LV_608\Pending</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{E7E2F89C-0D9E-4A3F-92EF-00474A89FF07}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="PackageName">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -214,7 +215,7 @@
           SQLTask:SqlStatementSource="EXEC [dbo].[spr_SSISLogProcess] ?, 'Start', ?&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
           <SQLTask:ParameterBinding
             SQLTask:ParameterName="0"
-            SQLTask:DtsVariableName="$Package::ProcessName"
+            SQLTask:DtsVariableName="User::PackageName"
             SQLTask:ParameterDirection="Input"
             SQLTask:DataType="130"
             SQLTask:ParameterSize="-1" />
@@ -282,7 +283,7 @@
         <DTS:ObjectData>
           <ForEachFileEnumeratorProperties>
             <FEFEProperty
-              Folder="C:\InputData_LV_608\Pending\" />
+              Folder="C:\InputData_LV_608\Pending" />
             <FEFEProperty
               FileSpec="Discounts_ ????????.csv" />
             <FEFEProperty
@@ -768,7 +769,7 @@
               TaskOverwriteDestFile="True"
               TaskSourcePath="User::DiscountsSourceFullNamePath"
               TaskIsSourceVariable="True"
-              TaskDestinationPath="User::DiscountsDestinationFullNamePath"
+              TaskDestinationPath="User::FileDestinationPath"
               TaskIsDestinationVariable="True" />
           </DTS:ObjectData>
         </DTS:Executable>
@@ -794,8 +795,8 @@
       <DTS:ForEachVariableMappings>
         <DTS:ForEachVariableMapping
           DTS:CreationName=""
-          DTS:DTSID="{32385795-DBEC-4FE4-BD62-D9CF7B0E2174}"
-          DTS:ObjectName="{32385795-DBEC-4FE4-BD62-D9CF7B0E2174}"
+          DTS:DTSID="{104FD6AE-F011-46BB-81A5-3FB9F3608BC6}"
+          DTS:ObjectName="{104FD6AE-F011-46BB-81A5-3FB9F3608BC6}"
           DTS:ValueIndex="0"
           DTS:VariableName="User::FileName" />
       </DTS:ForEachVariableMappings>
@@ -877,7 +878,7 @@
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
-              SQLTask:Connection="{8399F531-DD3B-43DC-B4BF-DE1111483807}"
+              SQLTask:Connection="{E99A4768-7D34-45FA-B745-C6C5DD6401F4}"
               SQLTask:SqlStatementSource="EXEC [dbo].[spr_SSISLogProcess] @ProcessName= 'loadingDiscountsToPrestaging', @ProcessAction='FATAL'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
           </DTS:ObjectData>
         </DTS:Executable>
@@ -1061,6 +1062,13 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <AnnotationLayout
+          Text="s"
+          ParentId="Package"
+          FontInfo="{assembly:Null}"
+          Size="33.6,60"
+          Id="22f43ae8-0216-465c-89d7-bac2b17ad51d"
+          TopLeft="1022.8571602763,207.388237181667" />
       </GraphLayout>
     </LayoutInfo>
   </Package>

@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="40"
-  DTS:VersionGUID="{AD4A473F-4F95-42D9-AD6A-D34278858907}">
+  DTS:VersionBuild="41"
+  DTS:VersionGUID="{E50B8C71-131B-4B9E-BF2C-2CDE5D749736}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -29,7 +29,7 @@
           <DTS:Password
             DTS:Name="Password"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAaMTeypuApEyJbYCzW7BcSQAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAABgdTgRR8z47mvrZ1f3ItrcAAAAAASAAACgAAAAEAAAABhcO03g3QRNtBK/zhy+nhwYAAAAQ2xmp3/JuRPajhg2ZZzHzVgonNDq/vEIFAAAADBSVRX0YUTClBGwVYq+K6s1XHP1</DTS:Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAaMTeypuApEyJbYCzW7BcSQAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAADABYQmX/ApNaBjrIs2LUAkAAAAAASAAACgAAAAEAAAABoZ55Y6WeghSc4n3dstn7kYAAAAqPsmXQ2cdluFhRYUaDyFgdbXKrGDNcKbFAAAAKb1qBXei9Q4Pr29JE2Ajpw7gCks</DTS:Password>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -46,7 +46,7 @@
           <DTS:Password
             DTS:Name="Password"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAaMTeypuApEyJbYCzW7BcSQAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAAB5Wv8NfaCgVw+guRJuHyHyAAAAAASAAACgAAAAEAAAAJrOXv3WJPt7yEDKWhoTEq4YAAAAJDnDy0MJ51hFqTN0OE489bhuQ0GCzBPzFAAAAI/s1+/s4Ep0hcyL5D6JVJYshdCN</DTS:Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAaMTeypuApEyJbYCzW7BcSQAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAADxyFooKp+H6k8W2zRr5K2SAAAAAASAAACgAAAAEAAAABhDgW5g23W9U5bOeelJuyQYAAAA8ddfTIfbW5g5iQSfD+AO6veE7BQDvGYWFAAAAKO1nanhVPWpnZm7k8Xkk1fhuJDS</DTS:Password>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -817,8 +817,8 @@
       <DTS:ForEachVariableMappings>
         <DTS:ForEachVariableMapping
           DTS:CreationName=""
-          DTS:DTSID="{714BCB84-0172-4BE2-9C90-EF756D080629}"
-          DTS:ObjectName="{714BCB84-0172-4BE2-9C90-EF756D080629}"
+          DTS:DTSID="{F7EEFA93-163C-4BE3-A6BB-D7D0832BAB25}"
+          DTS:ObjectName="{F7EEFA93-163C-4BE3-A6BB-D7D0832BAB25}"
           DTS:ValueIndex="0"
           DTS:VariableName="User::FileName" />
       </DTS:ForEachVariableMappings>
@@ -1128,6 +1128,18 @@
       </GraphLayout>
     </LayoutInfo>
   </Package>
+  <DtsEventHandler
+    design-time-name="Package.EventHandlers[OnError]">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="162.4,41.6"
+          Id="Package.EventHandlers[OnError]\Execute SQL Task"
+          TopLeft="768,135" />
+      </GraphLayout>
+    </LayoutInfo>
+  </DtsEventHandler>
   <TaskHost
     design-time-name="Package\Foreach PurchaseOrders file\Load PurchaseOrders">
     <LayoutInfo>
@@ -1205,17 +1217,5 @@
       </Property>
     </Properties>
   </PipelineComponentMetadata>
-  <DtsEventHandler
-    design-time-name="Package.EventHandlers[OnError]">
-    <LayoutInfo>
-      <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
-        <NodeLayout
-          Size="162.4,41.6"
-          Id="Package.EventHandlers[OnError]\Execute SQL Task"
-          TopLeft="768,135" />
-      </GraphLayout>
-    </LayoutInfo>
-  </DtsEventHandler>
 </Objects>]]></DTS:DesignTimeProperties>
 </DTS:Executable>
