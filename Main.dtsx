@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="31"
-  DTS:VersionGUID="{B602C56E-88E8-492E-8D90-1E1E7B267FE4}">
+  DTS:VersionBuild="32"
+  DTS:VersionGUID="{C268C621-7D62-4ACC-9B9A-3BEF18F222DC}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -29,7 +29,7 @@
           <DTS:Password
             DTS:Name="Password"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAaMTeypuApEyJbYCzW7BcSQAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAABdtPldsi0OU6+esNCPuQyGAAAAAASAAACgAAAAEAAAAKM42xagDuwKCg4/J4gVfuoYAAAAZcq+iOGsMQHq4gvhwB4jGECJZNeZGPRVFAAAADtfEO1lsfkoLGY9AlzXV4Ykin5I</DTS:Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAaMTeypuApEyJbYCzW7BcSQAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAACxDmH0xycv8CWJGo9b1S9jAAAAAASAAACgAAAAEAAAAAjwWJO9ULyoTSi/w20W3xcYAAAAQgotlSLjUaM/gHUWiQmUj55XsL5qTI6MFAAAABfcDOyhYH5yuUSXMYmGxQjzdy79</DTS:Password>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -401,6 +401,23 @@
       <DTS:Variables />
       <DTS:Executables>
         <DTS:Executable
+          DTS:refId="Package\Process to Stage\Exec Process Procedures"
+          DTS:CreationName="Microsoft.ExecutePackageTask"
+          DTS:Description="Execute Package Task"
+          DTS:DTSID="{96143947-FF4A-43A0-9875-49D3436D9AB1}"
+          DTS:ExecutableType="Microsoft.ExecutePackageTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Exec Process Procedures"
+          DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <ExecutePackageTask>
+              <UseProjectReference>True</UseProjectReference>
+              <PackageName>ProcessedProcedure.dtsx</PackageName>
+            </ExecutePackageTask>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
           DTS:refId="Package\Process to Stage\Process PurchaseOrders to Stage"
           DTS:CreationName="Microsoft.ExecutePackageTask"
           DTS:Description="Execute Package Task"
@@ -418,6 +435,16 @@
           </DTS:ObjectData>
         </DTS:Executable>
       </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Process to Stage.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{5BCA9B93-4534-4F8C-BE42-4CCFF40FCE1A}"
+          DTS:From="Package\Process to Stage\Process PurchaseOrders to Stage"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\Process to Stage\Exec Process Procedures" />
+      </DTS:PrecedenceConstraints>
     </DTS:Executable>
   </DTS:Executables>
   <DTS:PrecedenceConstraints>
@@ -521,7 +548,7 @@
     design-time-name="Package">
     <LayoutInfo>
       <GraphLayout
-        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="64" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="163.2,41.6"
           Id="Package\Activate Load Run"
@@ -559,6 +586,10 @@
           Id="Package\Load to Prestage\Load Orders"
           TopLeft="72.8857193825197,582.752946174186" />
         <NodeLayout
+          Size="144.8,41.6"
+          Id="Package\Load to Prestage\Load Products"
+          TopLeft="65.0285763915706,651.729415250237" />
+        <NodeLayout
           Size="205.6,41.6"
           Id="Package\Load to Prestage\Load PurchaseOrderDetails"
           TopLeft="31.4571472484241,90.1294137916763" />
@@ -566,6 +597,10 @@
           Size="178.4,41.6"
           Id="Package\Load to Prestage\Load PurchaseOrders"
           TopLeft="41.7428638210105,19.3647104510803" />
+        <NodeLayout
+          Size="140.8,41.6"
+          Id="Package\Load to Prestage\Load Returns"
+          TopLeft="70.74286220317,731.96471099804" />
         <NodeLayout
           Size="147.2,41.6"
           Id="Package\Load to Prestage\Load Suppliers"
@@ -746,10 +781,6 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="144.8,41.6"
-          Id="Package\Load to Prestage\Load Products"
-          TopLeft="65.0285763915706,651.729415250237" />
         <EdgeLayout
           Id="Package\Load to Prestage.PrecedenceConstraints[Constraint 8]"
           TopLeft="139.157147887045,624.352946174186">
@@ -772,10 +803,6 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="140.8,41.6"
-          Id="Package\Load to Prestage\Load Returns"
-          TopLeft="70.74286220317,731.96471099804" />
         <EdgeLayout
           Id="Package\Load to Prestage.PrecedenceConstraints[Constraint 9]"
           TopLeft="139.28571929737,693.329415250237">
@@ -809,6 +836,32 @@
           Size="233.6,41.6"
           Id="Package\Process to Stage\Process PurchaseOrders to Stage"
           TopLeft="89.1143005424619,29.0588246662311" />
+        <NodeLayout
+          Size="194.4,41.6"
+          Id="Package\Process to Stage\Exec Process Procedures"
+          TopLeft="114.828586694659,104.070591130966" />
+        <EdgeLayout
+          Id="Package\Process to Stage.PrecedenceConstraints[Constraint]"
+          TopLeft="208.971443618561,70.6588246662311">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,33.4117664647352"
+              Start="0,0"
+              End="0,25.9117664647352">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,25.9117664647352" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
@@ -896,13 +949,13 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 3]"
-          TopLeft="781.428584736221,499.349022074527">
+          TopLeft="781.428584736221,356.415688741193">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-60.942860755629,124.156867721364"
+              EndConnector="-60.942860755629,267.090201054698"
               Start="0,0"
-              End="-53.442860755629,124.156867721364">
+              End="-53.442860755629,267.090201054698">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
@@ -913,13 +966,13 @@
                     Point2="-24.5105958221544,0"
                     Point3="-24.5105958221544,4" />
                   <mssgle:LineSegment
-                    End="-24.5105958221544,120.156867721364" />
+                    End="-24.5105958221544,263.090201054698" />
                   <mssgle:CubicBezierSegment
-                    Point1="-24.5105958221544,120.156867721364"
-                    Point2="-24.5105958221544,124.156867721364"
-                    Point3="-28.5105958221544,124.156867721364" />
+                    Point1="-24.5105958221544,263.090201054698"
+                    Point2="-24.5105958221544,267.090201054698"
+                    Point3="-28.5105958221544,267.090201054698" />
                   <mssgle:LineSegment
-                    End="-53.442860755629,124.156867721364" />
+                    End="-53.442860755629,267.090201054698" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
