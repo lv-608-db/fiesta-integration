@@ -11,12 +11,141 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="2"
-  DTS:VersionGUID="{35F82D7A-54AC-4A3C-9119-3B066AEDA9E4}">
+  DTS:VersionBuild="9"
+  DTS:VersionGUID="{7CF95F3F-D731-43F8-A37D-D2D7DA69B9B0}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
-  <DTS:Variables />
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{05F85D92-EED3-427D-8D6F-D0449C6E56DA}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="DeletedRows">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{1E9E15FF-CA1F-44BF-A3B7-9AFF02442051}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="InsertedRows">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{29D16E62-C78B-4CF3-8C45-E612CBBD6029}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="maxRowCount">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{23762A6E-F1B3-4014-933B-A4CC61D9DDBF}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="tmpLoadID">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
   <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Delete ErrorRow"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{2FE43FC3-7B84-4CE2-9B77-B2E78D5E1F61}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Delete ErrorRow"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{A8AFA32B-057A-488D-AFE5-25A41AD36569}"
+          SQLTask:SqlStatementSource="DELETE [error].[ErrorRowTablePurchaseOrders]&#xA;WHERE LoadID = ?;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="0"
+            SQLTask:DtsVariableName="User::tmpLoadID"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="3"
+            SQLTask:ParameterSize="-1" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Delete from LoadSummary"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{b7353ce4-866f-4a93-8463-369bd32ee408}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Delete from LoadSummary"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{E99A4768-7D34-45FA-B745-C6C5DD6401F4}"
+          SQLTask:SqlStatementSource="DELETE [Administration].[dbo].[LoadSummary]&#xA;WHERE LoadID = ?;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="0"
+            SQLTask:DtsVariableName="User::tmpLoadID"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="3"
+            SQLTask:ParameterSize="-1" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Get LoadID"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{145E169A-06C0-4D8F-8BEB-92A7FA3F3AC5}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Get LoadID"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{E99A4768-7D34-45FA-B745-C6C5DD6401F4}"
+          SQLTask:SqlStatementSource="SELECT MAX(LoadID) AS LoadID FROM  [Administration].[dbo].[Load_Run] WHERE [Status]='Active'"
+          SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="LoadID"
+            SQLTask:DtsVariableName="User::tmpLoadID" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Get maxRowCount"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{D0CE2FD8-665D-4553-994C-C13315E13AD5}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Get maxRowCount"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{A8AFA32B-057A-488D-AFE5-25A41AD36569}"
+          SQLTask:SqlStatementSource="SELECT MAX(StagID) AS StagID&#xA;FROM [prestaging].[PurchaseOrders]"
+          SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="StagID"
+            SQLTask:DtsVariableName="User::InsertedRows" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
     <DTS:Executable
       DTS:refId="Package\Log start"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
@@ -65,6 +194,336 @@
         <pipeline
           version="1">
           <components>
+            <component
+              refId="Package\PurchaseOrders\Data Conversion"
+              componentClassID="Microsoft.DataConvert"
+              contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Data Conversion"
+              name="Data Conversion"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\PurchaseOrders\Data Conversion.Inputs[Data Conversion Input]"
+                  name="Data Conversion Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\PurchaseOrders\Data Conversion.Inputs[Data Conversion Input].Columns[PurchaseOrderID]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="PurchaseOrderID"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\PurchaseOrders\Merge Join.Outputs[Merge Join Output].Columns[PurchaseOrderID]" />
+                    <inputColumn
+                      refId="Package\PurchaseOrders\Data Conversion.Inputs[Data Conversion Input].Columns[SupplierID]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="SupplierID"
+                      lineageId="Package\PurchaseOrders\Merge Join.Outputs[Merge Join Output].Columns[SupplierID]" />
+                    <inputColumn
+                      refId="Package\PurchaseOrders\Data Conversion.Inputs[Data Conversion Input].Columns[EmployeeID]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="EmployeeID"
+                      lineageId="Package\PurchaseOrders\Merge Join.Outputs[Merge Join Output].Columns[EmployeeID]" />
+                    <inputColumn
+                      refId="Package\PurchaseOrders\Data Conversion.Inputs[Data Conversion Input].Columns[DeliveryDate]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="DeliveryDate"
+                      lineageId="Package\PurchaseOrders\Merge Join.Outputs[Merge Join Output].Columns[DeliveryDate]" />
+                    <inputColumn
+                      refId="Package\PurchaseOrders\Data Conversion.Inputs[Data Conversion Input].Columns[ProductID]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="ProductID"
+                      lineageId="Package\PurchaseOrders\Merge Join.Outputs[Merge Join Output].Columns[ProductID]" />
+                    <inputColumn
+                      refId="Package\PurchaseOrders\Data Conversion.Inputs[Data Conversion Input].Columns[Quantity]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Quantity"
+                      lineageId="Package\PurchaseOrders\Merge Join.Outputs[Merge Join Output].Columns[Quantity]" />
+                    <inputColumn
+                      refId="Package\PurchaseOrders\Data Conversion.Inputs[Data Conversion Input].Columns[Price]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Price"
+                      lineageId="Package\PurchaseOrders\Merge Join.Outputs[Merge Join Output].Columns[Price]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\PurchaseOrders\Data Conversion.Outputs[Data Conversion Output]"
+                  exclusionGroup="1"
+                  name="Data Conversion Output"
+                  synchronousInputId="Package\PurchaseOrders\Data Conversion.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\PurchaseOrders\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of PurchaseOrderID]"
+                      dataType="ui4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="RedirectRow"
+                      lineageId="Package\PurchaseOrders\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of PurchaseOrderID]"
+                      name="Copy of PurchaseOrderID"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\PurchaseOrders\Merge Join.Outputs[Merge Join Output].Columns[PurchaseOrderID]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\PurchaseOrders\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of SupplierID]"
+                      dataType="ui4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="RedirectRow"
+                      lineageId="Package\PurchaseOrders\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of SupplierID]"
+                      name="Copy of SupplierID"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\PurchaseOrders\Merge Join.Outputs[Merge Join Output].Columns[SupplierID]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\PurchaseOrders\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of EmployeeID]"
+                      dataType="ui4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="RedirectRow"
+                      lineageId="Package\PurchaseOrders\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of EmployeeID]"
+                      name="Copy of EmployeeID"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\PurchaseOrders\Merge Join.Outputs[Merge Join Output].Columns[EmployeeID]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\PurchaseOrders\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of DeliveryDate]"
+                      dataType="date"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="RedirectRow"
+                      lineageId="Package\PurchaseOrders\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of DeliveryDate]"
+                      name="Copy of DeliveryDate"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\PurchaseOrders\Merge Join.Outputs[Merge Join Output].Columns[DeliveryDate]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\PurchaseOrders\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of ProductID]"
+                      dataType="ui4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="RedirectRow"
+                      lineageId="Package\PurchaseOrders\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of ProductID]"
+                      name="Copy of ProductID"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\PurchaseOrders\Merge Join.Outputs[Merge Join Output].Columns[ProductID]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\PurchaseOrders\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Quantity]"
+                      dataType="ui4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="RedirectRow"
+                      lineageId="Package\PurchaseOrders\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Quantity]"
+                      name="Copy of Quantity"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\PurchaseOrders\Merge Join.Outputs[Merge Join Output].Columns[Quantity]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\PurchaseOrders\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Price]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="RedirectRow"
+                      lineageId="Package\PurchaseOrders\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Price]"
+                      name="Copy of Price"
+                      precision="18"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\PurchaseOrders\Merge Join.Outputs[Merge Join Output].Columns[Price]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\PurchaseOrders\Data Conversion.Outputs[Data Conversion Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Data Conversion Error Output"
+                  synchronousInputId="Package\PurchaseOrders\Data Conversion.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\PurchaseOrders\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\PurchaseOrders\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\PurchaseOrders\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\PurchaseOrders\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\PurchaseOrders\Derived Column"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="Derived Column"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\PurchaseOrders\Derived Column.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\PurchaseOrders\Derived Column.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\PurchaseOrders\Derived Column.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\PurchaseOrders\Derived Column.Outputs[Derived Column Output].Columns[LoadID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\PurchaseOrders\Derived Column.Outputs[Derived Column Output].Columns[LoadID]"
+                      name="LoadID"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">@[User::tmpLoadID]</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">@[User::tmpLoadID]</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\PurchaseOrders\Derived Column.Outputs[Derived Column Output].Columns[ErrorDescription]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="21"
+                      lineageId="Package\PurchaseOrders\Derived Column.Outputs[Derived Column Output].Columns[ErrorDescription]"
+                      name="ErrorDescription"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">"Data Conversion Error"</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">"Data Conversion Error"</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\PurchaseOrders\Derived Column.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\PurchaseOrders\Derived Column.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\PurchaseOrders\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\PurchaseOrders\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\PurchaseOrders\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\PurchaseOrders\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
             <component
               refId="Package\PurchaseOrders\Merge Join"
               componentClassID="Microsoft.MergeJoin"
@@ -122,6 +581,11 @@
                       cachedLength="255"
                       cachedName="DeliveryDate"
                       lineageId="Package\PurchaseOrders\Sort PurchaseOrders.Outputs[Sort Output].Columns[DeliveryDate]" />
+                    <inputColumn
+                      refId="Package\PurchaseOrders\Merge Join.Inputs[Merge Join Left Input].Columns[StagID]"
+                      cachedDataType="i4"
+                      cachedName="StagID"
+                      lineageId="Package\PurchaseOrders\Sort PurchaseOrders.Outputs[Sort Output].Columns[StagID]" />
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
@@ -264,6 +728,237 @@
                           name="InputColumnID">#{Package\PurchaseOrders\Merge Join.Inputs[Merge Join Right Input].Columns[Price]}</property>
                       </properties>
                     </outputColumn>
+                    <outputColumn
+                      refId="Package\PurchaseOrders\Merge Join.Outputs[Merge Join Output].Columns[StagID]"
+                      dataType="i4"
+                      lineageId="Package\PurchaseOrders\Merge Join.Outputs[Merge Join Output].Columns[StagID]"
+                      name="StagID">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\PurchaseOrders\Merge Join.Inputs[Merge Join Left Input].Columns[StagID]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\PurchaseOrders\OLE DB Destination"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLE DB Destination"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[error].[ErrorRowTablePurchaseOrders]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\PurchaseOrders\OLE DB Destination.Connections[OleDbConnection]"
+                  connectionManagerID="{A8AFA32B-057A-488D-AFE5-25A41AD36569}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[192.168.195.147.Lv-608DB_Staging.Lv-608.DB 1]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\PurchaseOrders\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\PurchaseOrders\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[PurchaseOrderID]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="PurchaseOrderID"
+                      cachedSortKeyPosition="1"
+                      externalMetadataColumnId="Package\PurchaseOrders\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[PurchaseOrderID]"
+                      lineageId="Package\PurchaseOrders\Merge Join.Outputs[Merge Join Output].Columns[PurchaseOrderID]" />
+                    <inputColumn
+                      refId="Package\PurchaseOrders\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[SupplierID]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="SupplierID"
+                      externalMetadataColumnId="Package\PurchaseOrders\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SupplierID]"
+                      lineageId="Package\PurchaseOrders\Merge Join.Outputs[Merge Join Output].Columns[SupplierID]" />
+                    <inputColumn
+                      refId="Package\PurchaseOrders\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[EmployeeID]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="EmployeeID"
+                      externalMetadataColumnId="Package\PurchaseOrders\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[EmployeeID]"
+                      lineageId="Package\PurchaseOrders\Merge Join.Outputs[Merge Join Output].Columns[EmployeeID]" />
+                    <inputColumn
+                      refId="Package\PurchaseOrders\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[DeliveryDate]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="DeliveryDate"
+                      externalMetadataColumnId="Package\PurchaseOrders\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DeliveryDate]"
+                      lineageId="Package\PurchaseOrders\Merge Join.Outputs[Merge Join Output].Columns[DeliveryDate]" />
+                    <inputColumn
+                      refId="Package\PurchaseOrders\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ProductID]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="ProductID"
+                      externalMetadataColumnId="Package\PurchaseOrders\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ProductID]"
+                      lineageId="Package\PurchaseOrders\Merge Join.Outputs[Merge Join Output].Columns[ProductID]" />
+                    <inputColumn
+                      refId="Package\PurchaseOrders\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Quantity]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Quantity"
+                      externalMetadataColumnId="Package\PurchaseOrders\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Quantity]"
+                      lineageId="Package\PurchaseOrders\Merge Join.Outputs[Merge Join Output].Columns[Quantity]" />
+                    <inputColumn
+                      refId="Package\PurchaseOrders\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Price]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Price"
+                      externalMetadataColumnId="Package\PurchaseOrders\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Price]"
+                      lineageId="Package\PurchaseOrders\Merge Join.Outputs[Merge Join Output].Columns[Price]" />
+                    <inputColumn
+                      refId="Package\PurchaseOrders\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[LoadID]"
+                      cachedDataType="i4"
+                      cachedName="LoadID"
+                      externalMetadataColumnId="Package\PurchaseOrders\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[LoadID]"
+                      lineageId="Package\PurchaseOrders\Derived Column.Outputs[Derived Column Output].Columns[LoadID]" />
+                    <inputColumn
+                      refId="Package\PurchaseOrders\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[StagID]"
+                      cachedDataType="i4"
+                      cachedName="StagID"
+                      externalMetadataColumnId="Package\PurchaseOrders\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[stg_id]"
+                      lineageId="Package\PurchaseOrders\Merge Join.Outputs[Merge Join Output].Columns[StagID]" />
+                    <inputColumn
+                      refId="Package\PurchaseOrders\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ErrorDescription]"
+                      cachedDataType="wstr"
+                      cachedLength="21"
+                      cachedName="ErrorDescription"
+                      externalMetadataColumnId="Package\PurchaseOrders\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ErrorDescription]"
+                      lineageId="Package\PurchaseOrders\Derived Column.Outputs[Derived Column Output].Columns[ErrorDescription]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\PurchaseOrders\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ErrorID]"
+                      dataType="i4"
+                      name="ErrorID" />
+                    <externalMetadataColumn
+                      refId="Package\PurchaseOrders\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[LoadID]"
+                      dataType="i4"
+                      name="LoadID" />
+                    <externalMetadataColumn
+                      refId="Package\PurchaseOrders\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[stg_id]"
+                      dataType="i4"
+                      name="stg_id" />
+                    <externalMetadataColumn
+                      refId="Package\PurchaseOrders\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ErrorDescription]"
+                      dataType="wstr"
+                      length="255"
+                      name="ErrorDescription" />
+                    <externalMetadataColumn
+                      refId="Package\PurchaseOrders\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[PurchaseOrderID]"
+                      dataType="i4"
+                      name="PurchaseOrderID" />
+                    <externalMetadataColumn
+                      refId="Package\PurchaseOrders\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SupplierID]"
+                      dataType="i4"
+                      name="SupplierID" />
+                    <externalMetadataColumn
+                      refId="Package\PurchaseOrders\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[EmployeeID]"
+                      dataType="i4"
+                      name="EmployeeID" />
+                    <externalMetadataColumn
+                      refId="Package\PurchaseOrders\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ProductID]"
+                      dataType="i4"
+                      name="ProductID" />
+                    <externalMetadataColumn
+                      refId="Package\PurchaseOrders\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DeliveryDate]"
+                      dataType="dbDate"
+                      name="DeliveryDate" />
+                    <externalMetadataColumn
+                      refId="Package\PurchaseOrders\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Quantity]"
+                      dataType="i4"
+                      name="Quantity" />
+                    <externalMetadataColumn
+                      refId="Package\PurchaseOrders\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Price]"
+                      dataType="numeric"
+                      name="Price"
+                      precision="18" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\PurchaseOrders\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\PurchaseOrders\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\PurchaseOrders\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\PurchaseOrders\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\PurchaseOrders\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\PurchaseOrders\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
                   </outputColumns>
                   <externalMetadataColumns />
                 </output>
@@ -922,6 +1617,22 @@
                           name="NewSortKeyPosition">0</property>
                       </properties>
                     </inputColumn>
+                    <inputColumn
+                      refId="Package\PurchaseOrders\Sort PurchaseOrders.Inputs[Sort Input].Columns[StagID]"
+                      cachedDataType="i4"
+                      cachedName="StagID"
+                      lineageId="Package\PurchaseOrders\prestaging PurchaseOrders.Outputs[OLE DB Source Output].Columns[StagID]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
@@ -987,6 +1698,19 @@
                           dataType="System.Int32"
                           description="Specifies the lineage identifier of the input column that is associated with this output column."
                           name="SortColumnId">#{Package\PurchaseOrders\prestaging PurchaseOrders.Outputs[OLE DB Source Output].Columns[DeliveryDate]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\PurchaseOrders\Sort PurchaseOrders.Outputs[Sort Output].Columns[StagID]"
+                      dataType="i4"
+                      lineageId="Package\PurchaseOrders\Sort PurchaseOrders.Outputs[Sort Output].Columns[StagID]"
+                      name="StagID">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\PurchaseOrders\prestaging PurchaseOrders.Outputs[OLE DB Source Output].Columns[StagID]}</property>
                       </properties>
                     </outputColumn>
                   </outputColumns>
@@ -1179,8 +1903,23 @@
           </components>
           <paths>
             <path
-              refId="Package\PurchaseOrders.Paths[Merge Join Output]"
+              refId="Package\PurchaseOrders.Paths[Data Conversion Error Output]"
+              endId="Package\PurchaseOrders\Derived Column.Inputs[Derived Column Input]"
+              name="Data Conversion Error Output"
+              startId="Package\PurchaseOrders\Data Conversion.Outputs[Data Conversion Error Output]" />
+            <path
+              refId="Package\PurchaseOrders.Paths[Data Conversion Output]"
               endId="Package\PurchaseOrders\staging PurchaseOrders.Inputs[OLE DB Destination Input]"
+              name="Data Conversion Output"
+              startId="Package\PurchaseOrders\Data Conversion.Outputs[Data Conversion Output]" />
+            <path
+              refId="Package\PurchaseOrders.Paths[Derived Column Output]"
+              endId="Package\PurchaseOrders\OLE DB Destination.Inputs[OLE DB Destination Input]"
+              name="Derived Column Output"
+              startId="Package\PurchaseOrders\Derived Column.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\PurchaseOrders.Paths[Merge Join Output]"
+              endId="Package\PurchaseOrders\Data Conversion.Inputs[Data Conversion Input]"
               name="Merge Join Output"
               startId="Package\PurchaseOrders\Merge Join.Outputs[Merge Join Output]" />
             <path
@@ -1207,16 +1946,33 @@
         </pipeline>
       </DTS:ObjectData>
     </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Truncate stagingPurchaseOrders"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{AC445237-DA85-4DC7-AE05-3E3E08C21082}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Truncate stagingPurchaseOrders"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{A8AFA32B-057A-488D-AFE5-25A41AD36569}"
+          SQLTask:SqlStatementSource="TRUNCATE TABLE [staging].[PurchaseOrders];" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
   </DTS:Executables>
   <DTS:PrecedenceConstraints>
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint]"
       DTS:CreationName=""
-      DTS:DTSID="{2C4823E8-8502-468B-9182-075EF338D308}"
+      DTS:DTSID="{C6252ED1-F18C-4EFF-9310-907F5BD97FB4}"
       DTS:From="Package\Log start"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint"
-      DTS:To="Package\PurchaseOrders" />
+      DTS:To="Package\Get LoadID" />
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
       DTS:CreationName=""
@@ -1225,7 +1981,88 @@
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 1"
       DTS:To="Package\Log stop" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
+      DTS:CreationName=""
+      DTS:DTSID="{3B13DA23-D89A-4CC0-BAF3-B164948B7DA2}"
+      DTS:From="Package\Get LoadID"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 2"
+      DTS:To="Package\Get maxRowCount" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 3]"
+      DTS:CreationName=""
+      DTS:DTSID="{D34167F1-D608-4F79-A259-FFE860E0F6FC}"
+      DTS:From="Package\Delete from LoadSummary"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 3"
+      DTS:To="Package\Truncate stagingPurchaseOrders" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 4]"
+      DTS:CreationName=""
+      DTS:DTSID="{F5D3C032-E6DB-4BC7-92E9-8DEF48A74D05}"
+      DTS:From="Package\Truncate stagingPurchaseOrders"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 4"
+      DTS:To="Package\PurchaseOrders" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 5]"
+      DTS:CreationName=""
+      DTS:DTSID="{8131813A-392F-433E-9EA6-D8DE13A1A240}"
+      DTS:From="Package\Delete ErrorRow"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 5"
+      DTS:To="Package\Delete from LoadSummary" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 6]"
+      DTS:CreationName=""
+      DTS:DTSID="{702C78A1-28D4-4FCB-BF86-03AA46FD352A}"
+      DTS:From="Package\Get maxRowCount"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 6"
+      DTS:To="Package\Delete ErrorRow" />
   </DTS:PrecedenceConstraints>
+  <DTS:EventHandlers>
+    <DTS:EventHandler
+      DTS:refId="Package.EventHandlers[OnError]"
+      DTS:CreationName="OnError"
+      DTS:DTSID="{F9BBD218-251D-4306-8DC9-0AF718630F7D}"
+      DTS:EventID="383652"
+      DTS:EventName="OnError"
+      DTS:LocaleID="-1">
+      <DTS:Variables>
+        <DTS:Variable
+          DTS:CreationName=""
+          DTS:Description="The propagate property of the event"
+          DTS:DTSID="{E6B9C36C-C209-4E6B-A144-813F10AA7F37}"
+          DTS:IncludeInDebugDump="6789"
+          DTS:Namespace="System"
+          DTS:ObjectName="Propagate">
+          <DTS:VariableValue
+            DTS:DataType="11">-1</DTS:VariableValue>
+        </DTS:Variable>
+      </DTS:Variables>
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package.EventHandlers[OnError]\Execute SQL Task"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{1BBF44A6-BEA2-40DD-8288-48895F614FFD}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Execute SQL Task"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{E99A4768-7D34-45FA-B745-C6C5DD6401F4}"
+              SQLTask:SqlStatementSource="EXEC  [Administration].[dbo].[spr_SSISLogProcess] @ProcessName = 'stgPurchaseOrders', @ProcessAction = 'FATAL', &#xA;@TableName = 'PurchaseOrders';"
+              SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+    </DTS:EventHandler>
+  </DTS:EventHandlers>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
 <!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
 <!--If you manually edit this section and make a mistake, you can delete it. -->
@@ -1237,45 +2074,85 @@
     design-time-name="Package">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="120,41.6"
           Id="Package\Log start"
-          TopLeft="60,60" />
-        <NodeLayout
-          Size="152.8,41.6"
-          Id="Package\PurchaseOrders"
-          TopLeft="92.8571434166966,141.494118408513" />
+          TopLeft="25.7142851304035,19.4705876668844" />
         <NodeLayout
           Size="118.4,41.6"
           Id="Package\Log stop"
-          TopLeft="217.857145545433,225.176472904774" />
+          TopLeft="724.285725598432,376.588239734149" />
+        <NodeLayout
+          Size="152.8,41.6"
+          Id="Package\PurchaseOrders"
+          TopLeft="267.857146396929,297.494120596354" />
         <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint]"
-          TopLeft="120,101.6">
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="344.257146396929,339.094120596354">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="25.1238100833633,39.8941184085132"
+              EndConnector="439.228579201503,37.4941191377951"
               Start="0,0"
-              End="25.1238100833633,32.3941184085132">
+              End="439.228579201503,29.9941191377951">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,19.6884247130343" />
+                    End="0,14.7470595688976" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,19.6884247130343"
-                    Point2="0,23.6884247130343"
-                    Point3="4,23.6884247130343" />
+                    Point1="0,14.7470595688976"
+                    Point2="0,18.7470595688976"
+                    Point3="4,18.7470595688976" />
                   <mssgle:LineSegment
-                    End="21.1238100833633,23.6884247130343" />
+                    End="435.228579201503,18.7470595688976" />
                   <mssgle:CubicBezierSegment
-                    Point1="21.1238100833633,23.6884247130343"
-                    Point2="25.1238100833633,23.6884247130343"
-                    Point3="25.1238100833633,27.6884247130343" />
+                    Point1="435.228579201503,18.7470595688976"
+                    Point2="439.228579201503,18.7470595688976"
+                    Point3="439.228579201503,22.7470595688976" />
                   <mssgle:LineSegment
-                    End="25.1238100833633,32.3941184085132" />
+                    End="439.228579201503,29.9941191377951" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="231.2,41.6"
+          Id="Package\Truncate stagingPurchaseOrders"
+          TopLeft="231.428575369776,230.176473816373" />
+        <NodeLayout
+          Size="132,41.6"
+          Id="Package\Get LoadID"
+          TopLeft="131.428573666787,78.0000010939206" />
+        <NodeLayout
+          Size="165.6,41.6"
+          Id="Package\Get maxRowCount"
+          TopLeft="306.428576647019,81.8235305593088" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="145.714285130403,40.2705876668844">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="51.7142885363832,37.7294134270362"
+              Start="0,0"
+              End="51.7142885363832,30.2294134270362">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="47.7142885363832,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="47.7142885363832,0"
+                    Point2="51.7142885363832,0"
+                    Point3="51.7142885363832,4" />
+                  <mssgle:LineSegment
+                    End="51.7142885363832,30.2294134270362" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1285,31 +2162,127 @@
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint 1]"
-          TopLeft="169.257143416697,183.094118408513">
+          Id="Package.PrecedenceConstraints[Constraint 2]"
+          TopLeft="263.428573666787,100.711765826615">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="107.800002128737,42.0823544962603"
+              EndConnector="43.0000029802321,0"
               Start="0,0"
-              End="107.800002128737,34.5823544962603">
+              End="35.5000029802321,0">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,17.0411772481302" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,17.0411772481302"
-                    Point2="0,21.0411772481302"
-                    Point3="4,21.0411772481302" />
+                    End="35.5000029802321,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 4]"
+          TopLeft="345.642860883353,271.776473816373">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,25.7176467799808"
+              Start="0,0"
+              End="0,18.2176467799808">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
                   <mssgle:LineSegment
-                    End="103.800002128737,21.0411772481302" />
-                  <mssgle:CubicBezierSegment
-                    Point1="103.800002128737,21.0411772481302"
-                    Point2="107.800002128737,21.0411772481302"
-                    Point3="107.800002128737,25.0411772481302" />
+                    End="0,18.2176467799808" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="155.2,41.6"
+          Id="Package\Delete ErrorRow"
+          TopLeft="501.428579967849,87.1764718108524" />
+        <NodeLayout
+          Size="155.2,41.6"
+          Id="Package\Delete from LoadSummary"
+          TopLeft="500.714293219606,151.658823389992" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 5]"
+          TopLeft="578.671436593728,128.776471810852">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,22.8823515791393"
+              Start="0,0"
+              End="0,15.3823515791393">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
                   <mssgle:LineSegment
-                    End="107.800002128737,34.5823544962603" />
+                    End="0,15.3823515791393" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 6]"
+          TopLeft="472.028576647019,105.300001185081">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="29.4000033208308,0"
+              Start="0,0"
+              End="21.9000033208308,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="21.9000033208308,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 3]"
+          TopLeft="578.314293219606,193.258823389992">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-231.285717849829,36.9176504263816"
+              Start="0,0"
+              End="-231.285717849829,29.4176504263816">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,14.4588252131908" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,14.4588252131908"
+                    Point2="0,18.4588252131908"
+                    Point3="-4,18.4588252131908" />
+                  <mssgle:LineSegment
+                    End="-227.285717849829,18.4588252131908" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-227.285717849829,18.4588252131908"
+                    Point2="-231.285717849829,18.4588252131908"
+                    Point3="-231.285717849829,22.4588252131908" />
+                  <mssgle:LineSegment
+                    End="-231.285717849829,29.4176504263816" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1325,57 +2298,79 @@
     design-time-name="Package\PurchaseOrders">
     <LayoutInfo>
       <GraphLayout
-        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
-        <NodeLayout
-          Size="129.6,41.6"
-          Id="Package\PurchaseOrders\Merge Join"
-          TopLeft="415.714292793858,240.882356319461" />
+        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="232,41.6"
           Id="Package\PurchaseOrders\prestaging PurchaseOrderDetails"
-          TopLeft="502.857151420749,62.5999994530397" />
-        <NodeLayout
-          Size="189.6,41.6"
-          Id="Package\PurchaseOrders\staging PurchaseOrders"
-          TopLeft="408.571435529359,348.70588724341" />
-        <NodeLayout
-          Size="201.6,41.6"
-          Id="Package\PurchaseOrders\Sort PurchaseOrderDetails"
-          TopLeft="527.857151846496,133.058825395512" />
-        <NodeLayout
-          Size="175.2,41.6"
-          Id="Package\PurchaseOrders\Sort PurchaseOrders"
-          TopLeft="238.571432634276,132.294119502434" />
+          TopLeft="292.14286211802,11.364704616837" />
         <NodeLayout
           Size="205.6,41.6"
           Id="Package\PurchaseOrders\prestaging PurchaseOrders"
-          TopLeft="239.285718360726,58.8823537669793" />
+          TopLeft="8.5714287173993,10.7058825030872" />
+        <NodeLayout
+          Size="201.6,41.6"
+          Id="Package\PurchaseOrders\Sort PurchaseOrderDetails"
+          TopLeft="297.142862203169,84.8823541316199" />
+        <NodeLayout
+          Size="189.6,41.6"
+          Id="Package\PurchaseOrders\staging PurchaseOrders"
+          TopLeft="155.000002639635,345.647063671099" />
+        <NodeLayout
+          Size="129.6,41.6"
+          Id="Package\PurchaseOrders\Merge Join"
+          TopLeft="182.142860244732,146.82353147091" />
+        <NodeLayout
+          Size="175.2,41.6"
+          Id="Package\PurchaseOrders\Sort PurchaseOrders"
+          TopLeft="7.85714299094934,84.117648238542" />
         <EdgeLayout
-          Id="Package\PurchaseOrders.Paths[Sort Output]"
-          TopLeft="326.171432634276,173.894119502434">
+          Id="Package\PurchaseOrders.Paths[Sort Output1]"
+          TopLeft="297.142862203169,105.68235413162">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="134.076193492915,66.9882368170267"
+              EndConnector="-29.933335291771,41.1411773392899"
               Start="0,0"
-              End="134.076193492915,59.4882368170267">
+              End="-29.933335291771,33.6411773392899">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,35.7027842598475" />
+                    End="-25.933335291771,0" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,35.7027842598475"
-                    Point2="0,39.7027842598475"
-                    Point3="4,39.7027842598475" />
+                    Point1="-25.933335291771,0"
+                    Point2="-29.933335291771,0"
+                    Point3="-29.933335291771,4" />
                   <mssgle:LineSegment
-                    End="130.076193492915,39.7027842598475" />
+                    End="-29.933335291771,33.6411773392899" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\PurchaseOrders.Paths[Sort Output]"
+          TopLeft="183.057142990949,104.917648238542">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="43.6190505871157,41.9058832323679"
+              Start="0,0"
+              End="43.6190505871157,34.4058832323679">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="39.6190505871157,0" />
                   <mssgle:CubicBezierSegment
-                    Point1="130.076193492915,39.7027842598475"
-                    Point2="134.076193492915,39.7027842598475"
-                    Point3="134.076193492915,43.7027842598475" />
+                    Point1="39.6190505871157,0"
+                    Point2="43.6190505871157,0"
+                    Point3="43.6190505871157,4" />
                   <mssgle:LineSegment
-                    End="134.076193492915,59.4882368170267" />
+                    End="43.6190505871157,34.4058832323679" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1386,64 +2381,30 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package\PurchaseOrders.Paths[OLE DB Source Output1]"
-          TopLeft="618.857151420749,104.19999945304">
+          TopLeft="408.14286211802,52.964704616837">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="9.80000042574704,28.8588259424718"
+              EndConnector="-10.199999914851,31.9176495147829"
               Start="0,0"
-              End="9.80000042574704,21.3588259424718">
+              End="-10.199999914851,24.4176495147829">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,10.4294129712359" />
+                    End="0,11.9588247573915" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,10.4294129712359"
-                    Point2="0,14.4294129712359"
-                    Point3="4,14.4294129712359" />
+                    Point1="0,11.9588247573915"
+                    Point2="0,15.9588247573915"
+                    Point3="-4,15.9588247573915" />
                   <mssgle:LineSegment
-                    End="5.80000042574704,14.4294129712359" />
+                    End="-6.19999991485099,15.9588247573915" />
                   <mssgle:CubicBezierSegment
-                    Point1="5.80000042574704,14.4294129712359"
-                    Point2="9.80000042574704,14.4294129712359"
-                    Point3="9.80000042574704,18.4294129712359" />
+                    Point1="-6.19999991485099,15.9588247573915"
+                    Point2="-10.199999914851,15.9588247573915"
+                    Point3="-10.199999914851,19.9588247573915" />
                   <mssgle:LineSegment
-                    End="9.80000042574704,21.3588259424718" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\PurchaseOrders.Paths[Merge Join Output]"
-          TopLeft="480.514292793858,282.482356319461">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="22.8571427355009,66.223530923949"
-              Start="0,0"
-              End="22.8571427355009,58.723530923949">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,29.1117654619745" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,29.1117654619745"
-                    Point2="0,33.1117654619745"
-                    Point3="4,33.1117654619745" />
-                  <mssgle:LineSegment
-                    End="18.8571427355009,33.1117654619745" />
-                  <mssgle:CubicBezierSegment
-                    Point1="18.8571427355009,33.1117654619745"
-                    Point2="22.8571427355009,33.1117654619745"
-                    Point3="22.8571427355009,37.1117654619745" />
-                  <mssgle:LineSegment
-                    End="22.8571427355009,58.723530923949" />
+                    End="-10.199999914851,24.4176495147829" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1454,7 +2415,7 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package\PurchaseOrders.Paths[OLE DB Source Output]"
-          TopLeft="342.085718360726,100.482353766979">
+          TopLeft="111.371428717399,52.3058825030869">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -1486,32 +2447,124 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <NodeLayout
+          Size="155.2,41.6"
+          Id="Package\PurchaseOrders\Data Conversion"
+          TopLeft="175.714288706682,269.176474363334" />
         <EdgeLayout
-          Id="Package\PurchaseOrders.Paths[Sort Output1]"
-          TopLeft="628.657151846496,174.658825395512">
+          Id="Package\PurchaseOrders.Paths[Merge Join Output]"
+          TopLeft="250.128574475707,188.42353147091">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-127.876192385972,66.223530923949"
+              EndConnector="0,80.752942892424"
               Start="0,0"
-              End="-127.876192385972,58.723530923949">
+              End="0,73.252942892424">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,35.2495561329746" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,35.2495561329746"
-                    Point2="0,39.2495561329746"
-                    Point3="-4,39.2495561329746" />
+                    End="0,73.252942892424" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\PurchaseOrders.Paths[Data Conversion Output]"
+          TopLeft="251.557145673158,310.776474363334">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,34.8705893077655"
+              Start="0,0"
+              End="0,27.3705893077655">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
                   <mssgle:LineSegment
-                    End="-123.876192385972,39.2495561329746" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-123.876192385972,39.2495561329746"
-                    Point2="-127.876192385972,39.2495561329746"
-                    Point3="-127.876192385972,43.2495561329746" />
+                    End="0,27.3705893077655" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="170.4,41.6"
+          Id="Package\PurchaseOrders\OLE DB Destination"
+          TopLeft="524.285723214247,387.14117843321" />
+        <NodeLayout
+          Size="152.8,41.6"
+          Id="Package\PurchaseOrders\Derived Column"
+          TopLeft="516.428580223298,313.529416161838" />
+        <EdgeLayout
+          Id="Package\PurchaseOrders.Paths[Data Conversion Error Output]"
+          TopLeft="330.914288706682,289.976474363334">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="185.514291516616,44.3529417985039"
+              Start="0,0"
+              End="178.014291516616,44.3529417985039">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
                   <mssgle:LineSegment
-                    End="-127.876192385972,58.723530923949" />
+                    End="88.7571457583078,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="88.7571457583078,0"
+                    Point2="92.7571457583078,0"
+                    Point3="92.7571457583078,4" />
+                  <mssgle:LineSegment
+                    End="92.7571457583078,40.3529417985039" />
+                  <mssgle:CubicBezierSegment
+                    Point1="92.7571457583078,40.3529417985039"
+                    Point2="92.7571457583078,44.3529417985039"
+                    Point3="96.7571457583078,44.3529417985039" />
+                  <mssgle:LineSegment
+                    End="178.014291516616,44.3529417985039" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="26.6707590395578,-17.43359375,132.1727734375,11.43359375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\PurchaseOrders.Paths[Derived Column Output]"
+          TopLeft="592.828580223298,355.129416161838">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="16.6571429909496,32.0117622713727"
+              Start="0,0"
+              End="16.6571429909496,24.5117622713727">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,12.0058811356863" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,12.0058811356863"
+                    Point2="0,16.0058811356863"
+                    Point3="4,16.0058811356863" />
+                  <mssgle:LineSegment
+                    End="12.6571429909496,16.0058811356863" />
+                  <mssgle:CubicBezierSegment
+                    Point1="12.6571429909496,16.0058811356863"
+                    Point2="16.6571429909496,16.0058811356863"
+                    Point3="16.6571429909496,20.0058811356863" />
+                  <mssgle:LineSegment
+                    End="16.6571429909496,24.5117622713727" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1523,5 +2576,30 @@
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
+  <DtsEventHandler
+    design-time-name="Package.EventHandlers[OnError]">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="162.4,41.6"
+          Id="Package.EventHandlers[OnError]\Execute SQL Task"
+          TopLeft="788,196" />
+      </GraphLayout>
+    </LayoutInfo>
+  </DtsEventHandler>
+  <PipelineComponentMetadata
+    design-time-name="Package\PurchaseOrders\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
 </Objects>]]></DTS:DesignTimeProperties>
 </DTS:Executable>
