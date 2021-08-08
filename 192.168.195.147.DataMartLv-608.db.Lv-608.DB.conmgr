@@ -1,0 +1,16 @@
+﻿<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="192.168.195.147.DataMartLv-608.db.Lv-608.DB"
+  DTS:DTSID="{E357BFBD-32AE-4C0C-BF7B-E765E12F75B4}"
+  DTS:CreationName="OLEDB">
+  <DTS:ObjectData>
+    <DTS:ConnectionManager
+      DTS:ConnectRetryCount="1"
+      DTS:ConnectRetryInterval="5"
+      DTS:ConnectionString="Data Source=192.168.195.147;User ID=Lv-608.DB;Initial Catalog=DataMartLv-608.db;Provider=SQLNCLI11.1;Persist Security Info=True;Auto Translate=False;">
+      <DTS:Password
+        DTS:Name="Password"
+        Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAaMTeypuApEyJbYCzW7BcSQAAAAACAAAAAAADZgAAwAAAABAAAADVZ536+LAESKP2iqzC8tViAAAAAASAAACgAAAAEAAAAOAdOav/pUNi1nrIcKOt4pF4AAAAn9aUH7FPg6aEcmS8lLsCKGCbgO6HdVcMbExKmOXO4zSfdbB0YUcxPDql56h2biSqEcDeH/O3FRSlZeOj5twtAnupOOngn45+8DROn8qoxpHmoYXAMvmuJZCmlkks3VbJJAy/VAiFsy1B6ztYwO5Px+zn1DG9uM9CFAAAANoK9HJsKMduWq692S9NRJYKK9UP</DTS:Password>
+    </DTS:ConnectionManager>
+  </DTS:ObjectData>
+</DTS:ConnectionManager>

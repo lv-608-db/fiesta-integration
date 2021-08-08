@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="34"
-  DTS:VersionGUID="{C5218F88-7B41-458C-80D5-78492A83357A}">
+  DTS:VersionBuild="35"
+  DTS:VersionGUID="{58C87E74-571F-4B87-BEF6-B888ED6EF61D}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -29,7 +29,7 @@
           <DTS:Password
             DTS:Name="Password"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAaMTeypuApEyJbYCzW7BcSQAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAABsnLY5z45ZHO6lQ0ZJDpdTAAAAAASAAACgAAAAEAAAAMKY4s5tnaXwV2TKRKUBb0UYAAAA0oWG/q5hu7lzdxrba8CrllmDx6pvvy0GFAAAAJkCRwIBpQVuH1dGTK3kdq4NCl7O</DTS:Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAaMTeypuApEyJbYCzW7BcSQAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAACCPFVhjz5J2C20deNzCIkrAAAAAASAAACgAAAAEAAAANf9uto0BgDrWIlIaeaR8WwYAAAA4H3gFM1/bOqhRJ11lPKmOHmUhFrhI2QMFAAAAO4+dG/gvEbXejuuGN4dcFx9qewf</DTS:Password>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -118,7 +118,25 @@
       DTS:LocaleID="-1"
       DTS:ObjectName="Load to DataMart">
       <DTS:Variables />
-      <DTS:Executables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\Load to DataMart\Load PurchaseOrders"
+          DTS:CreationName="Microsoft.ExecutePackageTask"
+          DTS:Description="Execute Package Task"
+          DTS:DTSID="{8A8EE35B-1E30-42A1-87FD-05FE2B1C00A9}"
+          DTS:ExecutableType="Microsoft.ExecutePackageTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Load PurchaseOrders"
+          DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <ExecutePackageTask>
+              <UseProjectReference>True</UseProjectReference>
+              <PackageName>LoadPurchaseOrdersToDataMart.dtsx</PackageName>
+            </ExecutePackageTask>
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
     </DTS:Executable>
     <DTS:Executable
       DTS:refId="Package\Load to Prestage"
@@ -590,6 +608,17 @@
           Id="Package\Get Load ID"
           TopLeft="116.428573411338,88.7058835970078" />
         <NodeLayout
+          Size="178.4,41.6"
+          Id="Package\Load to DataMart\Load PurchaseOrders"
+          TopLeft="60.4571623198842,35.388239369508" />
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="328,221.6"
+          Size="328,264.8"
+          Id="Package\Load to DataMart"
+          TopLeft="1082.14287557164,212.205885329049" />
+        <NodeLayout
           Size="152,41.6"
           Id="Package\Load to Prestage\Load Addresses"
           TopLeft="62.1714334857708,444.788240645749" />
@@ -1035,39 +1064,32 @@
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <ContainerLayout
-          HeaderHeight="43"
-          IsExpanded="True"
-          PanelSize="328,221.6"
-          Size="328,264.8"
-          Id="Package\Load to DataMart"
-          TopLeft="1082.14287557164,212.205885329049" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 5]"
           TopLeft="953.207154294545,329.88235540786">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="128.935721277096,14.7235299211885"
+              EndConnector="128.935721277095,14.723529921189"
               Start="0,0"
-              End="121.435721277096,14.7235299211885">
+              End="121.435721277095,14.723529921189">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="60.4678606385478,0" />
+                    End="60.4678606385474,0" />
                   <mssgle:CubicBezierSegment
-                    Point1="60.4678606385478,0"
-                    Point2="64.4678606385478,0"
-                    Point3="64.4678606385478,4" />
+                    Point1="60.4678606385474,0"
+                    Point2="64.4678606385474,0"
+                    Point3="64.4678606385474,4" />
                   <mssgle:LineSegment
-                    End="64.4678606385478,10.7235299211885" />
+                    End="64.4678606385474,10.723529921189" />
                   <mssgle:CubicBezierSegment
-                    Point1="64.4678606385478,10.7235299211885"
-                    Point2="64.4678606385478,14.7235299211885"
-                    Point3="68.4678606385478,14.7235299211885" />
+                    Point1="64.4678606385474,10.723529921189"
+                    Point2="64.4678606385474,14.723529921189"
+                    Point3="68.4678606385474,14.723529921189" />
                   <mssgle:LineSegment
-                    End="121.435721277096,14.7235299211885" />
+                    End="121.435721277095,14.723529921189" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1082,9 +1104,9 @@
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-388.997624573213,292.023536211232"
+              EndConnector="-388.997624573212,292.023536211232"
               Start="0,0"
-              End="-388.997624573213,284.523536211232">
+              End="-388.997624573212,284.523536211232">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
@@ -1095,13 +1117,13 @@
                     Point2="0,173.379418881433"
                     Point3="-4,173.379418881433" />
                   <mssgle:LineSegment
-                    End="-384.997624573213,173.379418881433" />
+                    End="-384.997624573212,173.379418881433" />
                   <mssgle:CubicBezierSegment
-                    Point1="-384.997624573213,173.379418881433"
-                    Point2="-388.997624573213,173.379418881433"
-                    Point3="-388.997624573213,177.379418881433" />
+                    Point1="-384.997624573212,173.379418881433"
+                    Point2="-388.997624573212,173.379418881433"
+                    Point3="-388.997624573212,177.379418881433" />
                   <mssgle:LineSegment
-                    End="-388.997624573213,284.523536211232" />
+                    End="-388.997624573212,284.523536211232" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
