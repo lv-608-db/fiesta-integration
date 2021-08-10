@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="LoadSuppliers"
   DTS:PackageType="5"
-  DTS:VersionBuild="42"
-  DTS:VersionGUID="{0CB45183-1E4C-4307-B1E5-D3C5977743B8}">
+  DTS:VersionBuild="44"
+  DTS:VersionGUID="{95DFE189-3BDF-4C42-ABCA-9B2AFEB5F95E}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -29,7 +29,7 @@
           <DTS:Password
             DTS:Name="Password"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAaMTeypuApEyJbYCzW7BcSQAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAABf9b8GQCIe0ZJi20GfnA2tAAAAAASAAACgAAAAEAAAAIWN8VHwcjJHeNKFmhqmXWQYAAAA3bcSwJEbAlXp2TIF5RH7kIAmEtC+nL1+FAAAAFdWsic+VXTQxaFLpxx0JVOcOISI</DTS:Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAaMTeypuApEyJbYCzW7BcSQAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAABEBX6+DLTwqA7Ltmzpjzj0AAAAAASAAACgAAAAEAAAAAewn9AfzyzpdHgFKyo84aMYAAAAF4HUIH/aPPKCSku8gJrqWMWyxzubz6SKFAAAAIvVH2nV3jLsLlPwfzlJQkWdzeLd</DTS:Password>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -46,7 +46,7 @@
           <DTS:Password
             DTS:Name="Password"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAaMTeypuApEyJbYCzW7BcSQAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAABjhuz4oLWDlV8suQMTpBeYAAAAAASAAACgAAAAEAAAALbJili0/fw8d0ylh8sikh4YAAAAc4+qs4yz86wu8CGfxeh2h+Ibu9zcycKbFAAAAMYdpYxR34joc8Frnpo/KCTz49OQ</DTS:Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAaMTeypuApEyJbYCzW7BcSQAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAABOC/WcFI+kkO6jaG2BirAgAAAAAASAAACgAAAAEAAAAEQE+y3tHQe8mvp6+1tkEnwYAAAAthuDV1+R6XhIG/bmdOlj1Jqn+7/NMeWyFAAAAE8eCzYhd6HB+4j4ksI9TKIR2nj5</DTS:Password>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -63,7 +63,7 @@
           <DTS:Password
             DTS:Name="Password"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAaMTeypuApEyJbYCzW7BcSQAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAAD0mUiAOAysnGRwrBwaTS6iAAAAAASAAACgAAAAEAAAALCF9Mdk81YqCLEeP7DXGfsYAAAAPfGWIMWk8K2QD2/sLtshaYDTJEEGMJLuFAAAANVhq+KJodLyFNaRKW5pHyO9jnuO</DTS:Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAaMTeypuApEyJbYCzW7BcSQAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAAALCBiTe3npawCa9paC9B4wAAAAAASAAACgAAAAEAAAAHfmrVie5OAV0zbtVsHtZ10YAAAA2n2R5PKEiKjd7rfhB3cjjrr1WIcBHwtuFAAAADqfU9ph1q+hICL7p6E9iPjhhJjl</DTS:Password>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -466,7 +466,7 @@
                           errorOrTruncationOperation="Conversion"
                           errorRowDisposition="FailComponent"
                           externalMetadataColumnId="Package\ForeachFileMaskSuppliers\LoadSuppleirsFromPendingToPrestaig\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Email]"
-                          length="50"
+                          length="255"
                           lineageId="Package\ForeachFileMaskSuppliers\LoadSuppleirsFromPendingToPrestaig\Flat File Source.Outputs[Flat File Source Output].Columns[Email]"
                           name="Email"
                           truncationRowDisposition="FailComponent">
@@ -583,7 +583,7 @@
                       dataType="System.Int32"
                       description="Specifies the mode used to access the database."
                       name="AccessMode"
-                      typeConverter="AccessMode">0</property>
+                      typeConverter="AccessMode">3</property>
                     <property
                       dataType="System.Boolean"
                       description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
@@ -595,7 +595,7 @@
                     <property
                       dataType="System.String"
                       description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
-                      name="FastLoadOptions"></property>
+                      name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
                     <property
                       dataType="System.Int32"
                       description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
@@ -648,7 +648,7 @@
                         <inputColumn
                           refId="Package\ForeachFileMaskSuppliers\LoadSuppleirsFromPendingToPrestaig\LV Warehouse Prestaiging.Inputs[OLE DB Destination Input].Columns[Email]"
                           cachedDataType="wstr"
-                          cachedLength="50"
+                          cachedLength="255"
                           cachedName="Email"
                           externalMetadataColumnId="Package\ForeachFileMaskSuppliers\LoadSuppleirsFromPendingToPrestaig\LV Warehouse Prestaiging.Inputs[OLE DB Destination Input].ExternalColumns[Email]"
                           lineageId="Package\ForeachFileMaskSuppliers\LoadSuppleirsFromPendingToPrestaig\Flat File Source.Outputs[Flat File Source Output].Columns[Email]" />
@@ -1168,6 +1168,10 @@
           Size="201.6,41.6"
           Id="Package\ForeachFileMaskSuppliers\LoadSuppleirsFromPendingToPrestaig\LV Warehouse Prestaiging"
           TopLeft="349,193" />
+        <NodeLayout
+          Size="150.4,41.6"
+          Id="Package\ForeachFileMaskSuppliers\LoadSuppleirsFromPendingToPrestaig\Flat File Source"
+          TopLeft="359.285720404314,32.8823534023391" />
         <EdgeLayout
           Id="Package\ForeachFileMaskSuppliers\LoadSuppleirsFromPendingToPrestaig.Paths[Row Count Output 1]"
           TopLeft="588.4,133.6">
@@ -1202,10 +1206,6 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="150.4,41.6"
-          Id="Package\ForeachFileMaskSuppliers\LoadSuppleirsFromPendingToPrestaig\Flat File Source"
-          TopLeft="359.285720404314,32.8823534023391" />
         <EdgeLayout
           Id="Package\ForeachFileMaskSuppliers\LoadSuppleirsFromPendingToPrestaig.Paths[Flat File Source Output]"
           TopLeft="509.685720404314,53.6823534023391">

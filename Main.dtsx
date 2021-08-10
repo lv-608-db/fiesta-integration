@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="35"
-  DTS:VersionGUID="{58C87E74-571F-4B87-BEF6-B888ED6EF61D}">
+  DTS:VersionBuild="39"
+  DTS:VersionGUID="{5935F68E-BB1B-437E-B4BF-6A99C69543D9}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -29,7 +29,7 @@
           <DTS:Password
             DTS:Name="Password"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAaMTeypuApEyJbYCzW7BcSQAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAACCPFVhjz5J2C20deNzCIkrAAAAAASAAACgAAAAEAAAANf9uto0BgDrWIlIaeaR8WwYAAAA4H3gFM1/bOqhRJ11lPKmOHmUhFrhI2QMFAAAAO4+dG/gvEbXejuuGN4dcFx9qewf</DTS:Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAaMTeypuApEyJbYCzW7BcSQAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAAAQf5BKrcZVpHkncxd7eqEVAAAAAASAAACgAAAAEAAAALifHT0zu8XClgtd+38U9oMYAAAA7ITQ3nZWjmLpDiz1JwWY0RgezOh0PJNEFAAAAMSBCT5zdnIny1zkX6DHRJocn3xL</DTS:Password>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -120,13 +120,30 @@
       <DTS:Variables />
       <DTS:Executables>
         <DTS:Executable
-          DTS:refId="Package\Load to DataMart\Load PurchaseOrders"
+          DTS:refId="Package\Load to DataMart\Disable NonClustered Indexes"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{A1F3467B-FD8A-4B65-9068-75B04CE1D4D0}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Disable NonClustered Indexes"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{E357BFBD-32AE-4C0C-BF7B-E765E12F75B4}"
+              SQLTask:SqlStatementSource="EXEC [dm].[DisableNonClusteredIndexes_DataMartNEW]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Load to DataMart\Exec Merge Procedures"
           DTS:CreationName="Microsoft.ExecutePackageTask"
           DTS:Description="Execute Package Task"
           DTS:DTSID="{8A8EE35B-1E30-42A1-87FD-05FE2B1C00A9}"
           DTS:ExecutableType="Microsoft.ExecutePackageTask"
           DTS:LocaleID="-1"
-          DTS:ObjectName="Load PurchaseOrders"
+          DTS:ObjectName="Exec Merge Procedures"
           DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
           <DTS:Variables />
           <DTS:ObjectData>
@@ -136,7 +153,42 @@
             </ExecutePackageTask>
           </DTS:ObjectData>
         </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Load to DataMart\Rebuild NonClustered Indexes"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{918aa84f-5751-4a5d-b583-82305db9552b}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Rebuild NonClustered Indexes"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{E357BFBD-32AE-4C0C-BF7B-E765E12F75B4}"
+              SQLTask:SqlStatementSource="EXEC [dm].[DisableNonClusteredIndexes_DataMartNEW]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
       </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Load to DataMart.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{5FFA484D-E4FC-4896-A62A-2501343A0EC6}"
+          DTS:From="Package\Load to DataMart\Disable NonClustered Indexes"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\Load to DataMart\Exec Merge Procedures" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Load to DataMart.PrecedenceConstraints[Constraint 1]"
+          DTS:CreationName=""
+          DTS:DTSID="{E656392D-7AE1-4195-AE39-C4C4B94A6555}"
+          DTS:From="Package\Load to DataMart\Exec Merge Procedures"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 1"
+          DTS:To="Package\Load to DataMart\Rebuild NonClustered Indexes" />
+      </DTS:PrecedenceConstraints>
     </DTS:Executable>
     <DTS:Executable
       DTS:refId="Package\Load to Prestage"
@@ -420,6 +472,23 @@
       </DTS:PrecedenceConstraints>
     </DTS:Executable>
     <DTS:Executable
+      DTS:refId="Package\Populate Lookup"
+      DTS:CreationName="Microsoft.ExecutePackageTask"
+      DTS:Description="Execute Package Task"
+      DTS:DTSID="{DCBED11D-1386-42F2-9297-20C974ABED24}"
+      DTS:ExecutableType="Microsoft.ExecutePackageTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Populate Lookup"
+      DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <ExecutePackageTask>
+          <UseProjectReference>True</UseProjectReference>
+          <PackageName>PopulateTableLookup.dtsx</PackageName>
+        </ExecutePackageTask>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
       DTS:refId="Package\Process to Stage"
       DTS:CreationName="STOCK:SEQUENCE"
       DTS:Description="Sequence Container"
@@ -522,11 +591,11 @@
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint 5]"
       DTS:CreationName=""
-      DTS:DTSID="{87F21878-DB98-4ADD-A2E3-0477CFB07BBD}"
+      DTS:DTSID="{5CB22C8D-0AA3-4919-8578-CA86EDE15C27}"
       DTS:From="Package\Process to Stage"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 5"
-      DTS:To="Package\Load to DataMart" />
+      DTS:To="Package\Populate Lookup" />
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint 6]"
       DTS:CreationName=""
@@ -535,6 +604,14 @@
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 6"
       DTS:To="Package\Close Load Run" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 7]"
+      DTS:CreationName=""
+      DTS:DTSID="{D40C744B-F851-49DC-8DE7-790D74DBAA9E}"
+      DTS:From="Package\Populate Lookup"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 7"
+      DTS:To="Package\Load to DataMart" />
   </DTS:PrecedenceConstraints>
   <DTS:EventHandlers>
     <DTS:EventHandler
@@ -608,16 +685,68 @@
           Id="Package\Get Load ID"
           TopLeft="116.428573411338,88.7058835970078" />
         <NodeLayout
-          Size="178.4,41.6"
-          Id="Package\Load to DataMart\Load PurchaseOrders"
-          TopLeft="60.4571623198842,35.388239369508" />
+          Size="188,41.6"
+          Id="Package\Load to DataMart\Exec Merge Procedures"
+          TopLeft="59.0285908669844,112.623534570351" />
+        <NodeLayout
+          Size="219.2,41.6"
+          Id="Package\Load to DataMart\Disable NonClustered Indexes"
+          TopLeft="36.4571606168945,28.7647080809188" />
+        <NodeLayout
+          Size="220,41.6"
+          Id="Package\Load to DataMart\Rebuild NonClustered Indexes"
+          TopLeft="47.8857322400934,211.16471099804" />
+        <EdgeLayout
+          Id="Package\Load to DataMart.PrecedenceConstraints[Constraint]"
+          TopLeft="149.542875741939,70.3647080809188">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,42.2588264894321"
+              Start="0,0"
+              End="0,34.7588264894321">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,34.7588264894321" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Load to DataMart.PrecedenceConstraints[Constraint 1]"
+          TopLeft="155.457161553539,154.223534570351">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,56.9411764276894"
+              Start="0,0"
+              End="0,49.4411764276894">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,49.4411764276894" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="328,221.6"
-          Size="328,264.8"
+          PanelSize="328,345.6"
+          Size="328,388.8"
           Id="Package\Load to DataMart"
-          TopLeft="1082.14287557164,212.205885329049" />
+          TopLeft="1258.07938553552,202.859479969211" />
         <NodeLayout
           Size="152,41.6"
           Id="Package\Load to Prestage\Load Addresses"
@@ -890,6 +1019,10 @@
           Id="Package\Load to Prestage"
           TopLeft="226.428575284627,203.176473269413" />
         <NodeLayout
+          Size="182.4,41.6"
+          Id="Package\Populate Lookup"
+          TopLeft="1001.58731864423,306.27451235402" />
+        <NodeLayout
           Size="194.4,41.6"
           Id="Package\Process to Stage\Exec Process Procedures"
           TopLeft="52.3285856302904,98.3352969328836" />
@@ -1036,7 +1169,7 @@
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-15.24134765625,150.74902134746,30.4826953125,9.7490234375"
+              BoundingBox="-15.24134765625,150.749021347461,30.4826953125,9.7490234375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -1066,30 +1199,18 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 5]"
-          TopLeft="953.207154294545,329.88235540786">
+          TopLeft="953.207154294545,328.47843388094">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="128.935721277095,14.723529921189"
+              EndConnector="48.3801643496871,0"
               Start="0,0"
-              End="121.435721277095,14.723529921189">
+              End="40.8801643496871,0">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="60.4678606385474,0" />
-                  <mssgle:CubicBezierSegment
-                    Point1="60.4678606385474,0"
-                    Point2="64.4678606385474,0"
-                    Point3="64.4678606385474,4" />
-                  <mssgle:LineSegment
-                    End="64.4678606385474,10.723529921189" />
-                  <mssgle:CubicBezierSegment
-                    Point1="64.4678606385474,10.723529921189"
-                    Point2="64.4678606385474,14.723529921189"
-                    Point3="68.4678606385474,14.723529921189" />
-                  <mssgle:LineSegment
-                    End="121.435721277095,14.723529921189" />
+                    End="40.8801643496871,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1100,30 +1221,64 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 6]"
-          TopLeft="1246.14287557164,477.005885329049">
+          TopLeft="1422.07938553552,591.659479969211">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-388.997624573212,292.023536211232"
+              EndConnector="-564.934134537092,177.36994157107"
               Start="0,0"
-              End="-388.997624573212,284.523536211232">
+              End="-564.934134537092,169.86994157107">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,169.379418881433" />
+                    End="0,101.307598817588" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,169.379418881433"
-                    Point2="0,173.379418881433"
-                    Point3="-4,173.379418881433" />
+                    Point1="0,101.307598817588"
+                    Point2="0,105.307598817588"
+                    Point3="-4,105.307598817588" />
                   <mssgle:LineSegment
-                    End="-384.997624573212,173.379418881433" />
+                    End="-560.934134537092,105.307598817588" />
                   <mssgle:CubicBezierSegment
-                    Point1="-384.997624573212,173.379418881433"
-                    Point2="-388.997624573212,173.379418881433"
-                    Point3="-388.997624573212,177.379418881433" />
+                    Point1="-560.934134537092,105.307598817588"
+                    Point2="-564.934134537092,105.307598817588"
+                    Point3="-564.934134537092,109.307598817588" />
                   <mssgle:LineSegment
-                    End="-388.997624573212,284.523536211232" />
+                    End="-564.934134537092,169.86994157107" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 7]"
+          TopLeft="1183.98731864423,327.07451235402">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="74.09206689129,70.1849676151911"
+              Start="0,0"
+              End="66.59206689129,70.1849676151911">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="33.046033445645,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="33.046033445645,0"
+                    Point2="37.046033445645,0"
+                    Point3="37.046033445645,4" />
+                  <mssgle:LineSegment
+                    End="37.046033445645,66.1849676151911" />
+                  <mssgle:CubicBezierSegment
+                    Point1="37.046033445645,66.1849676151911"
+                    Point2="37.046033445645,70.1849676151911"
+                    Point3="41.046033445645,70.1849676151911" />
+                  <mssgle:LineSegment
+                    End="66.59206689129,70.1849676151911" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>

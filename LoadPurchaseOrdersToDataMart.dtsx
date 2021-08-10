@@ -1,0 +1,186 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="8/8/2021 8:06:42 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="RD7"
+  DTS:CreatorName="TRAINING\vpovstc"
+  DTS:DTSID="{E482A3A0-17AC-43DF-856A-F1B4B5C5BBEA}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.167"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="Package1"
+  DTS:PackageType="5"
+  DTS:VersionBuild="2"
+  DTS:VersionGUID="{95D5DA59-00D2-4413-BDFB-E4229D243B83}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Disable Index"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{1831C807-83C5-46D0-83B8-1C7B00582C76}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Disable Index"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{E357BFBD-32AE-4C0C-BF7B-E765E12F75B4}"
+          SQLTask:SqlStatementSource="EXECUTE [DataMartLv-608.db].[dbo].[DisableIndex] &#xA;&#x9;@databaseName = 'DataMartLv-608.db', &#xA;&#x9;@tablename = 'PurchaseOrders', &#xA;&#x9;@schemaName = 'dm'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Enable Index"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{a809dd75-76f9-42a4-bf80-3769fb7f5eaa}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Enable Index"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{E357BFBD-32AE-4C0C-BF7B-E765E12F75B4}"
+          SQLTask:SqlStatementSource="EXECUTE [DataMartLv-608.db].[dbo].[EnableIndex] &#xA; @databaseName = 'DataMartLv-608.db', &#xA; @tablename = 'PurchaseOrders', &#xA; @schemaName = 'dm'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Load PurchaseOrders to DataMart"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{B825F4B2-3308-4AEC-8EA3-EDBEC1C65304}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Load PurchaseOrders to DataMart"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{E357BFBD-32AE-4C0C-BF7B-E765E12F75B4}"
+          SQLTask:SqlStatementSource="EXECUTE [DataMartLv-608.db].[dbo].[spr_LoadDataMartPurchaseOrders]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{7799D9A6-786B-44B8-B942-7AE0F3B8581E}"
+      DTS:From="Package\Disable Index"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Load PurchaseOrders to DataMart" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{D79DA2F2-BA00-4114-B068-C5B8AAFFAFA9}"
+      DTS:From="Package\Load PurchaseOrders to DataMart"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\Enable Index" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="142.4,41.6"
+          Id="Package\Disable Index"
+          TopLeft="97.1428587971902,52.0000007292804" />
+        <NodeLayout
+          Size="140,41.6"
+          Id="Package\Enable Index"
+          TopLeft="288.571433485771,247.000003464082" />
+        <NodeLayout
+          Size="268.8,41.6"
+          Id="Package\Load PurchaseOrders to DataMart"
+          TopLeft="140.714288110636,153.705884508608" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="168.34285879719,93.6000007292804">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="106.771429313446,60.1058837793277"
+              Start="0,0"
+              End="106.771429313446,52.6058837793277">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,26.0529418896639" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,26.0529418896639"
+                    Point2="0,30.0529418896639"
+                    Point3="4,30.0529418896639" />
+                  <mssgle:LineSegment
+                    End="102.771429313446,30.0529418896639" />
+                  <mssgle:CubicBezierSegment
+                    Point1="102.771429313446,30.0529418896639"
+                    Point2="106.771429313446,30.0529418896639"
+                    Point3="106.771429313446,34.0529418896639" />
+                  <mssgle:LineSegment
+                    End="106.771429313446,52.6058837793277" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="275.114288110636,195.305884508608">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="83.4571453751352,51.6941189554736"
+              Start="0,0"
+              End="83.4571453751352,44.1941189554736">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,21.8470594777368" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,21.8470594777368"
+                    Point2="0,25.8470594777368"
+                    Point3="4,25.8470594777368" />
+                  <mssgle:LineSegment
+                    End="79.4571453751352,25.8470594777368" />
+                  <mssgle:CubicBezierSegment
+                    Point1="79.4571453751352,25.8470594777368"
+                    Point2="83.4571453751352,25.8470594777368"
+                    Point3="83.4571453751352,29.8470594777368" />
+                  <mssgle:LineSegment
+                    End="83.4571453751352,44.1941189554736" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
