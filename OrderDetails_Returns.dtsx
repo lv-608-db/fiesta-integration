@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="OrderDetails_Returns"
   DTS:PackageType="5"
-  DTS:VersionBuild="49"
-  DTS:VersionGUID="{B02C401D-A4E0-4B9E-8C67-8AE6836E7DD4}">
+  DTS:VersionBuild="51"
+  DTS:VersionGUID="{BE52F8AE-AD7A-4696-8468-C3967D857629}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -41,7 +41,7 @@
           <DTS:Password
             DTS:Name="Password"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAaMTeypuApEyJbYCzW7BcSQAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAABwvsXzgJocaefac9gWlB4yAAAAAASAAACgAAAAEAAAANaE8CS6eZ4dXZCfetJpEW4YAAAASF1ngWsJSQMIs0Trc49h7jmMts52lzgqFAAAAMNl+OQFGn9Q47au1c0zb1G6B/vn</DTS:Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAaMTeypuApEyJbYCzW7BcSQAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAAC9xSo/sLCXt4Ez6IvbdDvYAAAAAASAAACgAAAAEAAAAC9u/V8nlaP2W6fC5dpsrI0YAAAADcIxJ4BFpiyir4NZrLXF+ZuIbQhv0bi8FAAAADmTYcPVXHcHV5RjRA7V7OS1i7mY</DTS:Password>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -377,7 +377,7 @@
                       dataType="System.Int32"
                       description="Specifies the mode used to access the database."
                       name="AccessMode"
-                      typeConverter="AccessMode">0</property>
+                      typeConverter="AccessMode">3</property>
                     <property
                       dataType="System.Boolean"
                       description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
@@ -389,7 +389,7 @@
                     <property
                       dataType="System.String"
                       description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
-                      name="FastLoadOptions"></property>
+                      name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
                     <property
                       dataType="System.Int32"
                       description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
@@ -1355,17 +1355,17 @@
     design-time-name="Package\Foreach Loop Container\Import OrderDetails_Returns to DB">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="131.333333333334,42.6666666666667"
+          Size="131.2,42.4"
           Id="Package\Foreach Loop Container\Import OrderDetails_Returns to DB\Row Count"
           TopLeft="339.999994933605,117.649997896254" />
         <NodeLayout
-          Size="256,42.6666666666667"
+          Size="256,42.4"
           Id="Package\Foreach Loop Container\Import OrderDetails_Returns to DB\OrderDetails_Returns Flat File Source"
           TopLeft="169.999997466803,26.6499995234609" />
         <NodeLayout
-          Size="172,53.3333333333334"
+          Size="172,53.6"
           Id="Package\Foreach Loop Container\Import OrderDetails_Returns to DB\OLE DB Destination"
           TopLeft="245.624996339902,187.199996652603" />
         <EdgeLayout
@@ -1399,9 +1399,7 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -1435,9 +1433,7 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>

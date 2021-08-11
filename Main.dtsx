@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="39"
-  DTS:VersionGUID="{5935F68E-BB1B-437E-B4BF-6A99C69543D9}">
+  DTS:VersionBuild="42"
+  DTS:VersionGUID="{93FF4575-A4DC-41B4-B5BA-D7FF3D961BC0}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -29,7 +29,7 @@
           <DTS:Password
             DTS:Name="Password"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAaMTeypuApEyJbYCzW7BcSQAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAAAQf5BKrcZVpHkncxd7eqEVAAAAAASAAACgAAAAEAAAALifHT0zu8XClgtd+38U9oMYAAAA7ITQ3nZWjmLpDiz1JwWY0RgezOh0PJNEFAAAAMSBCT5zdnIny1zkX6DHRJocn3xL</DTS:Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAaMTeypuApEyJbYCzW7BcSQAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAABVxE16vS7WD7VVMeJrkarJAAAAAASAAACgAAAAEAAAACo5qnsMLUqyFFPpBvCpHggYAAAAx57Pig+QiyFgAlE+ejR42P3tLJ6D/wyaFAAAAKB/q/FWN2777tf94jbKs64vgs7F</DTS:Password>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -110,17 +110,17 @@
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
-      DTS:refId="Package\Load to DataMart"
+      DTS:refId="Package\Incremental Load to DataMart"
       DTS:CreationName="STOCK:SEQUENCE"
       DTS:Description="Sequence Container"
       DTS:DTSID="{CFC7A52F-2AFF-4021-8E36-5BBC5C96504A}"
       DTS:ExecutableType="STOCK:SEQUENCE"
       DTS:LocaleID="-1"
-      DTS:ObjectName="Load to DataMart">
+      DTS:ObjectName="Incremental Load to DataMart">
       <DTS:Variables />
       <DTS:Executables>
         <DTS:Executable
-          DTS:refId="Package\Load to DataMart\Disable NonClustered Indexes"
+          DTS:refId="Package\Incremental Load to DataMart\Disable NonClustered Indexes"
           DTS:CreationName="Microsoft.ExecuteSQLTask"
           DTS:Description="Execute SQL Task"
           DTS:DTSID="{A1F3467B-FD8A-4B65-9068-75B04CE1D4D0}"
@@ -137,7 +137,7 @@
           </DTS:ObjectData>
         </DTS:Executable>
         <DTS:Executable
-          DTS:refId="Package\Load to DataMart\Exec Merge Procedures"
+          DTS:refId="Package\Incremental Load to DataMart\Exec Merge Procedures"
           DTS:CreationName="Microsoft.ExecutePackageTask"
           DTS:Description="Execute Package Task"
           DTS:DTSID="{8A8EE35B-1E30-42A1-87FD-05FE2B1C00A9}"
@@ -149,12 +149,12 @@
           <DTS:ObjectData>
             <ExecutePackageTask>
               <UseProjectReference>True</UseProjectReference>
-              <PackageName>LoadPurchaseOrdersToDataMart.dtsx</PackageName>
+              <PackageName>Merge.dtsx</PackageName>
             </ExecutePackageTask>
           </DTS:ObjectData>
         </DTS:Executable>
         <DTS:Executable
-          DTS:refId="Package\Load to DataMart\Rebuild NonClustered Indexes"
+          DTS:refId="Package\Incremental Load to DataMart\Rebuild NonClustered Indexes"
           DTS:CreationName="Microsoft.ExecuteSQLTask"
           DTS:Description="Execute SQL Task"
           DTS:DTSID="{918aa84f-5751-4a5d-b583-82305db9552b}"
@@ -173,21 +173,21 @@
       </DTS:Executables>
       <DTS:PrecedenceConstraints>
         <DTS:PrecedenceConstraint
-          DTS:refId="Package\Load to DataMart.PrecedenceConstraints[Constraint]"
+          DTS:refId="Package\Incremental Load to DataMart.PrecedenceConstraints[Constraint]"
           DTS:CreationName=""
           DTS:DTSID="{5FFA484D-E4FC-4896-A62A-2501343A0EC6}"
-          DTS:From="Package\Load to DataMart\Disable NonClustered Indexes"
+          DTS:From="Package\Incremental Load to DataMart\Disable NonClustered Indexes"
           DTS:LogicalAnd="True"
           DTS:ObjectName="Constraint"
-          DTS:To="Package\Load to DataMart\Exec Merge Procedures" />
+          DTS:To="Package\Incremental Load to DataMart\Exec Merge Procedures" />
         <DTS:PrecedenceConstraint
-          DTS:refId="Package\Load to DataMart.PrecedenceConstraints[Constraint 1]"
+          DTS:refId="Package\Incremental Load to DataMart.PrecedenceConstraints[Constraint 1]"
           DTS:CreationName=""
           DTS:DTSID="{E656392D-7AE1-4195-AE39-C4C4B94A6555}"
-          DTS:From="Package\Load to DataMart\Exec Merge Procedures"
+          DTS:From="Package\Incremental Load to DataMart\Exec Merge Procedures"
           DTS:LogicalAnd="True"
           DTS:ObjectName="Constraint 1"
-          DTS:To="Package\Load to DataMart\Rebuild NonClustered Indexes" />
+          DTS:To="Package\Incremental Load to DataMart\Rebuild NonClustered Indexes" />
       </DTS:PrecedenceConstraints>
     </DTS:Executable>
     <DTS:Executable
@@ -600,10 +600,11 @@
       DTS:refId="Package.PrecedenceConstraints[Constraint 6]"
       DTS:CreationName=""
       DTS:DTSID="{B578D192-60A6-49A0-8B1F-0698C842B369}"
-      DTS:From="Package\Load to DataMart"
+      DTS:From="Package\Incremental Load to DataMart"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 6"
-      DTS:To="Package\Close Load Run" />
+      DTS:To="Package\Close Load Run"
+      DTS:Value="2" />
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint 7]"
       DTS:CreationName=""
@@ -611,7 +612,7 @@
       DTS:From="Package\Populate Lookup"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 7"
-      DTS:To="Package\Load to DataMart" />
+      DTS:To="Package\Incremental Load to DataMart" />
   </DTS:PrecedenceConstraints>
   <DTS:EventHandlers>
     <DTS:EventHandler
@@ -685,19 +686,19 @@
           Id="Package\Get Load ID"
           TopLeft="116.428573411338,88.7058835970078" />
         <NodeLayout
-          Size="188,41.6"
-          Id="Package\Load to DataMart\Exec Merge Procedures"
-          TopLeft="59.0285908669844,112.623534570351" />
-        <NodeLayout
           Size="219.2,41.6"
-          Id="Package\Load to DataMart\Disable NonClustered Indexes"
+          Id="Package\Incremental Load to DataMart\Disable NonClustered Indexes"
           TopLeft="36.4571606168945,28.7647080809188" />
         <NodeLayout
+          Size="188,41.6"
+          Id="Package\Incremental Load to DataMart\Exec Merge Procedures"
+          TopLeft="59.0285908669844,112.623534570351" />
+        <NodeLayout
           Size="220,41.6"
-          Id="Package\Load to DataMart\Rebuild NonClustered Indexes"
+          Id="Package\Incremental Load to DataMart\Rebuild NonClustered Indexes"
           TopLeft="47.8857322400934,211.16471099804" />
         <EdgeLayout
-          Id="Package\Load to DataMart.PrecedenceConstraints[Constraint]"
+          Id="Package\Incremental Load to DataMart.PrecedenceConstraints[Constraint]"
           TopLeft="149.542875741939,70.3647080809188">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -719,7 +720,7 @@
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Load to DataMart.PrecedenceConstraints[Constraint 1]"
+          Id="Package\Incremental Load to DataMart.PrecedenceConstraints[Constraint 1]"
           TopLeft="155.457161553539,154.223534570351">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -745,7 +746,7 @@
           IsExpanded="True"
           PanelSize="328,345.6"
           Size="328,388.8"
-          Id="Package\Load to DataMart"
+          Id="Package\Incremental Load to DataMart"
           TopLeft="1258.07938553552,202.859479969211" />
         <NodeLayout
           Size="152,41.6"
@@ -1250,7 +1251,9 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="-307.771520393546,110.307598817588,50.60890625,11.609375"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout

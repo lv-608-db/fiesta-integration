@@ -11,8 +11,8 @@
   DTS:LocaleID="1049"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="41"
-  DTS:VersionGUID="{5335356A-96EC-4AD8-B47D-3927323C33F5}">
+  DTS:VersionBuild="49"
+  DTS:VersionGUID="{E9186EE0-E152-4D77-9F24-8EF9C99599FA}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -35,7 +35,7 @@
       DTS:ObjectName="Addresses_ 20210723.csv">
       <DTS:ObjectData>
         <DTS:ConnectionManager
-          DTS:ConnectionString="C:\Users\1\Desktop\conteiner\Pending\Addresses_ 20210723.csv" />
+          DTS:ConnectionString="C:\fiesta\InputData_LV_608\Pending\Addresses_20210723.csv" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
     <DTS:ConnectionManager
@@ -43,8 +43,6 @@
       DTS:CreationName="FLATFILE"
       DTS:DTSID="{95176D18-59CC-47FB-AA49-7513200D20C4}"
       DTS:ObjectName="Flat File Connection Manager">
-      <DTS:PropertyExpression
-        DTS:Name="ConnectionString">@[$Package::FlatFileConnectionManager_ConnectionString]</DTS:PropertyExpression>
       <DTS:ObjectData>
         <DTS:ConnectionManager
           DTS:Format="Delimited"
@@ -55,7 +53,7 @@
           DTS:RowDelimiter=""
           DTS:TextQualifier="_x003C_none_x003E_"
           DTS:CodePage="65001"
-          DTS:ConnectionString="C:\Users\1\Desktop\conteiner\Pending\Addresses_ 20210723.csv">
+          DTS:ConnectionString="C:\fiesta\InputData_LV_608\Pending\Addresses_20210723.csv">
           <DTS:FlatFileColumns>
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -64,7 +62,7 @@
               DTS:DataType="130"
               DTS:TextQualified="True"
               DTS:ObjectName="AddressID"
-              DTS:DTSID="{650EE7E1-7969-4D37-ADF8-E3591B878283}"
+              DTS:DTSID="{0292A89D-E4EA-4DBC-8CAB-B6397EFB4655}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -73,7 +71,7 @@
               DTS:DataType="130"
               DTS:TextQualified="True"
               DTS:ObjectName="AddressType"
-              DTS:DTSID="{793E6772-15C5-4C53-967E-0165013D5790}"
+              DTS:DTSID="{F712ECAA-2D2C-4C26-8AAA-0713F3863DC8}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -82,7 +80,7 @@
               DTS:DataType="130"
               DTS:TextQualified="True"
               DTS:ObjectName="Apartment"
-              DTS:DTSID="{FA7F947E-567A-4A97-932D-96D32E40CA64}"
+              DTS:DTSID="{FC1ADF38-9F07-4C3D-A373-FB3FEA7E9FCA}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -91,7 +89,7 @@
               DTS:DataType="130"
               DTS:TextQualified="True"
               DTS:ObjectName="City"
-              DTS:DTSID="{CCAC6FFF-60F7-4A7F-991C-EC70C04965B0}"
+              DTS:DTSID="{C9BC74BA-044B-470E-BB6E-10F4FF594D1E}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -100,7 +98,7 @@
               DTS:DataType="130"
               DTS:TextQualified="True"
               DTS:ObjectName="PostalCode"
-              DTS:DTSID="{20C79ADC-7FFD-4142-B7E3-B11487A10C06}"
+              DTS:DTSID="{D28C0A94-3570-4B7E-9C96-9A49E10EAE7A}"
               DTS:CreationName="" />
           </DTS:FlatFileColumns>
         </DTS:ConnectionManager>
@@ -126,7 +124,7 @@
       DTS:Namespace="User"
       DTS:ObjectName="AddressessProcessed">
       <DTS:VariableValue
-        DTS:DataType="8">C:\Users\1\Desktop\conteiner\Processed\</DTS:VariableValue>
+        DTS:DataType="8">C:\fiesta\InputData_LV_608\Processed\</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -137,7 +135,7 @@
       DTS:Namespace="User"
       DTS:ObjectName="AddressPendingFullName">
       <DTS:VariableValue
-        DTS:DataType="8">C:\Users\1\Desktop\conteiner\Pending\Addresses_ 20210723.csv</DTS:VariableValue>
+        DTS:DataType="8">C:\fiesta\InputData_LV_608\Pending\Addresses_20210723.csv</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -148,7 +146,7 @@
       DTS:Namespace="User"
       DTS:ObjectName="AddressProcessedFullName">
       <DTS:VariableValue
-        DTS:DataType="8">C:\Users\1\Desktop\conteiner\Processed\Addresses_ 20210723.csv</DTS:VariableValue>
+        DTS:DataType="8">C:\fiesta\InputData_LV_608\Processed\Addresses_20210723.csv</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -175,7 +173,7 @@
       DTS:Namespace="User"
       DTS:ObjectName="Variable1FORMOve">
       <DTS:VariableValue
-        DTS:DataType="8">C:\Users\1\Desktop\conteiner\Pending\</DTS:VariableValue>
+        DTS:DataType="8">C:\fiesta\InputData_LV_608\Pending\</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -184,7 +182,7 @@
       DTS:Namespace="User"
       DTS:ObjectName="VariableFileName">
       <DTS:VariableValue
-        DTS:DataType="8">Addresses_ 20210723.csv</DTS:VariableValue>
+        DTS:DataType="8">Addresses_20210723.csv</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -216,9 +214,9 @@
         <DTS:ObjectData>
           <ForEachFileEnumeratorProperties>
             <FEFEProperty
-              Folder="C:\Users\1\Desktop\conteiner\Pending\" />
+              Folder="C:\fiesta\InputData_LV_608\Pending\" />
             <FEFEProperty
-              FileSpec="Addresses_ 20210723.csv" />
+              FileSpec="Addresses_20210723.csv" />
             <FEFEProperty
               FileNameRetrievalType="1" />
             <FEFEProperty
@@ -301,7 +299,7 @@
                       dataType="System.Int32"
                       description="Указывает используемый режим доступа к базе данных."
                       name="AccessMode"
-                      typeConverter="AccessMode">0</property>
+                      typeConverter="AccessMode">3</property>
                     <property
                       dataType="System.Boolean"
                       description="Указывает, должны ли значения в столбцах идентификаторов копироваться в назначение. Если свойство имеет значение false, значения в столбцах идентификаторов будут созданы автоматически в месте назначения. Применяется только в том случае, если включена быстрая загрузка."
@@ -313,7 +311,7 @@
                     <property
                       dataType="System.String"
                       description="Задает параметры быстрой загрузки. Применяется только в том случае, если включена быстрая загрузка."
-                      name="FastLoadOptions"></property>
+                      name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
                     <property
                       dataType="System.Int32"
                       description="Задает, когда выдаются сообщения о фиксации транзакции в ходе вставки данных. Значение 0 задает, что по окончании вставки данных будет выдано одно сообщение о фиксации транзакции. Применяется только в том случае, если включена быстрая загрузка."
@@ -727,8 +725,8 @@
       <DTS:ForEachVariableMappings>
         <DTS:ForEachVariableMapping
           DTS:CreationName=""
-          DTS:DTSID="{2C9D55A0-FBFA-419D-A7B1-3783CB8CB2B8}"
-          DTS:ObjectName="{2C9D55A0-FBFA-419D-A7B1-3783CB8CB2B8}"
+          DTS:DTSID="{85317BAA-D726-432C-9710-8D5678FDB3AB}"
+          DTS:ObjectName="{85317BAA-D726-432C-9710-8D5678FDB3AB}"
           DTS:ValueIndex="0"
           DTS:VariableName="User::VariableFileName" />
       </DTS:ForEachVariableMappings>
@@ -1007,7 +1005,7 @@
     design-time-name="Package\Foreach Loop Container\data transfer">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="124,41.6"
           Id="Package\Foreach Loop Container\data transfer\Table DB"
@@ -1051,9 +1049,7 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -1087,9 +1083,7 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>

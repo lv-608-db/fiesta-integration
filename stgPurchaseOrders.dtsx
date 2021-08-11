@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="14"
-  DTS:VersionGUID="{313E8307-E4E3-4E37-B9DD-16820DF8F4AF}">
+  DTS:VersionBuild="16"
+  DTS:VersionGUID="{C10D609F-B551-436E-AB34-C295D910B540}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables>
@@ -2310,6 +2310,22 @@
       <GraphLayout
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
+          Size="155.2,41.6"
+          Id="Package\Delete ErrorRow"
+          TopLeft="501.428579967849,87.1764718108524" />
+        <NodeLayout
+          Size="155.2,41.6"
+          Id="Package\Delete from LoadSummary"
+          TopLeft="500.714293219606,151.658823389992" />
+        <NodeLayout
+          Size="132,41.6"
+          Id="Package\Get LoadID"
+          TopLeft="131.428573666787,79.5294128800759" />
+        <NodeLayout
+          Size="165.6,41.6"
+          Id="Package\Get maxRowCount"
+          TopLeft="306.428576647019,81.8235305593088" />
+        <NodeLayout
           Size="120,41.6"
           Id="Package\Log start"
           TopLeft="25.7142851304035,19.4705876668844" />
@@ -2321,6 +2337,38 @@
           Size="152.8,41.6"
           Id="Package\PurchaseOrders"
           TopLeft="267.857146396929,297.494120596354" />
+        <NodeLayout
+          Size="231.2,41.6"
+          Id="Package\Truncate stagingPurchaseOrders"
+          TopLeft="231.428575369776,230.176473816373" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="145.714285130403,40.2705876668844">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="51.7142885363835,39.2588252131915"
+              Start="0,0"
+              End="51.7142885363835,31.7588252131915">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="47.7142885363835,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="47.7142885363835,0"
+                    Point2="51.7142885363835,0"
+                    Point3="51.7142885363835,4" />
+                  <mssgle:LineSegment
+                    End="51.7142885363835,31.7588252131915" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 1]"
           TopLeft="344.257146396929,339.094120596354">
@@ -2355,38 +2403,20 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="231.2,41.6"
-          Id="Package\Truncate stagingPurchaseOrders"
-          TopLeft="231.428575369776,230.176473816373" />
-        <NodeLayout
-          Size="132,41.6"
-          Id="Package\Get LoadID"
-          TopLeft="131.428573666787,78.0000010939206" />
-        <NodeLayout
-          Size="165.6,41.6"
-          Id="Package\Get maxRowCount"
-          TopLeft="306.428576647019,81.8235305593088" />
         <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint]"
-          TopLeft="145.714285130403,40.2705876668844">
+          Id="Package.PrecedenceConstraints[Constraint 2]"
+          TopLeft="263.428573666787,101.476471719692">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="51.7142885363832,37.7294134270362"
+              EndConnector="43.000002980232,0"
               Start="0,0"
-              End="51.7142885363832,30.2294134270362">
+              End="35.500002980232,0">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="47.7142885363832,0" />
-                  <mssgle:CubicBezierSegment
-                    Point1="47.7142885363832,0"
-                    Point2="51.7142885363832,0"
-                    Point3="51.7142885363832,4" />
-                  <mssgle:LineSegment
-                    End="51.7142885363832,30.2294134270362" />
+                    End="35.500002980232,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -2396,19 +2426,31 @@
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint 2]"
-          TopLeft="263.428573666787,100.711765826615">
+          Id="Package.PrecedenceConstraints[Constraint 3]"
+          TopLeft="578.314293219606,193.258823389992">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="43.0000029802321,0"
+              EndConnector="-231.285717849829,36.9176504263816"
               Start="0,0"
-              End="35.5000029802321,0">
+              End="-231.285717849829,29.4176504263816">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="35.5000029802321,0" />
+                    End="0,14.4588252131908" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,14.4588252131908"
+                    Point2="0,18.4588252131908"
+                    Point3="-4,18.4588252131908" />
+                  <mssgle:LineSegment
+                    End="-227.285717849829,18.4588252131908" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-227.285717849829,18.4588252131908"
+                    Point2="-231.285717849829,18.4588252131908"
+                    Point3="-231.285717849829,22.4588252131908" />
+                  <mssgle:LineSegment
+                    End="-231.285717849829,29.4176504263816" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -2439,14 +2481,6 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="155.2,41.6"
-          Id="Package\Delete ErrorRow"
-          TopLeft="501.428579967849,87.1764718108524" />
-        <NodeLayout
-          Size="155.2,41.6"
-          Id="Package\Delete from LoadSummary"
-          TopLeft="500.714293219606,151.658823389992" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 5]"
           TopLeft="578.671436593728,128.776471810852">
@@ -2491,64 +2525,34 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint 3]"
-          TopLeft="578.314293219606,193.258823389992">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-231.285717849829,36.9176504263816"
-              Start="0,0"
-              End="-231.285717849829,29.4176504263816">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,14.4588252131908" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,14.4588252131908"
-                    Point2="0,18.4588252131908"
-                    Point3="-4,18.4588252131908" />
-                  <mssgle:LineSegment
-                    End="-227.285717849829,18.4588252131908" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-227.285717849829,18.4588252131908"
-                    Point2="-231.285717849829,18.4588252131908"
-                    Point3="-231.285717849829,22.4588252131908" />
-                  <mssgle:LineSegment
-                    End="-231.285717849829,29.4176504263816" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </Package>
+  <DtsEventHandler
+    design-time-name="Package.EventHandlers[OnError]">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="162.4,41.6"
+          Id="Package.EventHandlers[OnError]\Execute SQL Task"
+          TopLeft="788,196" />
+      </GraphLayout>
+    </LayoutInfo>
+  </DtsEventHandler>
   <TaskHost
     design-time-name="Package\PurchaseOrders">
     <LayoutInfo>
       <GraphLayout
         Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="232,41.6"
-          Id="Package\PurchaseOrders\prestaging PurchaseOrderDetails"
-          TopLeft="292.14286211802,11.364704616837" />
-        <NodeLayout
-          Size="205.6,41.6"
-          Id="Package\PurchaseOrders\prestaging PurchaseOrders"
-          TopLeft="8.5714287173993,10.7058825030872" />
-        <NodeLayout
-          Size="201.6,41.6"
-          Id="Package\PurchaseOrders\Sort PurchaseOrderDetails"
-          TopLeft="297.142862203169,84.8823541316199" />
-        <NodeLayout
           Size="189.6,41.6"
           Id="Package\PurchaseOrders\staging PurchaseOrders"
           TopLeft="37.8571435018466,507.764713003562" />
+        <NodeLayout
+          Size="200.8,41.6"
+          Id="Package\PurchaseOrders\staging PurchaseOrders 1"
+          TopLeft="342.142862969516,470.188240463429" />
         <NodeLayout
           Size="129.6,41.6"
           Id="Package\PurchaseOrders\Merge Join"
@@ -2557,6 +2561,106 @@
           Size="175.2,41.6"
           Id="Package\PurchaseOrders\Sort PurchaseOrders"
           TopLeft="7.85714299094934,84.117648238542" />
+        <NodeLayout
+          Size="155.2,41.6"
+          Id="Package\PurchaseOrders\Data Conversion"
+          TopLeft="175.714288706682,269.176474363334" />
+        <NodeLayout
+          Size="205.6,41.6"
+          Id="Package\PurchaseOrders\prestaging PurchaseOrders"
+          TopLeft="8.5714287173993,10.7058825030872" />
+        <NodeLayout
+          Size="232,41.6"
+          Id="Package\PurchaseOrders\prestaging PurchaseOrderDetails"
+          TopLeft="292.14286211802,11.364704616837" />
+        <NodeLayout
+          Size="152.8,41.6"
+          Id="Package\PurchaseOrders\Derived Column"
+          TopLeft="650.000011069434,266.882356684101" />
+        <NodeLayout
+          Size="198.4,41.6"
+          Id="Package\PurchaseOrders\Balanced Data Distributor"
+          TopLeft="156.428574092534,372.552944897945" />
+        <NodeLayout
+          Size="170.4,41.6"
+          Id="Package\PurchaseOrders\OLE DB Destination"
+          TopLeft="645.000010984285,342.788236634707" />
+        <NodeLayout
+          Size="201.6,41.6"
+          Id="Package\PurchaseOrders\Sort PurchaseOrderDetails"
+          TopLeft="297.142862203169,84.8823541316199" />
+        <EdgeLayout
+          Id="Package\PurchaseOrders.Paths[Balanced Data Distributor Output 2]"
+          TopLeft="287.361907425868,414.152944897945">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="155.180955543648,56.0352955654837"
+              Start="0,0"
+              End="155.180955543648,48.5352955654837">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,18.6830876449078" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,18.6830876449078"
+                    Point2="0,22.6830876449078"
+                    Point3="4,22.6830876449078" />
+                  <mssgle:LineSegment
+                    End="151.180955543648,22.6830876449078" />
+                  <mssgle:CubicBezierSegment
+                    Point1="151.180955543648,22.6830876449078"
+                    Point2="155.180955543648,22.6830876449078"
+                    Point3="155.180955543648,26.6830876449078" />
+                  <mssgle:LineSegment
+                    End="155.180955543648,48.5352955654837" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-0.29563550942602,27.6830876449078,155.7722265625,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\PurchaseOrders.Paths[Balanced Data Distributor Output 1]"
+          TopLeft="223.895240759201,414.152944897945">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-91.2380972573543,93.6117681056162"
+              Start="0,0"
+              End="-91.2380972573543,86.1117681056162">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,33.8940437291534" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,33.8940437291534"
+                    Point2="0,37.8940437291534"
+                    Point3="-4,37.8940437291534" />
+                  <mssgle:LineSegment
+                    End="-87.2380972573543,37.8940437291534" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-87.2380972573543,37.8940437291534"
+                    Point2="-91.2380972573543,37.8940437291534"
+                    Point3="-91.2380972573543,41.8940437291534" />
+                  <mssgle:LineSegment
+                    End="-91.2380972573543,86.1117681056162" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-123.319615034927,42.8940437291534,155.4011328125,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
         <EdgeLayout
           Id="Package\PurchaseOrders.Paths[Sort Output1]"
           TopLeft="297.142862203169,105.68235413162">
@@ -2681,10 +2785,6 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="155.2,41.6"
-          Id="Package\PurchaseOrders\Data Conversion"
-          TopLeft="175.714288706682,269.176474363334" />
         <EdgeLayout
           Id="Package\PurchaseOrders.Paths[Merge Join Output]"
           TopLeft="250.128574475707,188.42353147091">
@@ -2705,38 +2805,6 @@
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="170.4,41.6"
-          Id="Package\PurchaseOrders\OLE DB Destination"
-          TopLeft="645.000010984285,342.788236634707" />
-        <NodeLayout
-          Size="152.8,41.6"
-          Id="Package\PurchaseOrders\Derived Column"
-          TopLeft="650.000011069434,266.882356684101" />
-        <EdgeLayout
-          Id="Package\PurchaseOrders.Paths[Data Conversion Error Output]"
-          TopLeft="330.914288706682,288.829415523717">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="319.085722362752,0"
-              Start="0,0"
-              End="311.585722362752,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="311.585722362752,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="89.7064744626261,5,132.1727734375,11.43359375"
-              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -2761,10 +2829,6 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="198.4,41.6"
-          Id="Package\PurchaseOrders\Balanced Data Distributor"
-          TopLeft="156.428574092534,372.552944897945" />
         <EdgeLayout
           Id="Package\PurchaseOrders.Paths[Data Conversion Output]"
           TopLeft="254.471431399608,310.776474363334">
@@ -2788,96 +2852,32 @@
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\PurchaseOrders.Paths[Balanced Data Distributor Output 1]"
-          TopLeft="223.895240759201,414.152944897945">
+          Id="Package\PurchaseOrders.Paths[Data Conversion Error Output]"
+          TopLeft="330.914288706682,288.829415523717">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-91.2380972573543,93.6117681056162"
+              EndConnector="319.085722362752,0"
               Start="0,0"
-              End="-91.2380972573543,86.1117681056162">
+              End="311.585722362752,0">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,33.8940437291534" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,33.8940437291534"
-                    Point2="0,37.8940437291534"
-                    Point3="-4,37.8940437291534" />
-                  <mssgle:LineSegment
-                    End="-87.2380972573543,37.8940437291534" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-87.2380972573543,37.8940437291534"
-                    Point2="-91.2380972573543,37.8940437291534"
-                    Point3="-91.2380972573543,41.8940437291534" />
-                  <mssgle:LineSegment
-                    End="-91.2380972573543,86.1117681056162" />
+                    End="311.585722362752,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-123.319615034927,42.8940437291534,155.4011328125,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="200.8,41.6"
-          Id="Package\PurchaseOrders\staging PurchaseOrders 1"
-          TopLeft="342.142862969516,470.188240463429" />
-        <EdgeLayout
-          Id="Package\PurchaseOrders.Paths[Balanced Data Distributor Output 2]"
-          TopLeft="287.361907425868,414.152944897945">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="155.180955543648,56.0352955654837"
-              Start="0,0"
-              End="155.180955543648,48.5352955654837">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,18.6830876449078" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,18.6830876449078"
-                    Point2="0,22.6830876449078"
-                    Point3="4,22.6830876449078" />
-                  <mssgle:LineSegment
-                    End="151.180955543648,22.6830876449078" />
-                  <mssgle:CubicBezierSegment
-                    Point1="151.180955543648,22.6830876449078"
-                    Point2="155.180955543648,22.6830876449078"
-                    Point3="155.180955543648,26.6830876449078" />
-                  <mssgle:LineSegment
-                    End="155.180955543648,48.5352955654837" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-0.29563550942602,27.6830876449078,155.7722265625,11.609375"
+              BoundingBox="89.706474462626,5,132.1727734375,11.43359375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
-  <DtsEventHandler
-    design-time-name="Package.EventHandlers[OnError]">
-    <LayoutInfo>
-      <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
-        <NodeLayout
-          Size="162.4,41.6"
-          Id="Package.EventHandlers[OnError]\Execute SQL Task"
-          TopLeft="788,196" />
-      </GraphLayout>
-    </LayoutInfo>
-  </DtsEventHandler>
   <PipelineComponentMetadata
     design-time-name="Package\PurchaseOrders\OLE DB Destination">
     <Properties>

@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="70"
-  DTS:VersionGUID="{490AD796-9CE5-467D-AC33-25A46E876802}">
+  DTS:VersionBuild="71"
+  DTS:VersionGUID="{A9FACF2C-FF68-4640-8877-DE788A42D868}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -273,8 +273,6 @@
         DTS:ObjectName="{67050D32-CBDF-4E86-890A-6B6D292C89B1}">
         <DTS:PropertyExpression
           DTS:Name="Directory">@[User::FileSourcePath]</DTS:PropertyExpression>
-        <DTS:PropertyExpression
-          DTS:Name="Name">@[User::FileName]</DTS:PropertyExpression>
         <DTS:ObjectData>
           <ForEachFileEnumeratorProperties>
             <FEFEProperty
@@ -952,8 +950,8 @@
       <DTS:ForEachVariableMappings>
         <DTS:ForEachVariableMapping
           DTS:CreationName=""
-          DTS:DTSID="{5E4B3C88-C91C-4569-8AE6-8B42E3F0EBE8}"
-          DTS:ObjectName="{5E4B3C88-C91C-4569-8AE6-8B42E3F0EBE8}"
+          DTS:DTSID="{0F093B0D-5FE0-4A58-B931-779B8F7FBD11}"
+          DTS:ObjectName="{0F093B0D-5FE0-4A58-B931-779B8F7FBD11}"
           DTS:ValueIndex="0"
           DTS:VariableName="User::FileName" />
       </DTS:ForEachVariableMappings>
@@ -1250,7 +1248,7 @@
     design-time-name="Package\Foreach Loop Container\LoadCustomersToPrestaging">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="129.6,41.6"
           Id="Package\Foreach Loop Container\LoadCustomersToPrestaging\Row Count"
@@ -1294,7 +1292,9 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -1328,7 +1328,9 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>

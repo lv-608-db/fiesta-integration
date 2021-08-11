@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="155"
-  DTS:VersionGUID="{64E24621-150C-4B83-B72F-E7AB37932F0B}">
+  DTS:VersionBuild="156"
+  DTS:VersionGUID="{10DFA1F0-0176-4C1A-9DA9-6745E2B0F537}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -29,7 +29,7 @@
           <DTS:Password
             DTS:Name="Password"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAaMTeypuApEyJbYCzW7BcSQAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAAA8IqB4K3TBpgKU9P5Fc0OkAAAAAASAAACgAAAAEAAAAHJedZywQZ2MadLt5wmvLokYAAAAX+hKJROfey2hIZSpVCm4URu6qD1xddf4FAAAAGAionJHyb454dPYL1GOHFD4zQg/</DTS:Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAaMTeypuApEyJbYCzW7BcSQAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAAAYHNh8mCfA0tujNLLh1mQYAAAAAASAAACgAAAAEAAAAIMVq6ouFk7hsgiKqPz3sPIYAAAADTgIHYygMzcAmSze4oI5dK9c4QtQAa05FAAAANlNS4iDx5RN4v2qd/N9VSTsO29R</DTS:Password>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -278,14 +278,12 @@
         DTS:ObjectName="{B3927D3E-8C66-4770-9FCB-674CC3D45936}">
         <DTS:PropertyExpression
           DTS:Name="Directory">@[User::FileSourcePath]</DTS:PropertyExpression>
-        <DTS:PropertyExpression
-          DTS:Name="Name">@[User::FileName]</DTS:PropertyExpression>
         <DTS:ObjectData>
           <ForEachFileEnumeratorProperties>
             <FEFEProperty
               Folder="C:\InputData_LV_608\Pending" />
             <FEFEProperty
-              FileSpec="Discounts_ ????????.csv" />
+              FileSpec="Discounts_????????.csv" />
             <FEFEProperty
               FileNameRetrievalType="1" />
             <FEFEProperty
@@ -795,8 +793,8 @@
       <DTS:ForEachVariableMappings>
         <DTS:ForEachVariableMapping
           DTS:CreationName=""
-          DTS:DTSID="{104FD6AE-F011-46BB-81A5-3FB9F3608BC6}"
-          DTS:ObjectName="{104FD6AE-F011-46BB-81A5-3FB9F3608BC6}"
+          DTS:DTSID="{638C0AA2-6D82-4E77-A61B-D333704B201C}"
+          DTS:ObjectName="{638C0AA2-6D82-4E77-A61B-D333704B201C}"
           DTS:ValueIndex="0"
           DTS:VariableName="User::FileName" />
       </DTS:ForEachVariableMappings>
@@ -1066,7 +1064,7 @@
           Text="s"
           ParentId="Package"
           FontInfo="{assembly:Null}"
-          Size="33.6,60"
+          Size="33.6,40"
           Id="22f43ae8-0216-465c-89d7-bac2b17ad51d"
           TopLeft="1022.8571602763,207.388237181667" />
       </GraphLayout>

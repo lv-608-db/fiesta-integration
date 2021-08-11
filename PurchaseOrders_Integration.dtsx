@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="41"
-  DTS:VersionGUID="{E50B8C71-131B-4B9E-BF2C-2CDE5D749736}">
+  DTS:VersionBuild="42"
+  DTS:VersionGUID="{5FFF8DE1-3E76-4A94-AF0E-F99252476876}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -29,7 +29,7 @@
           <DTS:Password
             DTS:Name="Password"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAaMTeypuApEyJbYCzW7BcSQAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAADABYQmX/ApNaBjrIs2LUAkAAAAAASAAACgAAAAEAAAABoZ55Y6WeghSc4n3dstn7kYAAAAqPsmXQ2cdluFhRYUaDyFgdbXKrGDNcKbFAAAAKb1qBXei9Q4Pr29JE2Ajpw7gCks</DTS:Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAaMTeypuApEyJbYCzW7BcSQAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAADd7W3rWC3XDna2TnIiBRpuAAAAAASAAACgAAAAEAAAAOgBUhGRo/NUugXNjzL5TbMYAAAAor3mXxwcYiDdqcVhS+AuTvgnI0w+woINFAAAAJk/7P5E+vj+VeX2VeFlp3u/Yro5</DTS:Password>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -46,7 +46,7 @@
           <DTS:Password
             DTS:Name="Password"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAaMTeypuApEyJbYCzW7BcSQAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAADxyFooKp+H6k8W2zRr5K2SAAAAAASAAACgAAAAEAAAABhDgW5g23W9U5bOeelJuyQYAAAA8ddfTIfbW5g5iQSfD+AO6veE7BQDvGYWFAAAAKO1nanhVPWpnZm7k8Xkk1fhuJDS</DTS:Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAaMTeypuApEyJbYCzW7BcSQAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAADfy46EgK+eUig9Xrt8j3eJAAAAAASAAACgAAAAEAAAAE71I5IMstKvRcySLSTb2mUYAAAAGEjqe2Gi/SqM/MXehPLb8340WNowkRTkFAAAAJLofPSL1AYEXNwbusoIq93EdE75</DTS:Password>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -1153,6 +1153,10 @@
           Size="129.6,41.6"
           Id="Package\Foreach PurchaseOrders file\Load PurchaseOrders\Row Count"
           TopLeft="159.285716998334,109.352942710104" />
+        <NodeLayout
+          Size="150.4,41.6"
+          Id="Package\Foreach PurchaseOrders file\Load PurchaseOrders\Flat File Source"
+          TopLeft="147.857145375135,32.1176475092614" />
         <EdgeLayout
           Id="Package\Foreach PurchaseOrders file\Load PurchaseOrders.Paths[Row Count Output 1]"
           TopLeft="227.738093629041,150.952942710104">
@@ -1175,10 +1179,6 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="150.4,41.6"
-          Id="Package\Foreach PurchaseOrders file\Load PurchaseOrders\Flat File Source"
-          TopLeft="147.857145375135,32.1176475092614" />
         <EdgeLayout
           Id="Package\Foreach PurchaseOrders file\Load PurchaseOrders.Paths[Flat File Source Output]"
           TopLeft="223.571431186735,73.7176475092614">

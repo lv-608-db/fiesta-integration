@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="10"
-  DTS:VersionGUID="{C549CA9B-845F-45F7-BF5B-B022C8DED98A}">
+  DTS:VersionBuild="15"
+  DTS:VersionGUID="{D8130EE5-8558-465E-A424-5FD8BB7542D8}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -54,7 +54,7 @@
           DTS:RowDelimiter=""
           DTS:TextQualifier="_x003C_none_x003E_"
           DTS:CodePage="65001"
-          DTS:ConnectionString="C:\fiesta\InputData_LV_608\Pending\Deliveries_20210726.csv">
+          DTS:ConnectionString="C:\fiesta\InputData_LV_608\Pending\Deliveries_20210723.csv">
           <DTS:FlatFileColumns>
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -63,7 +63,7 @@
               DTS:DataType="130"
               DTS:TextQualified="True"
               DTS:ObjectName="DeliveryID"
-              DTS:DTSID="{F28F0874-8136-4AFD-B1B4-C0377597B839}"
+              DTS:DTSID="{81AEAE2A-D300-4DAE-8333-205C7FD53876}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -72,7 +72,7 @@
               DTS:DataType="130"
               DTS:TextQualified="True"
               DTS:ObjectName="AddressID"
-              DTS:DTSID="{8D793C02-A4FC-49BB-8284-A72751EBC620}"
+              DTS:DTSID="{5280FB50-64D3-480D-ADB4-469F218DF4FA}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -81,7 +81,7 @@
               DTS:DataType="130"
               DTS:TextQualified="True"
               DTS:ObjectName="CompanyName"
-              DTS:DTSID="{18C49AEB-32EF-417B-9F2C-DA566DEC9E67}"
+              DTS:DTSID="{E0525698-4283-4268-9937-4F3E0C4D94D3}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -90,7 +90,7 @@
               DTS:DataType="130"
               DTS:TextQualified="True"
               DTS:ObjectName="DepartureDate"
-              DTS:DTSID="{680D81E4-631C-451A-9B84-5DD00B4F1E91}"
+              DTS:DTSID="{C2854360-3370-4A97-8FC0-2E1CF3468D70}"
               DTS:CreationName="" />
           </DTS:FlatFileColumns>
         </DTS:ConnectionManager>
@@ -116,7 +116,7 @@
       DTS:Namespace="User"
       DTS:ObjectName="FileDestinationPath">
       <DTS:VariableValue
-        DTS:DataType="8">C:\fiesta\InputData_LV_608\Processed\Deliveries_20210726.csv</DTS:VariableValue>
+        DTS:DataType="8">C:\fiesta\InputData_LV_608\Processed\Deliveries_20210723.csv</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -125,7 +125,7 @@
       DTS:Namespace="User"
       DTS:ObjectName="FileName">
       <DTS:VariableValue
-        DTS:DataType="8">Deliveries_20210726.csv</DTS:VariableValue>
+        DTS:DataType="8">Deliveries_20210723.csv</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -145,7 +145,7 @@
       DTS:Namespace="User"
       DTS:ObjectName="FileSourcePath">
       <DTS:VariableValue
-        DTS:DataType="8">C:\fiesta\InputData_LV_608\Pending\Deliveries_20210726.csv</DTS:VariableValue>
+        DTS:DataType="8">C:\fiesta\InputData_LV_608\Pending\Deliveries_20210723.csv</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -181,14 +181,12 @@
         DTS:ObjectName="{AEDAB24E-5C7E-4584-B844-9D41207ACE86}">
         <DTS:PropertyExpression
           DTS:Name="Directory">@[User::FileSourceFolder]</DTS:PropertyExpression>
-        <DTS:PropertyExpression
-          DTS:Name="Name">@[User::FileName]</DTS:PropertyExpression>
         <DTS:ObjectData>
           <ForEachFileEnumeratorProperties>
             <FEFEProperty
               Folder="C:\fiesta\InputData_LV_608\Pending\" />
             <FEFEProperty
-              FileSpec="Deliveries_20210726.csv" />
+              FileSpec="Deliveries_*.csv" />
             <FEFEProperty
               FileNameRetrievalType="1" />
             <FEFEProperty
@@ -455,7 +453,7 @@
                       dataType="System.Int32"
                       description="Specifies the mode used to access the database."
                       name="AccessMode"
-                      typeConverter="AccessMode">0</property>
+                      typeConverter="AccessMode">3</property>
                     <property
                       dataType="System.Boolean"
                       description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
@@ -467,7 +465,7 @@
                     <property
                       dataType="System.String"
                       description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
-                      name="FastLoadOptions"></property>
+                      name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
                     <property
                       dataType="System.Int32"
                       description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
